@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QCARInfo>
+    <TargetSet version="36.0" toolVersion="v7.0.5">
+        <ModelTarget name="DHT11Sensor" targetId="46fced72480b47f3aa1228f0388e926d" bbox="-0.021541 -0.000725 -0.011058 0.022064 0.008383 0.011074" version="14.0" toolVersion="v7.0.5" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+        <ModelTarget name="UltrasonicSensor" targetId="1554361edfa745f589fbfd37b12852f9" bbox="-0.029915 -0.000793 -0.014972 0.029915 0.015646 0.017205" version="14.0" toolVersion="v7.0.5" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+        <ModelTarget name="ArduinoHighMats" targetId="fb8ef8e8570a462da6118fba5d9ee93c" bbox="-0.035519 0.000163 -0.026945 0.039318 0.011997 0.026415" version="14.0" toolVersion="v7.0.5" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+    </TargetSet>
+    <Assembly name="DHT11Sensor" assemblyId="5655911710c34c339e63aef8f1a6fbc9">
+        <Part name="DHT11Sensor" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+    <Assembly name="UltrasonicSensor" assemblyId="1a8b48a9de9c4d1da59ae7c92a6b05e8">
+        <Part name="UltrasonicSensor" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+    <Assembly name="ArduinoHighMats" assemblyId="addeffbe91d345198f4c868a12ccc46a">
+        <Part name="ArduinoHighMats" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+    <ModelTargetDatabase mtDBid="4ab49629272146dc8c1c93d06c917068" name="ArduinoSensors" toolVersion="v7.0.5" version="36.0" />
+</QCARInfo>

@@ -70,3 +70,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Ignore all .tgz files
+*.tgz
+
+# Specific package to ignore
+Packages/com.ptc.vuforia.engine-10.24.4.tgz

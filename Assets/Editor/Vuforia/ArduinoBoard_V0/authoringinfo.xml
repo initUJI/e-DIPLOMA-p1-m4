@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QCARInfo>
+    <TargetSet version="36.0" toolVersion="v7.0.4">
+        <ModelTarget name="ArduinoBoard" targetId="1a6a01d2a84c496cbd0dae0932bb6ef4" version="14.0" toolVersion="v7.0.4" bbox="-0.034847 -0.024821 -0.001584 0.039990 0.028539 0.010250" trackingMode="car" upVector="0.0 0.0 1.0" optimizeTrackingFor="default" realisticTextures="no" />
+    </TargetSet>
+    <Assembly name="ArduinoBoard" assemblyId="17855906c694447088529e3bd508da6b">
+        <Part name="ArduinoBoard" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+</QCARInfo>
