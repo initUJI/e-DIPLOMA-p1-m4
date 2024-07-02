@@ -4,9 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/VuforiaArWorking.unity
+    guid: df65a22615a813e41a0f85053fe4ebef
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 387a47f6012d845448f20554325bb745, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: f90b518b5d1d4be4985b687d0178acf1, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 8be85a1668abf344a834d739ce96ac99, type: 2}
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 7e6a850ed063f834f9433c11cd24f009, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7c7c7e003b9f98f4885cbfa36c896f70, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: f278231db289e4a4c8a3408e054ccfcf, type: 2}
