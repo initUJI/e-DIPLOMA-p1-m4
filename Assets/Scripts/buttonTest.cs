@@ -1,94 +1,45 @@
 
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class buttonTest : MonoBehaviour
 {
-    private GameObject component;
-    public Button targetButton;
-    private BoxCollider boxCollider;
 
-    public Slider progressSlider; // Referencia al Slider
-    public float requiredCollisionTime = 1f; // Tiempo requerido de colisión
-
-    private bool isIndexColliding = false;
-    private Coroutine collisionCoroutine;
-    private Collider[] collidersBuffer = new Collider[10]; // Buffer para evitar la creación de arrays
-
-    void Start()
+    public void startClick()
     {
-        // Cachear referencias
-        component = transform.parent.parent.gameObject;
-        targetButton = GetComponent<Button>();
-        boxCollider = GetComponent<BoxCollider>();
-
-        if (progressSlider != null)
-        {
-            progressSlider.gameObject.SetActive(false); // Ocultar el Slider al inicio
-        }
-
+        Debug.Log("start click");
+        ClearAllText(transform.parent.parent);
+        ActivateLastChildInHierarchy(transform.parent.parent.transform);
     }
 
-    void Update()
+    void ClearAllText(Transform parent)
     {
-        // Limitar la frecuencia de verificación de colisiones
-        if (Time.frameCount % 10 == 0)
+        foreach (Transform child in parent)
         {
-            bool currentlyColliding = CheckIndexCollision();
-
-            if (currentlyColliding && collisionCoroutine == null)
+            if (child.name == "NameText")
             {
-                collisionCoroutine = StartCoroutine(CollisionCheckCoroutine());
-            }
-            else if (!currentlyColliding && collisionCoroutine != null)
-            {
-                StopCoroutine(collisionCoroutine);
-                collisionCoroutine = null;
-                progressSlider.gameObject.SetActive(false); // Ocultar el Slider si la colisión termina
+                TextMeshProUGUI textComponent = child.GetComponent<TextMeshProUGUI>();
+                if (textComponent != null)
+                {
+                    textComponent.text = string.Empty;
+                }
             }
 
-            isIndexColliding = currentlyColliding;
+            // Llama recursivamente a la función para los hijos del objeto actual
+            ClearAllText(child);
         }
     }
 
-    private bool CheckIndexCollision()
+    void ActivateLastChildInHierarchy(Transform parent)
     {
-        int numColliders = Physics.OverlapBoxNonAlloc(boxCollider.bounds.center, boxCollider.bounds.extents, collidersBuffer, boxCollider.transform.rotation);
-
-        for (int i = 0; i < numColliders; i++)
+        // Activar el último hijo si el objeto tiene hijos
+        if (parent.childCount > 0)
         {
-            if (collidersBuffer[i].CompareTag("Index"))
-            {
-                return true;
-            }
+            Transform lastChild = parent.GetChild(parent.childCount - 1);
+            lastChild.gameObject.SetActive(true);
         }
-
-        return false;
-    }
-
-    private IEnumerator CollisionCheckCoroutine()
-    {
-        progressSlider.gameObject.SetActive(true); // Mostrar el Slider
-        float elapsedTime = 0f;
-
-        while (elapsedTime < requiredCollisionTime)
-        {
-            if (!isIndexColliding)
-            {
-                progressSlider.gameObject.SetActive(false); // Ocultar el Slider si la colisión termina
-                yield break;
-            }
-
-            elapsedTime += Time.deltaTime;
-            progressSlider.value = elapsedTime / requiredCollisionTime; // Actualizar el valor del Slider
-
-            yield return null;
-        }
-
-
-        progressSlider.gameObject.SetActive(false); // Ocultar el Slider después de la colisión
-        collisionCoroutine = null;
     }
 }
 
