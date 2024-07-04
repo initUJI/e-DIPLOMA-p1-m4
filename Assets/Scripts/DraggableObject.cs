@@ -1,59 +1,79 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableObject : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private bool isDragging;
-    private Vector3 startTouchPosition;
-    private Vector3 startObjectPosition;
-    private BoxCollider boxCollider;
+    private RectTransform rectTransform;
+    private Canvas canvas;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+    private EventLogger logger;
 
-    void Start()
+    void Awake()
     {
-        // Obtener el componente BoxCollider del objeto
-        boxCollider = GetComponent<BoxCollider>();
-
-        if (boxCollider == null)
-        {
-            Debug.LogError("El objeto no tiene un BoxCollider.");
-        }
+        rectTransform = GetComponent<RectTransform>();
+        canvas = GetComponent<Canvas>();
+        logger = FindFirstObjectByType<EventLogger>();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        if (boxCollider != null)
-        {
-            // Verificar si el toque inicial está dentro del BoxCollider
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, Camera.main.WorldToScreenPoint(transform.position).z));
-            if (boxCollider.bounds.Contains(touchPosition))
-            {
-                isDragging = true;
-                startTouchPosition = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
-                startObjectPosition = transform.position;
-            }
-        }
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        isDragging = false;
+        originalPosition = rectTransform.anchoredPosition;
+        originalRotation = rectTransform.rotation;
+        logger.LogEvent("Start draging: " + transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isDragging)
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out Vector3 globalMousePos))
         {
-            // Usar la posición del toque para dispositivos táctiles y ratón para el editor
-            Vector3 currentTouchPosition = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
-            Vector3 touchDelta = currentTouchPosition - startTouchPosition;
-
-            // Convertir el desplazamiento en unidades del mundo usando la cámara
-            Vector3 worldDelta = Camera.main.ScreenToWorldPoint(new Vector3(touchDelta.x, touchDelta.y, Camera.main.WorldToScreenPoint(startObjectPosition).z))
-                                - Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.WorldToScreenPoint(startObjectPosition).z));
-
-            Vector3 newPosition = startObjectPosition + worldDelta;
-            newPosition.z = startObjectPosition.z; // Mantener la posición original en el eje Z
-            transform.position = newPosition;
+            rectTransform.position = globalMousePos;
         }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        // Puedes agregar cualquier lógica adicional aquí, como soltar el objeto en una zona específica
+        logger.LogEvent("End draging: " + transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
+    }
+
+    public void SetRotation(Quaternion newRotation)
+    {
+        rectTransform.rotation = newRotation;
+    }
+
+    public void ResetPosition()
+    {
+        rectTransform.anchoredPosition = originalPosition;
+        rectTransform.rotation = originalRotation;
+    }
+
+    // Métodos auxiliares para convertir direcciones en función de la rotación local
+    public Vector3 GetForward()
+    {
+        return rectTransform.forward;
+    }
+
+    public Vector3 GetRight()
+    {
+        return rectTransform.right;
+    }
+
+    public Vector3 GetLeft()
+    {
+        return -rectTransform.right;
+    }
+
+    public Vector3 GetUp()
+    {
+        return rectTransform.up;
+    }
+
+    public Vector3 GetDown()
+    {
+        return -rectTransform.up;
     }
 }

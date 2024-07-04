@@ -49,6 +49,7 @@ public class InfoProcessor : MonoBehaviour
 
     public void UpdateSolvedCount()
     {
+        Debug.Log($"solved count: {solvedCount}");
         solvedCount = 0;  // Reiniciar contador de solucionados
 
         // Contar UICollisionDetectors con solved = true

@@ -2,21 +2,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using Vuforia;
+using System.Text.RegularExpressions;
 
 public class UICollisionDetector : MonoBehaviour
 {
     public string tagToCheck = "OptionName";  // La etiqueta que deseas comprobar en otros elementos
     public Manager manager;
     private string correctText;
-    private InfoProcessor infoProcessor;
+    public InfoProcessor infoProcessor;
+
+    private EventLogger logger;
 
     [HideInInspector]
     public bool solved;
 
     private void Start()
     {
+        logger = FindFirstObjectByType<EventLogger>();
+        solved = false;
+        correctText = GetComponent<TextMeshProUGUI>().text;
+        manager = FindFirstObjectByType<Manager>();
         Initialize();
-        infoProcessor = transform.root.GetComponent<InfoProcessor>();
     }
 
     private void Update()
@@ -26,11 +33,6 @@ public class UICollisionDetector : MonoBehaviour
 
     private void Initialize()
     {
-        solved = false;
-        correctText = GetComponent<TextMeshProUGUI>().text;
-        manager = FindFirstObjectByType<Manager>();
-
-        // Asegúrate de que el objeto tiene un BoxCollider 3D
         EnsureBoxCollider();
     }
 
@@ -44,7 +46,10 @@ public class UICollisionDetector : MonoBehaviour
 
     private void CheckSolvedStatus()
     {
-        solved = GetComponent<TextMeshProUGUI>().text == correctText;
+        Debug.Log($"correct text: {correctText}");
+        Debug.Log($"actual text: {GetComponent<TextMeshProUGUI>().text}");
+
+        solved = ProcessString(GetComponent<TextMeshProUGUI>().text) == ProcessString(correctText);
     }
 
     private void DetectCollisions()
@@ -98,7 +103,7 @@ public class UICollisionDetector : MonoBehaviour
     private void HandleCollision(GameObject obj)
     {
 
-        if (GetComponent<TextMeshProUGUI>().text == string.Empty || GetComponent<TextMeshProUGUI>().text == "")
+        if (GetComponent<TextMeshProUGUI>().text != string.Empty)
         {
             manager.CreateOptionName(GetComponent<TextMeshProUGUI>(), transform);
         }
@@ -113,6 +118,8 @@ public class UICollisionDetector : MonoBehaviour
         TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI sourceTextComponent = obj.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 
+        logger.LogEvent("Tag " + sourceTextComponent.text + "placed in " + correctText + "space");
+
         targetTextComponent.text = sourceTextComponent.text;
         targetTextComponent.fontSize = sourceTextComponent.fontSize;
 
@@ -120,6 +127,22 @@ public class UICollisionDetector : MonoBehaviour
         infoProcessor.UpdateSolvedCount();
         infoProcessor.UpdateStatusText();
         infoProcessor.CheckAndDeactivateInfoObjects();
+    }
+
+    public static string ProcessString(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return string.Empty;
+        }
+
+        // Convertir a minúsculas
+        string lowerCaseString = input.ToLower();
+
+        // Eliminar espacios y puntuación
+        string result = Regex.Replace(lowerCaseString, @"[\s\p{P}]", "");
+
+        return result;
     }
 }
 

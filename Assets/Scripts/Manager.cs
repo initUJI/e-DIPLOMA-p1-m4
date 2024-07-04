@@ -6,8 +6,8 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     public GameObject optionPrefab;
-    public float moveStep = 0.01f;
-    public float checkDelay = 0.1f;
+    public float moveStep = 0.005f;
+    public float checkDelay = 0.001f;
 
     public void CreateOptionName(TextMeshProUGUI text, Transform initialPos)
     {
@@ -25,7 +25,7 @@ public class Manager : MonoBehaviour
     private void SetOptionText(GameObject optionInstance, TextMeshProUGUI text)
     {
         // Establecer el texto en el componente TextMeshProUGUI
-        optionInstance.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().fontSize = text.fontSize;
+        //optionInstance.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().fontSize = text.fontSize;
         optionInstance.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = text.text;
     }
 

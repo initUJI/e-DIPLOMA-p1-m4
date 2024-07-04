@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class buttonTest : MonoBehaviour
 {
-
+    private EventLogger eventLogger;
     public void startClick()
     {
-        Debug.Log("start click");
         ClearAllText(transform.parent.parent);
         ActivateLastChildInHierarchy(transform.parent.parent.transform);
+        gameObject.SetActive(false);
+        eventLogger = FindFirstObjectByType<EventLogger>();
+        eventLogger.LogEvent("Start button pressed");
     }
 
     void ClearAllText(Transform parent)

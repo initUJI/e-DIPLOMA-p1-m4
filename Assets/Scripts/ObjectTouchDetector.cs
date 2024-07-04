@@ -52,7 +52,7 @@ public class ObjectTouchDetector : MonoBehaviour
                 {
                     info.SetActive(false);
                 }
-                else 
+                else
                 {
                     info.SetActive(true);
                 }
@@ -76,4 +76,3 @@ public class ObjectTouchDetector : MonoBehaviour
         }
     }
 }
-

@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: 2725479337490983169}
   - component: {fileID: 6931578157636048293}
   - component: {fileID: 8832222811490069544}
-  - component: {fileID: 3532556398383709060}
   m_Layer: 5
   m_Name: OptionCanvasPrefab (1)
   m_TagString: OptionName
@@ -306,19 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec9f039606134f42a6053ff5dc15265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3532556398383709060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85250216730884781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7679a15705b293b4891bf852a4d81133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockAxes: 4
 --- !u!1 &200748792890677821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,6 +1630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 1717832398193919274}
   solved: 0
 --- !u!65 &1392191115573629195
 BoxCollider:
@@ -2072,6 +2059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 1717832398193919274}
   solved: 0
 --- !u!65 &536619068317934036
 BoxCollider:
@@ -2481,6 +2469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 1717832398193919274}
   solved: 0
 --- !u!65 &1254257421788606357
 BoxCollider:
@@ -2765,7 +2754,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5894896429875793404}
-  - component: {fileID: 1352206800812291148}
   - component: {fileID: 9185411847810682057}
   - component: {fileID: 4094943348537446698}
   - component: {fileID: 1717832398193919274}
@@ -2794,33 +2782,6 @@ Transform:
   - {fileID: 2662146300659019491}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1352206800812291148
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6522674329858561862}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 2
 --- !u!23 &9185411847810682057
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2828,7 +2789,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6522674329858561862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3116,7 +3077,6 @@ GameObject:
   - component: {fileID: 3200594883768591686}
   - component: {fileID: 8494852556726194769}
   - component: {fileID: 9206562410037569192}
-  - component: {fileID: 34420972313947610}
   m_Layer: 5
   m_Name: OptionCanvasPrefab
   m_TagString: OptionName
@@ -3241,19 +3201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec9f039606134f42a6053ff5dc15265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &34420972313947610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8048757884300275071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7679a15705b293b4891bf852a4d81133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockAxes: 4
 --- !u!1 &8703421326458484293
 GameObject:
   m_ObjectHideFlags: 0
