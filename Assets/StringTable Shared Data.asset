@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: StringTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: StringTable
+  m_TableCollectionNameGuidString: 28bdbd5ffa3f1454295ad5df66b9401d
+  m_Entries:
+  - m_Id: 283523874816
+    m_Key: BoardName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 439778476032
+    m_Key: PowerConnectorName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674827272192
+    m_Key: VoltageRegulatorName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 811662245888
+    m_Key: ArduinoChipName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 907191713792
+    m_Key: USBName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 992185090048
+    m_Key: ResetButtonName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1095734067200
+    m_Key: ConnectionPortsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1195218763776
+    m_Key: DigitalPortsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1287636058112
+    m_Key: Micro-controllerName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1383161331712
+    m_Key: ConnectionsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1457719279616
+    m_Key: AnaloguePortsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1556604190720
+    m_Key: ICPSInputName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2078543380480
+    m_Key: BoardDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2387814580224
+    m_Key: PowerSupplyDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2590118445056
+    m_Key: VoltageRegulatorDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2793785458688
+    m_Key: ArduinoChipDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914312978432
+    m_Key: USBDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3041857568768
+    m_Key: ResetButtonDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3212343443456
+    m_Key: ConnectionPortDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3378672762880
+    m_Key: DigitalPortsDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3512320065536
+    m_Key: MicroControllerDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3649561886720
+    m_Key: ConnectionsDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3784316485632
+    m_Key: AnaloguePortsDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3917632438272
+    m_Key: ICPSInputDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9557222293504
+    m_Key: DHT11Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9684401979392
+    m_Key: PinsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9825590640640
+    m_Key: DHT11Definition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10011545108480
+    m_Key: PinsDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10168797954048
+    m_Key: UltrasonicSensorName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10387321192448
+    m_Key: UltrasonicSensorDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10543089254400
+    m_Key: GroveConnectorName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10660361994240
+    m_Key: GroveConnectorDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10812845916160
+    m_Key: ReceiverName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10900515258368
+    m_Key: RecieverDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11024205283328
+    m_Key: EmitterName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11093025423360
+    m_Key: EmitterDefinition
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 78064348762734616
+  references:
+    version: 2
+    RefIds:
+    - rid: 78064348762734616
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1720173810274

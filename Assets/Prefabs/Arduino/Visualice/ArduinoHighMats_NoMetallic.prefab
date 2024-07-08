@@ -647,6 +647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203010559947106
 GameObject:
@@ -1183,59 +1184,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1587203010673754530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1587203010673754531}
-  - component: {fileID: 1587203010673754528}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1587203010673754531
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587203010673754530}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1587203010850643531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1587203010673754528
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587203010673754530}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.111747235, y: 0.04604685, z: 0.02215399}
-  m_Center: {x: -0.1226774, y: 0.003343126, z: 0.008972271}
 --- !u!1 &1587203010687750675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203010754480070
 GameObject:
@@ -2197,6 +2146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203010837698378
 GameObject:
@@ -2346,8 +2296,6 @@ Transform:
   - {fileID: 1587203011294951318}
   - {fileID: 1587203012111087661}
   - {fileID: 1587203011040355577}
-  - {fileID: 1587203010673754531}
-  - {fileID: 1587203011927674331}
   m_Father: {fileID: 3526119657793167207}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1587203010871583142
@@ -3754,6 +3702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203011196555912
 GameObject:
@@ -3926,6 +3875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203011230696025
 GameObject:
@@ -4098,6 +4048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203011237062610
 GameObject:
@@ -5386,6 +5337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203011555261466
 GameObject:
@@ -6048,6 +6000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203011743670906
 GameObject:
@@ -6580,6 +6533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203011834396988
 GameObject:
@@ -6881,6 +6835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203011904281032
 GameObject:
@@ -6957,59 +6912,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1587203011927674330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1587203011927674331}
-  - component: {fileID: 1587203011927674328}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1587203011927674331
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587203011927674330}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1587203010850643531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1587203011927674328
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587203011927674330}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.10896891, y: 0.046760533, z: 0.054142587}
-  m_Center: {x: -0.15914086, y: -0.18633571, z: 0.024966577}
 --- !u!1 &1587203011958092135
 GameObject:
   m_ObjectHideFlags: 0
@@ -7872,6 +7774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203012167842292
 GameObject:
@@ -8692,6 +8595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203012346772985
 GameObject:
@@ -8864,6 +8768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
+  infoProcessor: {fileID: 0}
   solved: 0
 --- !u!1 &1587203012364792675
 GameObject:

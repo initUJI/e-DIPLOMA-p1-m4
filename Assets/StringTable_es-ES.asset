@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: StringTable_es-ES
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es-ES
+  m_SharedData: {fileID: 11400000, guid: 28bdbd5ffa3f1454295ad5df66b9401d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 283523874816
+    m_Localized: Placa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 439778476032
+    m_Localized: "Conector de alimentaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674827272192
+    m_Localized: Regulador de voltaje
+    m_Metadata:
+      m_Items: []
+  - m_Id: 811662245888
+    m_Localized: Chip Arduino
+    m_Metadata:
+      m_Items: []
+  - m_Id: 907191713792
+    m_Localized: USB
+    m_Metadata:
+      m_Items: []
+  - m_Id: 992185090048
+    m_Localized: "Bot\xF3n de reinicio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1095734067200
+    m_Localized: "Puertos de conexi\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1195218763776
+    m_Localized: Puertos digitales
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1287636058112
+    m_Localized: Micro-controlador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1383161331712
+    m_Localized: Conexiones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1457719279616
+    m_Localized: "Puetos anal\xF3gicos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1556604190720
+    m_Localized: ICPS Input
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2078543380480
+    m_Localized: "Se trata de una placa electr\xF3nica de hardware libre que utiliza
+      un microcontrolador reprogramable con una serie de pines que permiten las conexiones
+      entre el controlador y los distintos sensores.\r\n\r\nLa placa Arduino es capaz
+      de leer entradas (como la luz de un sensor o la pulsaci\xF3n de un bot\xF3n)
+      y convertirlas en salidas (como la activaci\xF3n de un motor o el encendido
+      de un LED)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2387814580224
+    m_Localized: "Conexi\xF3n para una fuente de alimentaci\xF3n entre 6V y 18V."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2590118445056
+    m_Localized: "Este componente controla la cantidad de voltaje que entra en la
+      placa Arduino, evitando que un voltaje excesivo da\xF1e el circuito."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2793785458688
+    m_Localized: "Permite que un dispositivo USB sea identificado por el ordenador,
+      es como su tarjeta de identificaci\xF3n personal."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914312978432
+    m_Localized: "La placa Arduino puede alimentarse desde un cable USB tipo B. \r\n\r\nAdem\xE1s,
+      la conexi\xF3n USB se utiliza para cargar c\xF3digo en la placa Arduino, desde
+      donde se pueden enviar datos de programaci\xF3n e instrucciones a la placa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3041857568768
+    m_Localized: "Al pulsarlo se conectar\xE1 temporalmente el pin de reset a masa
+      y se reiniciar\xE1 cualquier c\xF3digo que est\xE9 cargado en el microcontrolador
+      Arduino."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3212343443456
+    m_Localized: "5 entradas o salidas auxiliares (8 a 12).\r\n3 salidas 9, 10 y
+      11 que permiten la modulaci\xF3n por impulsos o por anchura.\r\nSalida 13 que
+      permite conectar un LED directamente a masa.\r\nSalida de tierra GND.\r\nPin
+      AREF utilizado para fijar una tensi\xF3n de referencia externa (entre 0 y 5
+      voltios) como l\xEDmite superior de los pines de entrada anal\xF3gica."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3378672762880
+    m_Localized: "Estos pines pueden utilizarse tanto para la entrada digital (como
+      la detecci\xF3n de la pulsaci\xF3n de un bot\xF3n) como para la salida digital
+      (como la alimentaci\xF3n de un LED)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3512320065536
+    m_Localized: "Es el circuito integrado que act\xFAa como cerebro o procesador
+      de la placa Arduino, donde se implementa la programaci\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3649561886720
+    m_Localized: "Reiniciar: Permite reiniciar el microcontrolador.\r\n\r\n5V y 3.3V:
+      5 voltios y 3.3 voltios de alimentaci\xF3n. \r\n\r\nGND: Para conectar a tierra
+      el circuito.\r\n\r\nVIN: Para conectar la alimentaci\xF3n a la placa con una
+      fuente de alimentaci\xF3n externa entre 6 y 12VDC."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3784316485632
+    m_Localized: "Estos pines bajo la etiqueta 'Analog In' (A0 a A5 en el UNO) pueden
+      leer la se\xF1al de un sensor anal\xF3gico y convertirla en un valor digital
+      que podamos interpretar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3917632438272
+    m_Localized: Permite grabar programas en el circuito directamente desde el ordenador
+      sin necesidad de utilizar el puerto USB.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9557222293504
+    m_Localized: DHT11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9684401979392
+    m_Localized: Pines
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9825590640640
+    m_Localized: "El DHT11 es un sensor de temperatura y humedad que utiliza un sensor
+      de humedad capacitivo y un termistor para medir el aire circundante, y muestra
+      los datos como una se\xF1al digital en el pin de datos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10011545108480
+    m_Localized: "Vcc: Alimentaci\xF3n de 3,5V a 5,5V\r\n\r\nDatos: Salidas de Temperatura
+      y Humedad a trav\xE9s de datos serie\r\n\r\nNC: No hay conexi\xF3n y por lo
+      tanto no se utiliza\r\n\r\nTierra:Conectado a la tierra del circuito"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10168797954048
+    m_Localized: Sensor de ultrasonido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10387321192448
+    m_Localized: "Se utiliza para medir la distancia a un objeto mediante ondas sonoras
+      de alta frecuencia, tambi\xE9n conocidas como ondas ultras\xF3nicas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10543089254400
+    m_Localized: Conector Grove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10660361994240
+    m_Localized: Se utiliza para conectar el kit a otros dispositivos Grove.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10812845916160
+    m_Localized: Receptor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10900515258368
+    m_Localized: "La parte del sensor ultras\xF3nico que recibe la onda ultras\xF3nica
+      reflejada por el objeto y la convierte en una se\xF1al el\xE9ctrica."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11024205283328
+    m_Localized: Emisor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11093025423360
+    m_Localized: "La parte del sensor ultras\xF3nico que emite una onda ultras\xF3nica
+      hacia el objeto que se desea medir."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
