@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QCARInfo>
+    <TargetSet version="36.0" toolVersion="v7.0.5">
+        <ModelTarget name="DHT11Sensor" targetId="d7b150f2850044b597a3e07134c52c55" bbox="-0.021541 -0.000725 -0.011058 0.022064 0.008383 0.011074" version="14.0" toolVersion="v7.0.5" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+        <ModelTarget name="UltrasonicSensor_RealTexturesobj" targetId="f926b89c47f5480c96bc826f069d3f80" bbox="-0.029915 -0.000793 -0.014972 0.029915 0.015646 0.016592" version="14.0" toolVersion="v7.0.5" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+        <ModelTarget name="ArduinoHighMats_NoMetallic" targetId="7671d5690c0e45bea59304cb528dc992" bbox="-0.035519 0.000163 -0.026945 0.039318 0.011997 0.026415" version="14.0" toolVersion="v7.0.5" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+        <ModelTarget name="BaseShield_obj" targetId="738c4e8821f54e219bae1bcae4110969" bbox="-0.035516 -0.010646 -0.026942 0.033151 0.011572 0.028353" version="14.0" toolVersion="v7.0.5" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+    </TargetSet>
+    <Assembly name="DHT11Sensor" assemblyId="4e899c262c644cffb2300c89503937bd">
+        <Part name="DHT11Sensor" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+    <Assembly name="UltrasonicSensor_RealTexturesobj" assemblyId="1c07f3139f0b4cdb86bb4c4604fb004e">
+        <Part name="UltrasonicSensor_RealTexturesobj" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+    <Assembly name="ArduinoHighMats_NoMetallic" assemblyId="18db45e978ed473db221070a3944ee5e">
+        <Part name="ArduinoHighMats_NoMetallic" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+    <Assembly name="BaseShield_obj" assemblyId="a7fa8ce7c233474ba394bcbc6575c505">
+        <Part name="BaseShield_obj" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+    <ModelTargetDatabase mtDBid="a7c2f8b320ce4aaa9f78aed6858b78fe" name="ArduinoSensors_BaseShield" toolVersion="v7.0.5" version="36.0" />
+</QCARInfo>
