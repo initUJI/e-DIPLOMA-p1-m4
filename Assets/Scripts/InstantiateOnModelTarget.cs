@@ -4,6 +4,7 @@ using Vuforia;
 public class InstantiateOnModelTarget : MonoBehaviour
 {
     public GameObject prefabToInstantiate;
+    public GameObject manager;
     private GameObject instantiatedObject;
     private ModelTargetBehaviour modelTargetBehaviour;
 
@@ -12,16 +13,24 @@ public class InstantiateOnModelTarget : MonoBehaviour
         modelTargetBehaviour = GetComponent<ModelTargetBehaviour>();
     }
 
-    public void OnTrackingFound()
+    private void OnTrackingFound()
     {
-        if (prefabToInstantiate != null && instantiatedObject == null)
+        if (prefabToInstantiate != null)
         {
-            instantiatedObject = Instantiate(prefabToInstantiate, modelTargetBehaviour.transform.position, prefabToInstantiate.transform.rotation);
+            if (instantiatedObject != null)
+            {
+                Destroy(instantiatedObject);
+            }
 
-            instantiatedObject.transform.position = modelTargetBehaviour.transform.position;
-            instantiatedObject.transform.position = new Vector3(instantiatedObject.transform.position.y + prefabToInstantiate.transform.position.x,
-                instantiatedObject.transform.position.y, instantiatedObject.transform.position.z);
-            instantiatedObject.transform.parent = modelTargetBehaviour.transform;
+            instantiatedObject = Instantiate(prefabToInstantiate);
+            instantiatedObject.transform.SetParent(modelTargetBehaviour.transform, false);
+
+            // Aplicar la posición y rotación local del prefab
+            instantiatedObject.transform.localPosition = prefabToInstantiate.transform.localPosition;
+            instantiatedObject.transform.localRotation = prefabToInstantiate.transform.localRotation;
+
+            // Desvincula el objeto instanciado del ModelTargetBehaviour para que mantenga su posición
+            //instantiatedObject.transform.SetParent(null, true);
         }
     }
 
@@ -29,7 +38,7 @@ public class InstantiateOnModelTarget : MonoBehaviour
     {
         if (instantiatedObject != null)
         {
-            Destroy(instantiatedObject);
+            //instantiatedObject.transform.parent = manager.transform;
         }
     }
 }

@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 917384796364482041, guid: b8f9c8f4a501ced448f58c0dfd1ad67f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000738948413523434, guid: b8f9c8f4a501ced448f58c0dfd1ad67f, type: 3}
       propertyPath: ignoreLayers.m_Bits
@@ -344,7 +344,6 @@ GameObject:
   - component: {fileID: 291613396}
   - component: {fileID: 291613395}
   - component: {fileID: 291613398}
-  - component: {fileID: 291613399}
   m_Layer: 0
   m_Name: ModelTargetUltrasonic
   m_TagString: Untagged
@@ -392,19 +391,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 291613399}
-        m_TargetAssemblyTypeName: InstantiateOnModelTarget, Assembly-CSharp
-        m_MethodName: OnTrackingFound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -491,19 +478,6 @@ MonoBehaviour:
   mDatasetName: Vuforia/ArduinoSensors_V2.xml
   mCastedBehaviour: {fileID: 291613396}
   mModelTargetPreview: {fileID: 0}
---- !u!114 &291613399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291613393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3a671aa96b56b4f8b28118f55f8d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToInstantiate: {fileID: 4154265899408068932, guid: 4b09aab4ba48f054faf22749d5198c31, type: 3}
 --- !u!1001 &296695835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -526,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4154265899408068932, guid: 4b09aab4ba48f054faf22749d5198c31, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5160409307033298469, guid: 4b09aab4ba48f054faf22749d5198c31, type: 3}
       propertyPath: ignoreLayers.m_Bits
@@ -1062,7 +1036,6 @@ GameObject:
   - component: {fileID: 493397786}
   - component: {fileID: 493397785}
   - component: {fileID: 493397788}
-  - component: {fileID: 493397789}
   m_Layer: 0
   m_Name: ModelTargetDTH11
   m_TagString: Untagged
@@ -1110,19 +1083,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 493397789}
-        m_TargetAssemblyTypeName: InstantiateOnModelTarget, Assembly-CSharp
-        m_MethodName: OnTrackingFound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -1209,19 +1170,6 @@ MonoBehaviour:
   mDatasetName: Vuforia/ArduinoSensors_V2.xml
   mCastedBehaviour: {fileID: 493397786}
   mModelTargetPreview: {fileID: 0}
---- !u!114 &493397789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493397783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3a671aa96b56b4f8b28118f55f8d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToInstantiate: {fileID: 6522674329858561862, guid: 18faa747f9f8154438a101a87645539b, type: 3}
 --- !u!1 &558676575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,7 +1544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6522674329858561862, guid: 18faa747f9f8154438a101a87645539b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3744720745904550453, guid: 18faa747f9f8154438a101a87645539b, type: 3}
@@ -3602,19 +3550,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8265382974249551473}
-        m_TargetAssemblyTypeName: InstantiateOnModelTarget, Assembly-CSharp
-        m_MethodName: OnTrackingFound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -3630,7 +3566,6 @@ GameObject:
   - component: {fileID: 8265382974249551471}
   - component: {fileID: 8265382974249551456}
   - component: {fileID: 8265382974249551472}
-  - component: {fileID: 8265382974249551473}
   m_Layer: 0
   m_Name: ModelTargetArduino
   m_TagString: Untagged
@@ -3721,19 +3656,6 @@ MonoBehaviour:
   mDatasetName: Vuforia/ArduinoSensors_V2.xml
   mCastedBehaviour: {fileID: 8265382974249551471}
   mModelTargetPreview: {fileID: 0}
---- !u!114 &8265382974249551473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8265382974249551458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3a671aa96b56b4f8b28118f55f8d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToInstantiate: {fileID: 917384796364482041, guid: b8f9c8f4a501ced448f58c0dfd1ad67f, type: 3}
 --- !u!33 &8265382974346410545
 MeshFilter:
   m_ObjectHideFlags: 0
