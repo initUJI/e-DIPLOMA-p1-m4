@@ -201,6 +201,68 @@ MonoBehaviour:
       towards the object to be measured.
     m_Metadata:
       m_Items: []
+  - m_Id: 3623968379109376
+    m_Localized: Base Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3624119965450240
+    m_Localized: 'Expansion board that connects to an Arduino motherboard to facilitate
+      the connection and use of different sensors and actuators. This shield provides
+      a standardised interface, simplifying the prototyping process.
+
+      
+
+      Key
+      advantages of the Base Shield include ease of use, modularity, and compatibility
+      with various Arduino models, making it ideal for rapid prototyping, educational
+      applications, and maker community projects. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3625519311093760
+    m_Localized: Analogue pins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3625673397239808
+    m_Localized: Analogue inputs/outputs, designed to read analogue signals and convert
+      them to digital values using an ADC converter. These pins are commonly used
+      to connect analogue sensors, such as potentiometers and temperature sensors,
+      allowing the Arduino to measure variable voltages.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3627601128718336
+    m_Localized: I2C Pins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3627706858733568
+    m_Localized: Ports to connect devices using including VCC (power), GND (ground),
+      SDA (Serial Data) and SCL (Serial Clock). These facilitate the implementation
+      of the I2C protocol, enabling  synchronised data transfer between the Arduino
+      and slave devices, such as sensors, through a standardised and simplified connection.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3628625470029824
+    m_Localized: UART Pin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3628709226086400
+    m_Localized: 'Ports designed for asynchronous serial communication and typically
+      include: VCC (power), GND (ground), TX (transmit data) and RX (receive data).
+      They facilitate direct communication between the Arduino and other serial devices,
+      allowing data transfer through a simple and efficient connection.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629780820426752
+    m_Localized: Digital Pins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629868154224640
+    m_Localized: Digital pins used for digital inputs and outputs. They can be configured
+      to read digital states (high or low) from sensors or switches, or to send digital
+      signals to LEDs, relays, and other actuators. Some also have capabilities such
+      as external switches (D2 and D3 on the Arduino Uno) or PWM (Pulse Width Modulation)
+      to simulate analogue outputs.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

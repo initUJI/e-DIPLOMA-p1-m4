@@ -159,6 +159,46 @@ MonoBehaviour:
     m_Key: EmitterDefinition
     m_Metadata:
       m_Items: []
+  - m_Id: 3623968379109376
+    m_Key: BaseShieldName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3624119965450240
+    m_Key: BaseShieldDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3625519311093760
+    m_Key: AnaloguePinsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3625673397239808
+    m_Key: AnaloguePinsDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3627601128718336
+    m_Key: I2CPinsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3627706858733568
+    m_Key: I2CPinsDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3628625470029824
+    m_Key: UARTPinName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3628709226086400
+    m_Key: UARTDefinition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629780820426752
+    m_Key: DigitalPinsName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629868154224640
+    m_Key: DigitalPinsDefinition
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

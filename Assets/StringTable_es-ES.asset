@@ -193,6 +193,68 @@ MonoBehaviour:
       hacia el objeto que se desea medir."
     m_Metadata:
       m_Items: []
+  - m_Id: 3623968379109376
+    m_Localized: Base Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3624119965450240
+    m_Localized: "Placa de expansi\xF3n que se conecta a una placa base Arduino para
+      facilitar la conexi\xF3n y el uso de diferentes sensores y actuadores. Este
+      escudo proporciona una interfaz estandarizada, simplificando el proceso de
+      creaci\xF3n de prototipos.\r\n\r\nEntre las principales ventajas de la Base
+      Shield se incluyen la facilidad de uso, la modularidad y la compatibilidad
+      con varios modelos de Arduino, lo que la hace ideal para la creaci\xF3n r\xE1pida
+      de prototipos, aplicaciones educativas y proyectos de la comunidad maker. \r\n\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3625519311093760
+    m_Localized: "Pins Anal\xF3gicos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3625673397239808
+    m_Localized: "Entradas/salidas anal\xF3gicas, dise\xF1adas para leer se\xF1ales
+      anal\xF3gicas y convertirlas en valores digitales mediante un convertidor ADC.
+      Estos pines se utilizan com\xFAnmente para conectar sensores anal\xF3gicos,
+      como potenci\xF3metros y sensores de temperatura, permitiendo al Arduino medir
+      voltajes variables."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3627601128718336
+    m_Localized: Pins I2C
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3627706858733568
+    m_Localized: "Puertos para conectar dispositivos que incluyen VCC (alimentaci\xF3n),
+      GND (masa), SDA (datos serie) y SCL (reloj serie). Estos facilitan la implementaci\xF3n
+      del protocolo I2C, permitiendo la transferencia sincronizada de datos entre
+      el Arduino y los dispositivos esclavos, tales como sensores, a trav\xE9s de
+      una conexi\xF3n estandarizada y simplificada."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3628625470029824
+    m_Localized: Pin UART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3628709226086400
+    m_Localized: "Puertos dise\xF1ados para la comunicaci\xF3n serial as\xEDncrona
+      y que generalmente incluyen: VCC (alimentaci\xF3n), GND (tierra), TX (transmisi\xF3n
+      de datos) y RX (recepci\xF3n de datos). Estos facilitan la comunicaci\xF3n
+      directa entre el Arduino y otros dispositivos seriales, permitiendo la transferencia
+      de datos mediante una conexi\xF3n simple y eficiente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629780820426752
+    m_Localized: Pins digitales
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629868154224640
+    m_Localized: "Pines digitales utilizados para entradas y salidas digitales. Pueden
+      configurarse para leer estados digitales (alto o bajo) desde sensores o interruptores,
+      o para enviar se\xF1ales digitales a LEDs, rel\xE9s, y otros actuadores. Algunos
+      tambi\xE9n tienen capacidades como interrupciones externas (D2 y D3 en el Arduino
+      Uno) o PWM (Modulaci\xF3n por Ancho de Pulso) para simular salidas anal\xF3gicas."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

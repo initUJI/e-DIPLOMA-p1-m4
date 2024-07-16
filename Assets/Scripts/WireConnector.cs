@@ -5,33 +5,10 @@ using UnityEngine;
 public class WireConnector : MonoBehaviour
 {
     public float wireWidth = 0.1f;    // Ancho del cable
-    public float endpointOffset = 0.2f; // Offset para la posición del cable desde el extremo
+    public float endpointOffset = 0.001f; // Offset para la posición del cable desde el extremo
 
     private Transform startTransform;
     private Transform endTransform;
-    private GameObject wireObject;
-    private List<LineRenderer> wires = new List<LineRenderer>();
-
-    private Color[] wireColors = { Color.black, Color.red, Color.white, Color.yellow };
-
-    void Start()
-    {
-        // Crear un objeto contenedor para los cables
-        wireObject = new GameObject("WireObject");
-
-        // Crear los LineRenderers para los cuatro cables
-        for (int i = 0; i < 4; i++)
-        {
-            LineRenderer lineRenderer = wireObject.AddComponent<LineRenderer>();
-            lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-            lineRenderer.startColor = wireColors[i];
-            lineRenderer.endColor = wireColors[i];
-            lineRenderer.startWidth = wireWidth;
-            lineRenderer.endWidth = wireWidth;
-            lineRenderer.positionCount = 2;
-            wires.Add(lineRenderer);
-        }
-    }
 
     void Update()
     {
@@ -73,24 +50,44 @@ public class WireConnector : MonoBehaviour
 
     void AssignTransform(Transform selectedTransform)
     {
+        // Verificar los nombres de los objetos
+        string selectedName = selectedTransform.parent.parent.name; // Subir dos niveles para obtener el nombre del sensor
+        string startName = startTransform != null ? startTransform.parent.parent.name : "";
+
         if (startTransform == null)
         {
-            startTransform = selectedTransform;
-            // Activar todos los hijos del objeto con el tag Wire en el punto inicial
-            SetChildrenActive(startTransform, true);
+            if (selectedName.Contains("BaseShield") || selectedName.Contains("DHT11") || selectedName.Contains("Ultrasonic"))
+            {
+                startTransform = selectedTransform;
+                // Activar la malla inicial del punto inicial
+                SetChildrenActive(startTransform, true);
+            }
         }
         else if (endTransform == null && selectedTransform != startTransform)
         {
-            endTransform = selectedTransform;
-            // Activar todos los hijos del objeto con el tag Wire en el punto final
-            SetChildrenActive(endTransform, true);
+            // Evitar conexiones no permitidas
+            if (!((startName.Contains("DHT11") && selectedName.Contains("Ultrasonic")) ||
+                  (startName.Contains("Ultrasonic") && selectedName.Contains("DHT11")) ||
+                  (startName.Contains("BaseShield") && selectedName.Contains("BaseShield"))))
+            {
+                endTransform = selectedTransform;
+                // Activar la malla inicial del punto final
+                SetChildrenActive(endTransform, true);
 
-            // Dibujar el cable entre los dos puntos
-            DrawWire(startTransform, endTransform);
+                // Activar el cable correspondiente basado en los objetos seleccionados
+                ActivateCable(startTransform, endTransform);
 
-            // Reset para poder asignar nuevos extremos
+                // Reset para poder asignar nuevos extremos
+                startTransform = null;
+                endTransform = null;
+            }
+        }
+        else if (startTransform != null && endTransform != null)
+        {
             startTransform = null;
             endTransform = null;
+
+            startTransform = selectedTransform;
         }
     }
 
@@ -98,23 +95,61 @@ public class WireConnector : MonoBehaviour
     {
         foreach (Transform child in parent)
         {
-            child.gameObject.SetActive(active);
+            if (child.name.Contains("Plane")) // Activar siempre las mallas
+            {
+                child.gameObject.SetActive(active);
+            }
         }
     }
 
-    void DrawWire(Transform start, Transform end)
+    void ActivateCable(Transform start, Transform end)
     {
-        Vector3 startPoint = start.position - start.forward * endpointOffset;
-        Vector3 endPoint = end.position - end.forward * endpointOffset;
+        string startName = start.parent.parent.name; // Subir dos niveles para obtener el nombre del sensor
+        string endName = end.parent.parent.name;
 
-        Vector3 direction = (endPoint - startPoint).normalized;
-        Vector3 perpendicular = Vector3.Cross(direction, Vector3.up).normalized * wireWidth * 2;
+        Transform startColliders = start; // El collider es el padre de los cables y las mallas
+        Transform endColliders = end;
 
-        for (int i = 0; i < 4; i++)
+        // Activar los cables y mallas en el objeto de inicio
+        ActivateCablesForObject(startColliders, startName, endName);
+
+        // Activar los cables y mallas en el objeto de final
+        ActivateCablesForObject(endColliders, endName, startName);
+    }
+
+    void ActivateCablesForObject(Transform collidersParent, string parentName, string otherParentName)
+    {
+        if (collidersParent != null)
         {
-            Vector3 offset = perpendicular * (i - 1.5f);
-            wires[i].SetPosition(0, startPoint + offset);
-            wires[i].SetPosition(1, endPoint + offset);
+            foreach (Transform child in collidersParent)
+            {
+                if (child.name.Contains("Plane")) // Activar siempre las mallas
+                {
+                    child.gameObject.SetActive(true);
+                }
+                else if (child.name.Contains("UltrasonicWire") || child.name.Contains("DHT11Wire"))
+                {
+                    if (parentName.Contains("BaseShield"))
+                    {
+                        if (otherParentName.Contains("Ultrasonic") && child.name.Contains("UltrasonicWire"))
+                        {
+                            child.gameObject.SetActive(true);
+                        }
+                        else if (otherParentName.Contains("DHT11") && child.name.Contains("DHT11Wire"))
+                        {
+                            child.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            child.gameObject.SetActive(false);
+                        }
+                    }
+                    else
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
+            }
         }
     }
 }

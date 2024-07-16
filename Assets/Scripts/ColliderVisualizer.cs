@@ -25,6 +25,12 @@ public class ColliderVisualizer : MonoBehaviour
 
     void OnRenderObject()
     {
+        // Verificar si el nombre del objeto contiene "Wire"
+        if (gameObject.name.Contains("Wire"))
+        {
+            return;
+        }
+
         // Verificar si el objeto principal está activo
         if (!gameObject.activeInHierarchy)
         {
@@ -112,7 +118,7 @@ public class ColliderVisualizer : MonoBehaviour
             GL.Vertex3(Mathf.Cos(rad), Mathf.Sin(rad), 0);
             GL.Vertex3(Mathf.Cos(radNext), Mathf.Sin(radNext), 0);
             GL.Vertex3(Mathf.Cos(rad), 0, Mathf.Sin(rad));
-            GL.Vertex3(Mathf.Cos(radNext), 0, Mathf.Sin(radNext));
+            GL.Vertex3(Mathf.Cos(radNext), 0, Mathf.Sin(rad));
             GL.Vertex3(0, Mathf.Cos(rad), Mathf.Sin(rad));
             GL.Vertex3(0, Mathf.Cos(radNext), Mathf.Sin(radNext));
         }
