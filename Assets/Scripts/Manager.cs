@@ -18,14 +18,13 @@ public class Manager : MonoBehaviour
 
     private GameObject InstantiateOption(Transform initialPos)
     {
-        // Instanciar el prefab en la posición inicial
+        // Instantiate the prefab at the initial position
         return Instantiate(optionPrefab, initialPos.position, initialPos.rotation);
     }
 
     private void SetOptionText(GameObject optionInstance, TextMeshProUGUI text)
     {
-        // Establecer el texto en el componente TextMeshProUGUI
-        //optionInstance.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().fontSize = text.fontSize;
+        // Set the text in the TextMeshProUGUI component
         optionInstance.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = text.text;
     }
 
@@ -52,7 +51,7 @@ public class Manager : MonoBehaviour
         Collider collider = optionInstance.GetComponent<Collider>();
         if (collider == null)
         {
-            Debug.LogError("El prefab no tiene un Collider.");
+            Debug.LogError("The prefab does not have a Collider.");
         }
         return collider;
     }
@@ -68,7 +67,7 @@ public class Manager : MonoBehaviour
         {
             if (hitCollider != optionCollider)
             {
-                Debug.Log($"Colisión detectada con: {hitCollider.gameObject.name}");
+                Debug.Log($"Collision detected with: {hitCollider.gameObject.name}");
                 return true;
             }
         }
@@ -79,7 +78,7 @@ public class Manager : MonoBehaviour
     {
         if (currentY - initialY >= maxHeight)
         {
-            Debug.LogWarning("Se ha alcanzado la altura máxima permitida.");
+            Debug.LogWarning("Maximum allowed height reached.");
             return true;
         }
         return false;
@@ -87,7 +86,7 @@ public class Manager : MonoBehaviour
 
     private void MoveOptionUp(GameObject optionInstance)
     {
-        optionInstance.transform.position += new Vector3(0, moveStep, 0);
+        // Move the option instance considering its rotation
+        optionInstance.transform.position += optionInstance.transform.up * moveStep;
     }
 }
-

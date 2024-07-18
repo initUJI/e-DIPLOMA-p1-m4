@@ -65,7 +65,7 @@ public class WireConnector : MonoBehaviour
         }
         else if (endTransform == null && selectedTransform != startTransform)
         {
-            // Evitar conexiones no permitidas
+            // Verificar si la conexión es permitida
             if (!((startName.Contains("DHT11") && selectedName.Contains("Ultrasonic")) ||
                   (startName.Contains("Ultrasonic") && selectedName.Contains("DHT11")) ||
                   (startName.Contains("BaseShield") && selectedName.Contains("BaseShield"))))
@@ -80,6 +80,13 @@ public class WireConnector : MonoBehaviour
                 // Reset para poder asignar nuevos extremos
                 startTransform = null;
                 endTransform = null;
+            }
+            else
+            {
+                // Si la conexión no es permitida, reemplazar el startTransform con el nuevo
+                SetChildrenActive(startTransform, false); // Desactivar la malla inicial del punto anterior
+                startTransform = selectedTransform;
+                SetChildrenActive(startTransform, true); // Activar la nueva malla inicial
             }
         }
         else if (startTransform != null && endTransform != null)
@@ -99,6 +106,14 @@ public class WireConnector : MonoBehaviour
             {
                 child.gameObject.SetActive(active);
             }
+        }
+    }
+
+    void SetAllChildrenActive(Transform parent, bool active)
+    {
+        foreach (Transform child in parent)
+        {
+           child.gameObject.SetActive(active);
         }
     }
 
@@ -152,4 +167,18 @@ public class WireConnector : MonoBehaviour
             }
         }
     }
+
+    public void DeactivateAllActivePlanesAndWires()
+    {
+        GameObject[] cableObjects = GameObject.FindGameObjectsWithTag("Wire");
+
+        foreach (GameObject cable in cableObjects)
+        {
+            foreach (Transform child in cable.transform)
+            {
+                SetAllChildrenActive(child, false);
+            }
+        }
+    }
 }
+

@@ -46,9 +46,6 @@ public class UICollisionDetector : MonoBehaviour
 
     private void CheckSolvedStatus()
     {
-        Debug.Log($"correct text: {correctText}");
-        Debug.Log($"actual text: {GetComponent<TextMeshProUGUI>().text}");
-
         solved = ProcessString(GetComponent<TextMeshProUGUI>().text) == ProcessString(correctText);
     }
 
