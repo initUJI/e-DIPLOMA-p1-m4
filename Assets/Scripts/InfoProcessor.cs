@@ -5,8 +5,10 @@ using TMPro;
 public class InfoProcessor : MonoBehaviour
 {
     public TextMeshProUGUI statusText;  // Texto para mostrar el estado sobre el objeto raíz
-    private List<UICollisionDetector> uiCollisionDetectors = new List<UICollisionDetector>();  // Lista para almacenar UICollisionDetectors
-    private int solvedCount = 0;  // Contador de UICollisionDetectors con solved = true
+    [HideInInspector]
+    public List<UICollisionDetector> uiCollisionDetectors = new List<UICollisionDetector>();  // Lista para almacenar UICollisionDetectors
+    [HideInInspector]
+    public int solvedCount = 0;  // Contador de UICollisionDetectors con solved = true
 
     private void Start()
     {

@@ -39,8 +39,6 @@ public class EventLogger : MonoBehaviour
 
         // Debug del camino exacto de la carpeta
         Debug.Log("La carpeta de datos es: " + dataFolderPath);
-
-        StartSession("test");
     }
 
     // Método para iniciar la sesión y establecer el userId
@@ -65,8 +63,18 @@ public class EventLogger : MonoBehaviour
     {
         if (string.IsNullOrEmpty(userId))
         {
-            Debug.LogError("Error: La sesión no ha sido iniciada. Llama a StartSession antes de registrar eventos.");
-            return;
+            Debug.Log("Error: La sesión no ha sido iniciada. La ID por defecto será test.");
+            userId = "test";
+
+            // Establece el nombre del archivo JSON usando el ID de usuario y la fecha con hora
+            string fileName = $"{userId}_{sessionStartTime.ToString("yyyyMMdd_HHmmss")}.json";
+            filePath = Path.Combine(dataFolderPath, fileName);
+
+            // Carga el registro de eventos si existe
+            LoadEventLog();
+
+            // Debug del camino exacto
+            Debug.Log("El archivo de eventos se guardará en: " + filePath);
         }
 
         EventData newEvent = new EventData

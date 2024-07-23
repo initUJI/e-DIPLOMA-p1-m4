@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI; // Asegúrate de tener esto si estás usando UI de Unity
 
 public class WireConnector : MonoBehaviour
 {
     public float wireWidth = 0.1f;    // Ancho del cable
     public float endpointOffset = 0.001f; // Offset para la posición del cable desde el extremo
+    public TextMeshProUGUI connectionStatusText; // Texto que se activará al detectar la conexión correcta
 
     private Transform startTransform;
     private Transform endTransform;
+    private bool ultrasonicConnected = false;
+    private bool dht11Connected = false;
 
     void Update()
     {
@@ -42,7 +47,6 @@ public class WireConnector : MonoBehaviour
         {
             if (hit.transform.CompareTag("Wire"))
             {
-                Debug.Log("wire detected");
                 AssignTransform(hit.transform);
             }
         }
@@ -113,7 +117,7 @@ public class WireConnector : MonoBehaviour
     {
         foreach (Transform child in parent)
         {
-           child.gameObject.SetActive(active);
+            child.gameObject.SetActive(active);
         }
     }
 
@@ -130,6 +134,9 @@ public class WireConnector : MonoBehaviour
 
         // Activar los cables y mallas en el objeto de final
         ActivateCablesForObject(endColliders, endName, startName);
+
+        // Verificar conexiones específicas
+        CheckConnections(start, end);
     }
 
     void ActivateCablesForObject(Transform collidersParent, string parentName, string otherParentName)
@@ -174,11 +181,32 @@ public class WireConnector : MonoBehaviour
 
         foreach (GameObject cable in cableObjects)
         {
-            foreach (Transform child in cable.transform)
-            {
-                SetAllChildrenActive(child, false);
-            }
+            SetAllChildrenActive(cable.transform, false);
+        }
+
+        startTransform = null;
+        endTransform = null;
+    }
+
+    void CheckConnections(Transform startName, Transform endName)
+    {
+        // Verificar si ambos sensores están conectados a un objeto con el tag "Wire" y "Digital" en el nombre
+        if ((startName.parent.parent.name.Contains("Ultrasonic") && endName.name.Contains("Digital")) ||
+            (endName.parent.parent.name.Contains("Ultrasonic") && startName.name.Contains("Digital")))
+        {
+            ultrasonicConnected = true;
+        }
+
+        if ((startName.parent.parent.name.Contains("DHT11") && endName.name.Contains("Digital")) ||
+            (endName.parent.parent.name.Contains("DHT11") && startName.name.Contains("Digital")))
+        {
+            dht11Connected = true;
+        }
+
+        // Activar el texto si ambos sensores están conectados
+        if (ultrasonicConnected && dht11Connected)
+        {
+            connectionStatusText.gameObject.SetActive(true);
         }
     }
 }
-

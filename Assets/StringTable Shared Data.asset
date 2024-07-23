@@ -199,6 +199,30 @@ MonoBehaviour:
     m_Key: DigitalPinsDefinition
     m_Metadata:
       m_Items: []
+  - m_Id: 5080278928850944
+    m_Key: FinishConfirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5080784283762688
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5102542810382336
+    m_Key: InfoDocumentation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6120896878739456
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6120933415321600
+    m_Key: InfoWire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6124971431165952
+    m_Key: Correct
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -12,6 +12,7 @@ TagManager:
   - ValuesMenu
   - Wire
   - CableEndpoint
+  - SpecificWires
   layers:
   - Default
   - TransparentFX

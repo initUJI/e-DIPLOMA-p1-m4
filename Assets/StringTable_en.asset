@@ -210,7 +210,7 @@ MonoBehaviour:
       the connection and use of different sensors and actuators. This shield provides
       a standardised interface, simplifying the prototyping process.
 
-      
+
 
       Key
       advantages of the Base Shield include ease of use, modularity, and compatibility
@@ -261,6 +261,59 @@ MonoBehaviour:
       signals to LEDs, relays, and other actuators. Some also have capabilities such
       as external switches (D2 and D3 on the Arduino Uno) or PWM (Pulse Width Modulation)
       to simulate analogue outputs.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5080278928850944
+    m_Localized: Are you sure you want to finish the test?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5080784283762688
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5102542810382336
+    m_Localized: "Focus on the component: Use your device's camera to focus on the
+      component you wish to study. Make sure it is centred and visible.\r\n\nStudy
+      the parts: Tap on the highlighted parts to get detailed information about each
+      part.\r\n\nStart the game: Press the \u2018Play\u2019 button to start the interactive
+      game.\r\n\nDrag the names: Drag the names of the component parts to the corresponding
+      descriptions.\r\n\nFinish and view results: Once you have finished, press the
+      \u2018Finish\u2019 button to end the game and view your results.\r\n\nRestart:
+      You can try again by pressing the restart button.\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6120933415321600
+    m_Localized: 'Connect the Base Shield to the Arduino board.
+
+
+
+      Place each
+      component in the specific space on the template.
+
+
+
+      Click on the ports
+      to connect them. You can use the disconnect button at the bottom left of the
+      screen to remove all connections.
+
+
+
+      Connect the sensors to the Base
+      Shield, which in turn must be connected to the arduino board.
+
+
+
+      Remember
+      what you have studied to know where to connect each sensor.
+
+
+
+      Translated
+      with DeepL.com (free version)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6124971431165952
+    m_Localized: Correct!
     m_Metadata:
       m_Items: []
   references:

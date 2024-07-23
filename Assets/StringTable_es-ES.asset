@@ -255,6 +255,39 @@ MonoBehaviour:
       Uno) o PWM (Modulaci\xF3n por Ancho de Pulso) para simular salidas anal\xF3gicas."
     m_Metadata:
       m_Items: []
+  - m_Id: 5080278928850944
+    m_Localized: "\xBFEst\xE1s seguro de que quiere terminar el test?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5080784283762688
+    m_Localized: "S\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5102542810382336
+    m_Localized: "Enfoque el componente: Utilice la c\xE1mara de su dispositivo para
+      enfocar el componente que desea estudiar. Aseg\xFArate de que est\xE1 centrado
+      y visible.\r\n\r\nEstudie las partes: Pulse sobre las partes resaltadas para
+      obtener informaci\xF3n detallada sobre cada una de ellas.\r\n\r\nInicia el
+      juego: Pulsa el bot\xF3n \xABJugar\xBB para iniciar el juego interactivo.\r\n\r\nArrastre
+      los nombres: Arrastre los nombres de las partes componentes a las descripciones
+      correspondientes.\r\n\r\nTerminar y ver resultados: Cuando hayas terminado,
+      pulsa el bot\xF3n \xABFinalizar\xBB para terminar el juego y ver los resultados.\r\n\r\nReiniciar:
+      Puedes volver a intentarlo pulsando el bot\xF3n de reinicio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6120933415321600
+    m_Localized: "Conecta la Base Shield a la placa de Arduino.\n\nColoca cada componente
+      en el espacio espec\xEDfico de la plantilla.\n\nPulsa en los puertos para conectarlos.
+      Puedes usar el bot\xF3n de desconexi\xF3n en la parte inferior izquierda de
+      la pantalla para quitar todas las conexiones.\n\nConecta los sensores a la
+      Base Shield, que a su vez debe estar conectada a la placa de arduino.\n\nRecuerda
+      lo que has estudiado para saber donde conectar cada sensor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6124971431165952
+    m_Localized: "\xA1Correcto!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

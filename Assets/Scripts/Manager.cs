@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
     public GameObject optionPrefab;
     public float moveStep = 0.005f;
     public float checkDelay = 0.001f;
+    private EventLogger logger;
 
+    private void Start()
+    {
+        logger = FindObjectOfType<EventLogger>();
+    }
     public void CreateOptionName(TextMeshProUGUI text, Transform initialPos)
     {
         GameObject optionInstance = InstantiateOption(initialPos);
@@ -89,4 +95,24 @@ public class Manager : MonoBehaviour
         // Move the option instance considering its rotation
         optionInstance.transform.position += optionInstance.transform.up * moveStep;
     }
+
+    public void ReloadCurrentScene()
+    {
+        logger.LogEvent("Reload scene button pressed");
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+    public void infoPanel(GameObject infoPanel)
+    {
+        if (infoPanel.activeInHierarchy)
+        {
+            infoPanel.SetActive(false);
+        }
+        else
+        {
+            infoPanel.SetActive(true);
+        }
+    }
+
 }

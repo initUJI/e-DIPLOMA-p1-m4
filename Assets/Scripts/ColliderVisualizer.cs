@@ -25,14 +25,8 @@ public class ColliderVisualizer : MonoBehaviour
 
     void OnRenderObject()
     {
-        // Verificar si el nombre del objeto contiene "Wire"
-        if (gameObject.name.Contains("Wire"))
-        {
-            return;
-        }
-
-        // Verificar si el objeto principal está activo
-        if (!gameObject.activeInHierarchy)
+        // Verificar si el objeto o alguno de sus padres contiene "Wire" en el nombre y si está activo
+        if (ContainsTagOrName(gameObject, "Wire") || ContainsTagOrName(gameObject, "SpecificWires") || !gameObject.activeInHierarchy)
         {
             return;
         }
@@ -65,6 +59,20 @@ public class ColliderVisualizer : MonoBehaviour
                 DrawMeshCollider((MeshCollider)collider);
             }
         }
+    }
+
+    private bool ContainsTagOrName(GameObject obj, string tagName)
+    {
+        // Verificar si el objeto o alguno de sus padres contiene el tag o nombre especificado
+        while (obj != null)
+        {
+            if (obj.CompareTag(tagName) || obj.name.Contains(tagName))
+            {
+                return true;
+            }
+            obj = obj.transform.parent != null ? obj.transform.parent.gameObject : null;
+        }
+        return false;
     }
 
     private void DrawBoxCollider(BoxCollider box)
@@ -190,3 +198,4 @@ public class ColliderVisualizer : MonoBehaviour
         GL.PopMatrix();
     }
 }
+
