@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using TMPro;
 
 public class EventLogger : MonoBehaviour
 {
@@ -39,6 +40,11 @@ public class EventLogger : MonoBehaviour
 
         // Debug del camino exacto de la carpeta
         Debug.Log("La carpeta de datos es: " + dataFolderPath);
+    }
+
+    public void saveNewID(TMP_InputField text)
+    {
+        StartSession(text.text);
     }
 
     // Método para iniciar la sesión y establecer el userId

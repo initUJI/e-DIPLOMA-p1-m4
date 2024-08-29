@@ -8,16 +8,17 @@ public class ColliderVisualizer : MonoBehaviour
     public LayerMask ignoreLayers; // LayerMask para especificar las capas a ignorar (incluye UI)
 
     private Material lineMaterial;
+    private bool shouldDraw = false;
 
     void Start()
     {
-        // Create a simple shader to render the colliders
+        // Crear un shader simple para renderizar los colliders
         Shader shader = Shader.Find("Hidden/Internal-Colored");
         lineMaterial = new Material(shader)
         {
             hideFlags = HideFlags.HideAndDontSave
         };
-        // Enable depth test
+        // Habilitar el depth test
         lineMaterial.SetInt("_ZWrite", 1);
         lineMaterial.SetInt("_ZTest", (int)UnityEngine.Rendering.CompareFunction.LessEqual);
         lineMaterial.SetFloat("_LineWidth", lineWidth);
@@ -25,12 +26,35 @@ public class ColliderVisualizer : MonoBehaviour
 
     void OnRenderObject()
     {
+        if (shouldDraw)
+        {
+            DrawColliders();
+        }
+    }
+
+    public void StartDrawing()
+    {
+        shouldDraw = true;
+        // Forzar la actualización del renderizado
+        Camera.main.Render();
+    }
+
+    public void ClearDrawings()
+    {
+        shouldDraw = false;
+        // Forzar la actualización del renderizado
+        Camera.main.Render();
+    }
+
+    private void DrawColliders()
+    {
         // Verificar si el objeto o alguno de sus padres contiene "Wire" en el nombre y si está activo
         if (ContainsTagOrName(gameObject, "Wire") || ContainsTagOrName(gameObject, "SpecificWires") || !gameObject.activeInHierarchy)
         {
             return;
         }
 
+        GL.PushMatrix();
         lineMaterial.SetColor("_Color", colliderColor);
         lineMaterial.SetPass(0);
 
@@ -59,6 +83,8 @@ public class ColliderVisualizer : MonoBehaviour
                 DrawMeshCollider((MeshCollider)collider);
             }
         }
+
+        GL.PopMatrix();
     }
 
     private bool ContainsTagOrName(GameObject obj, string tagName)
@@ -198,4 +224,3 @@ public class ColliderVisualizer : MonoBehaviour
         GL.PopMatrix();
     }
 }
-

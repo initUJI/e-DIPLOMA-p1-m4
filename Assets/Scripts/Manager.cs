@@ -11,10 +11,56 @@ public class Manager : MonoBehaviour
     public float checkDelay = 0.001f;
     private EventLogger logger;
 
+    public TextMeshProUGUI textMeshProUGUIID;
+    public TMP_InputField tMP_InputFieldID;
     private void Start()
     {
         logger = FindObjectOfType<EventLogger>();
+        InitializeAllInfoProcessors();
     }
+
+    void InitializeAllInfoProcessors()
+    {
+        // Encuentra todos los objetos con el tag "ModelTarget"
+        GameObject[] modelTargets = GameObject.FindGameObjectsWithTag("ModelTarget");
+
+        // Lista para almacenar todos los objetos hijos
+        List<GameObject> allChildObjects = new List<GameObject>();
+
+        // Recorre cada objeto ModelTarget y sus hijos para agregar a la lista
+        foreach (GameObject modelTarget in modelTargets)
+        {
+            GetChildren(modelTarget, allChildObjects);
+        }
+
+        // Itera sobre cada objeto hijo y busca componentes InfoProcessor
+        foreach (GameObject obj in allChildObjects)
+        {
+            InfoProcessor infoProcessor = obj.GetComponent<InfoProcessor>();
+            if (infoProcessor != null)
+            {
+                // Llama a la función InitializeInfoObjects pasando el primer hijo del GameObject
+                if (infoProcessor.gameObject.transform.childCount > 0)
+                {
+                    Transform firstChild = infoProcessor.gameObject.transform.GetChild(0);
+                    infoProcessor.InitializeInfoObjects(firstChild);
+                }
+            }
+        }
+    }
+
+    void GetChildren(GameObject obj, List<GameObject> allObjects)
+    {
+        // Añade el objeto actual a la lista
+        allObjects.Add(obj);
+
+        // Recorre cada hijo y llama recursivamente a esta función
+        for (int i = 0; i < obj.transform.childCount; i++)
+        {
+            GetChildren(obj.transform.GetChild(i).gameObject, allObjects);
+        }
+    }
+
     public void CreateOptionName(TextMeshProUGUI text, Transform initialPos)
     {
         GameObject optionInstance = InstantiateOption(initialPos);
@@ -31,7 +77,7 @@ public class Manager : MonoBehaviour
     private void SetOptionText(GameObject optionInstance, TextMeshProUGUI text)
     {
         // Set the text in the TextMeshProUGUI component
-        optionInstance.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = text.text;
+        optionInstance.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = text.text;
     }
 
     private IEnumerator MoveUpUntilNoCollision(GameObject optionInstance)
@@ -113,6 +159,19 @@ public class Manager : MonoBehaviour
         {
             infoPanel.SetActive(true);
         }
+
+        logger.LogEvent(infoPanel.name + " button pressed. Info panel active: " + infoPanel.activeInHierarchy);
     }
+
+    public void equalTexts()
+    {
+        textMeshProUGUIID.text = tMP_InputFieldID.text;
+    }
+
+    private void Update()
+    {
+        equalTexts();
+    }
+
 
 }

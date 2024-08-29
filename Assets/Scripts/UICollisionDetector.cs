@@ -113,9 +113,18 @@ public class UICollisionDetector : MonoBehaviour
     private void TransferTextAndFontSize(GameObject obj)
     {
         TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI sourceTextComponent = obj.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI sourceTextComponent = obj.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
-        logger.LogEvent("Tag " + sourceTextComponent.text + "placed in " + correctText + "space");
+        if (logger == null)
+        {
+            logger = manager.gameObject.GetComponent<EventLogger>();
+        }
+
+        if (logger != null)
+        {
+            logger.LogEvent("Tag " + sourceTextComponent.text + "placed in " + correctText + "space");
+        }
+            
 
         targetTextComponent.text = sourceTextComponent.text;
         targetTextComponent.fontSize = sourceTextComponent.fontSize;

@@ -10,12 +10,12 @@ public class InfoProcessor : MonoBehaviour
     [HideInInspector]
     public int solvedCount = 0;  // Contador de UICollisionDetectors con solved = true
 
-    private void Start()
+    /*private void Start()
     {
         InitializeInfoObjects(transform.GetChild(0));
-    }
+    }*/
 
-    private void InitializeInfoObjects(Transform parent)
+    public void InitializeInfoObjects(Transform parent)
     {
         foreach (Transform child in parent)
         {
@@ -34,15 +34,18 @@ public class InfoProcessor : MonoBehaviour
     {
         // Buscar NameText y verificar su TextMeshProUGUI
         Transform nameTextTransform = infoChild.Find("NameText");
+        Debug.Log($"{transform} : entraaaaaaa");
         if (nameTextTransform != null)
         {
             TextMeshProUGUI textComponent = nameTextTransform.GetComponent<TextMeshProUGUI>();
-            if (textComponent != null && !string.IsNullOrWhiteSpace(textComponent.text))
+            if (textComponent != null /*&& !string.IsNullOrWhiteSpace(textComponent.text)*/)
             {
+                Debug.Log($"{transform} : if");
                 // Buscar y agregar UICollisionDetectors a la lista
                 UICollisionDetector detector = nameTextTransform.GetComponent<UICollisionDetector>();
                 if (detector != null)
                 {
+                    Debug.Log($"{transform} : entraaaaaaa2");
                     uiCollisionDetectors.Add(detector);
                 }
             }
@@ -67,7 +70,7 @@ public class InfoProcessor : MonoBehaviour
     public void UpdateStatusText()
     {
         // Mostrar el resultado encima del objeto raíz
-        statusText.text = $"{solvedCount} / {uiCollisionDetectors.Count}";
+        //statusText.text = $"{solvedCount} / {uiCollisionDetectors.Count}";
     }
 
     public void CheckAndDeactivateInfoObjects()

@@ -19,7 +19,7 @@ public class InfoProcessorSummary : MonoBehaviour
     {
         logger = FindObjectOfType<EventLogger>();
         string summary = CreateSummary();
-        Debug.Log(summary);
+        //Debug.Log(summary);
     }
 
     public void openConfirmationPanel()
@@ -37,6 +37,7 @@ public class InfoProcessorSummary : MonoBehaviour
         text.text = CreateSummary();
         finishButton.SetActive(false);
         reloadButton.SetActive(true);
+        confirmationPanel.SetActive(false);
         logger.LogEvent("Finish button pressed with results: " + text.text);
     }
 

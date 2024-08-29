@@ -38,7 +38,7 @@ public class buttonTest : MonoBehaviour
 
         if (newList.Count > 0)
         {
-            Debug.Log($"CaptureAllNameTexts newList count: {newList.Count}");
+            //Debug.Log($"CaptureAllNameTexts newList count: {newList.Count}");
             nameTexts.Add(newList);
         }
     }
@@ -54,7 +54,7 @@ public class buttonTest : MonoBehaviour
 
         // Buscamos todos los componentes TextMeshProUGUI en el objeto padre
         TextMeshProUGUI[] textComponents = parent.GetComponentsInChildren<TextMeshProUGUI>(true);
-        Debug.Log($"FindNameTextComponents textComponents count: {textComponents.Length}");
+        //Debug.Log($"FindNameTextComponents textComponents count: {textComponents.Length}");
         foreach (TextMeshProUGUI textComponent in textComponents)
         {
             if (textComponent.name == "NameText")
@@ -79,7 +79,7 @@ public class buttonTest : MonoBehaviour
 
     void DeactivateParentObjects()
     {
-        Debug.Log($"DeactivateParentObjects parentObjects count: {parentObjects.Count}");
+        //Debug.Log($"DeactivateParentObjects parentObjects count: {parentObjects.Count}");
 
         // Desactiva los objetos padres de los TextMeshProUGUI capturados
         foreach (GameObject parent in parentObjects)
@@ -90,9 +90,8 @@ public class buttonTest : MonoBehaviour
 
     public void startClick()
     {
-        Debug.Log($"startClick");
         ClearAllText();
-        Debug.Log($"startClick ClearAllText");
+       // Debug.Log($"startClick ClearAllText");
         foreach (GameObject go in components)
         {
             ActivateLastChildInHierarchy(go.transform);

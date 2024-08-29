@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   components: []
+  startButton: {fileID: 0}
+  finishButton: {fileID: 0}
 --- !u!65 &4623612734182547061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -453,7 +455,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2259246654775718473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3091,6 +3093,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 7307655222069297671}
+  uiCollisionDetectors: []
+  solvedCount: 0
 --- !u!1 &7201813645804446787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3473,7 +3477,7 @@ Transform:
   m_GameObject: {fileID: 8703421326458484293}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0216, z: -0.0226}
   m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3521,7 +3525,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8912773723298863416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

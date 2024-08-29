@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 6955493279269024885}
+  uiCollisionDetectors: []
+  solvedCount: 0
 --- !u!1 &3838049560316058248
 GameObject:
   m_ObjectHideFlags: 0
@@ -10764,11 +10766,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3344227421605690267, guid: 59bb8b5bd09abb244bbeb4a8c29e9b1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.072
       objectReference: {fileID: 0}
     - target: {fileID: 3344227421605690267, guid: 59bb8b5bd09abb244bbeb4a8c29e9b1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.146
       objectReference: {fileID: 0}
     - target: {fileID: 3344227421605690267, guid: 59bb8b5bd09abb244bbeb4a8c29e9b1e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10941,6 +10943,14 @@ PrefabInstance:
     - target: {fileID: 5230347234636120712, guid: 59bb8b5bd09abb244bbeb4a8c29e9b1e, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230347234636120715, guid: 59bb8b5bd09abb244bbeb4a8c29e9b1e, type: 3}
+      propertyPath: m_fontSize
+      value: 0.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230347234636120715, guid: 59bb8b5bd09abb244bbeb4a8c29e9b1e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.045
       objectReference: {fileID: 0}
     - target: {fileID: 5230347235904142638, guid: 59bb8b5bd09abb244bbeb4a8c29e9b1e, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -12422,6 +12432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   components: []
+  startButton: {fileID: 0}
+  finishButton: {fileID: 0}
 --- !u!224 &8766116550790320059 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2530449904326659936, guid: f1d5e1730c7d6bb4480250adaeacba1c, type: 3}

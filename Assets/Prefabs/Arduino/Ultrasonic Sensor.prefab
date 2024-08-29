@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 657603221996615485}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.439}
+  m_LocalPosition: {x: 0, y: -0.013, z: 0.726}
   m_LocalScale: {x: 0.016, y: 1, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3414,6 +3414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 5467648507361271505}
+  uiCollisionDetectors: []
+  solvedCount: 0
 --- !u!1 &4607832565868690608
 GameObject:
   m_ObjectHideFlags: 0
@@ -4510,6 +4512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   components: []
+  startButton: {fileID: 0}
+  finishButton: {fileID: 0}
 --- !u!1 &7787675858405909446
 GameObject:
   m_ObjectHideFlags: 0

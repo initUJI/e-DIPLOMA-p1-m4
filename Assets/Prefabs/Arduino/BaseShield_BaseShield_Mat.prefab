@@ -409,7 +409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Conexiones
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &2650762476118090003
 MonoBehaviour:
@@ -679,7 +679,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7472476977018028017
 MonoBehaviour:
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Puertos de conexi\xF3n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &2710510045836610246
 MonoBehaviour:
@@ -975,7 +975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Pins Anal\xF3gicos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &1872382962650935438
 MonoBehaviour:
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Pins I2C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &5718195851864513067
 MonoBehaviour:
@@ -1395,7 +1395,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:28bdbd5ffa3f1454295ad5df66b9401d
     m_TableEntryReference:
-      m_KeyId: 3625519311093760
+      m_KeyId: 3627601128718336
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Puertos digitales
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1591,7 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &5153315130053486767
 MonoBehaviour:
@@ -1877,10 +1877,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Analogue inputs/outputs, designed to read analogue signals and convert
-    them to digital values using an ADC converter. These pins are commonly used to
-    connect analogue sensors, such as potentiometers and temperature sensors, allowing
-    the Arduino to measure variable voltages.
+  m_text: "Entradas/salidas anal\xF3gicas, dise\xF1adas para leer se\xF1ales anal\xF3gicas
+    y convertirlas en valores digitales mediante un convertidor ADC. Estos pines
+    se utilizan com\xFAnmente para conectar sensores anal\xF3gicos, como potenci\xF3metros
+    y sensores de temperatura, permitiendo al Arduino medir voltajes variables."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Pin UART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &7503742173506409821
 MonoBehaviour:
@@ -2578,8 +2578,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Allows programmes to be recorded on the circuit directly from the computer
-    without the need to use the USB port.
+  m_text: Permite grabar programas en el circuito directamente desde el ordenador
+    sin necesidad de utilizar el puerto USB.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -2754,11 +2754,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Digital pins used for digital inputs and outputs. They can be configured
-    to read digital states (high or low) from sensors or switches, or to send digital
-    signals to LEDs, relays, and other actuators. Some also have capabilities such
-    as external switches (D2 and D3 on the Arduino Uno) or PWM (Pulse Width Modulation)
-    to simulate analogue outputs.
+  m_text: "Pines digitales utilizados para entradas y salidas digitales. Pueden configurarse
+    para leer estados digitales (alto o bajo) desde sensores o interruptores, o para
+    enviar se\xF1ales digitales a LEDs, rel\xE9s, y otros actuadores. Algunos tambi\xE9n
+    tienen capacidades como interrupciones externas (D2 y D3 en el Arduino Uno) o
+    PWM (Modulaci\xF3n por Ancho de Pulso) para simular salidas anal\xF3gicas."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -2843,7 +2843,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:28bdbd5ffa3f1454295ad5df66b9401d
     m_TableEntryReference:
-      m_KeyId: 3625673397239808
+      m_KeyId: 3629868154224640
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -2935,7 +2935,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Puetos anal\xF3gicos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -3039,7 +3039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &4445939116716568233
 MonoBehaviour:
@@ -3205,7 +3205,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4938958956564057688
 MonoBehaviour:
@@ -3343,7 +3343,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8791547732634594421
 MonoBehaviour:
@@ -3383,7 +3383,7 @@ Transform:
   m_GameObject: {fileID: 2300117715731828128}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3792,12 +3792,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Expansion board that connects to an Arduino motherboard to facilitate
-    the connection and use of different sensors and actuators. This shield provides
-    a standardised interface, simplifying the prototyping process.\n\r\nKey advantages
-    of the Base Shield include ease of use, modularity, and compatibility with various
-    Arduino models, making it ideal for rapid prototyping, educational applications,
-    and maker community projects. \n"
+  m_text: "Placa de expansi\xF3n que se conecta a una placa base Arduino para facilitar
+    la conexi\xF3n y el uso de diferentes sensores y actuadores. Este escudo proporciona
+    una interfaz estandarizada, simplificando el proceso de creaci\xF3n de prototipos.\r\n\r\nEntre
+    las principales ventajas de la Base Shield se incluyen la facilidad de uso, la
+    modularidad y la compatibilidad con varios modelos de Arduino, lo que la hace
+    ideal para la creaci\xF3n r\xE1pida de prototipos, aplicaciones educativas y
+    proyectos de la comunidad maker. \r\n\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -4026,18 +4027,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '5 auxiliary inputs or outputs (8 to 12).
-
-    3 outputs 9, 10 and 11 which
-    allow pulse or width modulation.
-
-    Output 13 used to connect a LED directly
-    to ground.
-
-    Ground output GND.
-
-    AREF pin used to set an external reference
-    voltage (between 0 and 5 volts) as the upper limit of the analogue input pins.'
+  m_text: "5 entradas o salidas auxiliares (8 a 12).\r\n3 salidas 9, 10 y 11 que
+    permiten la modulaci\xF3n por impulsos o por anchura.\r\nSalida 13 que permite
+    conectar un LED directamente a masa.\r\nSalida de tierra GND.\r\nPin AREF utilizado
+    para fijar una tensi\xF3n de referencia externa (entre 0 y 5 voltios) como l\xEDmite
+    superior de los pines de entrada anal\xF3gica."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -4212,10 +4206,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Reset: Allows the micro controller to be reset.\r\n\r\n5V and 3.3V: 5
-    volts and 3.3 volts of power. \r\n\r\nGND: To ground the circuit.\r\n\r\nVIN:
-    To connect the power supply to the board with an external power supply between
-    6 and 12VDC."
+  m_text: "Reiniciar: Permite reiniciar el microcontrolador.\r\n\r\n5V y 3.3V: 5
+    voltios y 3.3 voltios de alimentaci\xF3n. \r\n\r\nGND: Para conectar a tierra
+    el circuito.\r\n\r\nVIN: Para conectar la alimentaci\xF3n a la placa con una
+    fuente de alimentaci\xF3n externa entre 6 y 12VDC."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -4390,9 +4384,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: These pins under the 'Analog In' label (A0 to A5 on the UNO) can read the
-    signal from an analogue sensor and convert it into a digital value that we can
-    interpret.
+  m_text: "Estos pines bajo la etiqueta 'Analog In' (A0 a A5 en el UNO) pueden leer
+    la se\xF1al de un sensor anal\xF3gico y convertirla en un valor digital que podamos
+    interpretar."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -4679,7 +4673,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &711084299937230914
 MonoBehaviour:
@@ -5115,7 +5109,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3046865315262510984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5154,7 +5148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Connection Ports
+  m_text: "Puertos de conexi\xF3n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -5406,7 +5400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: ICPS Input
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -5510,7 +5504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &7923247710951459606
 MonoBehaviour:
@@ -5728,7 +5722,7 @@ Transform:
   m_GameObject: {fileID: 3695776530360949193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5822,10 +5816,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ports to connect devices using including VCC (power), GND (ground), SDA
-    (Serial Data) and SCL (Serial Clock). These facilitate the implementation of
-    the I2C protocol, enabling  synchronised data transfer between the Arduino and
-    slave devices, such as sensors, through a standardised and simplified connection.
+  m_text: "Puertos para conectar dispositivos que incluyen VCC (alimentaci\xF3n),
+    GND (masa), SDA (datos serie) y SCL (reloj serie). Estos facilitan la implementaci\xF3n
+    del protocolo I2C, permitiendo la transferencia sincronizada de datos entre el
+    Arduino y los dispositivos esclavos, tales como sensores, a trav\xE9s de una
+    conexi\xF3n estandarizada y simplificada."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -5910,7 +5905,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:28bdbd5ffa3f1454295ad5df66b9401d
     m_TableEntryReference:
-      m_KeyId: 3625673397239808
+      m_KeyId: 3627706858733568
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -6067,7 +6062,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4027378238616030313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6106,7 +6101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Analogue Ports
+  m_text: "Puetos anal\xF3gicos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -6133,8 +6128,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.04
-  m_fontSizeBase: 0.04
+  m_fontSize: 0.035
+  m_fontSizeBase: 0.035
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6242,7 +6237,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4093509854249601406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6458,7 +6453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Pins digitales
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -6562,7 +6557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &8349578445705276500
 MonoBehaviour:
@@ -6580,7 +6575,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:28bdbd5ffa3f1454295ad5df66b9401d
     m_TableEntryReference:
-      m_KeyId: 3625519311093760
+      m_KeyId: 3629780820426752
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -6631,7 +6626,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4127291813826492841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6670,7 +6665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Connections
+  m_text: Conexiones
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -6860,7 +6855,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4257718070628609768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6899,7 +6894,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: UART Pin
+  m_text: Pin UART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -7410,7 +7405,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4827004514767297554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7449,7 +7444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Digital Ports
+  m_text: Puertos digitales
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -7476,8 +7471,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.045
-  m_fontSizeBase: 0.045
+  m_fontSize: 0.035
+  m_fontSizeBase: 0.035
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7682,7 +7677,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7712951408286473355
 MonoBehaviour:
@@ -7723,7 +7718,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4959561877528151354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7897,7 +7892,7 @@ Transform:
   m_GameObject: {fileID: 5041205238054178523}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0272, y: 0, z: -0.0006}
+  m_LocalPosition: {x: 0.0226, y: 0.0101, z: -0.0538}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8537,8 +8532,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: These pins can be used for both digital input (such as detecting a button
-    press) and digital output (such as powering an LED).
+  m_text: "Estos pines pueden utilizarse tanto para la entrada digital (como la detecci\xF3n
+    de la pulsaci\xF3n de un bot\xF3n) como para la salida digital (como la alimentaci\xF3n
+    de un LED)."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -8877,7 +8873,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4482205386040294683
 MonoBehaviour:
@@ -9174,7 +9170,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6065740303316335341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9213,7 +9209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I2C pins
+  m_text: Pins I2C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -9349,7 +9345,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6189343028086644407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9388,7 +9384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Analogue pins
+  m_text: "Pins Anal\xF3gicos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -9780,7 +9776,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6946236440246996422
 MonoBehaviour:
@@ -10056,7 +10052,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2194468132411326471
 MonoBehaviour:
@@ -10212,10 +10208,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ports designed for asynchronous serial communication and typically include:
-    VCC (power), GND (ground), TX (transmit data) and RX (receive data). They facilitate
-    direct communication between the Arduino and other serial devices, allowing data
-    transfer through a simple and efficient connection.'
+  m_text: "Puertos dise\xF1ados para la comunicaci\xF3n serial as\xEDncrona y que
+    generalmente incluyen: VCC (alimentaci\xF3n), GND (tierra), TX (transmisi\xF3n
+    de datos) y RX (recepci\xF3n de datos). Estos facilitan la comunicaci\xF3n directa
+    entre el Arduino y otros dispositivos seriales, permitiendo la transferencia
+    de datos mediante una conexi\xF3n simple y eficiente."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -10656,7 +10653,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6194048083037130582
 MonoBehaviour:
@@ -10738,7 +10735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Base Shield
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -10826,7 +10823,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.15, z: 0.1}
+  m_Size: {x: 0.6, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1412977448799702357
 MonoBehaviour:
@@ -10842,7 +10839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: OptionName
   manager: {fileID: 0}
-  infoProcessor: {fileID: 0}
+  infoProcessor: {fileID: 5376280479467934042}
   solved: 0
 --- !u!114 &3035597827098405420
 MonoBehaviour:
@@ -11561,7 +11558,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7933331097980095541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0002}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11600,7 +11597,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Digital pins
+  m_text: Pins digitales
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -11761,7 +11758,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8133309836667322510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12010,7 +12007,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.07, z: 0.002}
+  m_Size: {x: 0.36, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8680119862591610721
 MonoBehaviour:

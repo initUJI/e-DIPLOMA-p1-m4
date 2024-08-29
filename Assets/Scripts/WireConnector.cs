@@ -2,18 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // Asegúrate de tener esto si estás usando UI de Unity
+using UnityEngine.UI;
 
 public class WireConnector : MonoBehaviour
 {
     public float wireWidth = 0.1f;    // Ancho del cable
     public float endpointOffset = 0.001f; // Offset para la posición del cable desde el extremo
     public TextMeshProUGUI connectionStatusText; // Texto que se activará al detectar la conexión correcta
+    public GameObject ultrasonicCanvas; // Canvas para el Ultrasonic Sensor
+    public GameObject dht11Canvas; // Canvas para el DHT11 Sensor
 
     private Transform startTransform;
     private Transform endTransform;
     private bool ultrasonicConnected = false;
     private bool dht11Connected = false;
+    private EventLogger logger;
+
+    void Start()
+    {
+        // Asegurarse de que los Canvas comiencen desactivados
+        ultrasonicCanvas.SetActive(false);
+        dht11Canvas.SetActive(false);
+        connectionStatusText.gameObject.SetActive(false);
+        logger = FindFirstObjectByType<EventLogger>();
+    }
 
     void Update()
     {
@@ -186,27 +198,48 @@ public class WireConnector : MonoBehaviour
 
         startTransform = null;
         endTransform = null;
+        ultrasonicConnected = false;
+        dht11Connected = false;
+        connectionStatusText.gameObject.SetActive(false);
+        ultrasonicCanvas.SetActive(false); // Desactivar el canvas de Ultrasonic
+        dht11Canvas.SetActive(false); // Desactivar el canvas de DHT11
     }
 
-    void CheckConnections(Transform startName, Transform endName)
+    void CheckConnections(Transform start, Transform end)
     {
         // Verificar si ambos sensores están conectados a un objeto con el tag "Wire" y "Digital" en el nombre
-        if ((startName.parent.parent.name.Contains("Ultrasonic") && endName.name.Contains("Digital")) ||
-            (endName.parent.parent.name.Contains("Ultrasonic") && startName.name.Contains("Digital")))
+        if ((start.parent.parent.name.Contains("Ultrasonic") && end.name.Contains("Digital")) ||
+            (end.parent.parent.name.Contains("Ultrasonic") && start.name.Contains("Digital")))
         {
             ultrasonicConnected = true;
+            ultrasonicCanvas.SetActive(true); // Activar el canvas de Ultrasonic
+            logger.LogEvent("Ultrasonic good connected");
+        }
+        else
+        {
+            logger.LogEvent("Ultrasonic bad connected");
         }
 
-        if ((startName.parent.parent.name.Contains("DHT11") && endName.name.Contains("Digital")) ||
-            (endName.parent.parent.name.Contains("DHT11") && startName.name.Contains("Digital")))
+        if ((start.parent.parent.name.Contains("DHT11") && end.name.Contains("Digital")) ||
+            (end.parent.parent.name.Contains("DHT11") && start.name.Contains("Digital")))
         {
             dht11Connected = true;
+            dht11Canvas.SetActive(true); // Activar el canvas de DHT11
+            logger.LogEvent("DHT11 good connected");
         }
+        else {
+            logger.LogEvent("DHT11 bad connected");
+        }
+
 
         // Activar el texto si ambos sensores están conectados
         if (ultrasonicConnected && dht11Connected)
         {
             connectionStatusText.gameObject.SetActive(true);
+        }
+        else
+        {
+            connectionStatusText.gameObject.SetActive(false);
         }
     }
 }
