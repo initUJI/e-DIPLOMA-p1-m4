@@ -73,7 +73,7 @@ public class EventLogger : MonoBehaviour
             userId = "test";
 
             // Establece el nombre del archivo JSON usando el ID de usuario y la fecha con hora
-            string fileName = $"{userId}_{sessionStartTime.ToString("yyyyMMdd_HHmmss")}.json";
+            string fileName = $"{userId}_{sessionStartTime.ToString("yyyy-MM-dd_HH-mm-ss")}.json";
             filePath = Path.Combine(dataFolderPath, fileName);
 
             // Carga el registro de eventos si existe
