@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -216,26 +217,57 @@ public class Manager : MonoBehaviour
                 }
             }
 
-            // Verificar si el objeto pulsado no es "NameText"
-            if (clickedObject != null && clickedObject.name == "NameText")
-            {
-                // No hacer nada, no desactivar el brillo si se pulsó "NameText"
-                return;
-            }
 
-            // Verificar si el objeto clicado es un ImageOutline
+            // Verificar si el objeto pulsado no es "NameText"
+            if (clickedObject != null)
+            {
+
+                if (clickedObject.name == "NameText")
+                {
+                    // No hacer nada, no desactivar el brillo si se pulsó "NameText"
+                    return;
+                }
+            }
             ImageOutline clickedImageOutline = clickedObject != null ? clickedObject.GetComponent<ImageOutline>() : null;
+            UICollisionDetector clickedUIColisionDetector = clickedObject != null ? clickedObject.GetComponent<UICollisionDetector>() : null;
 
             if (clickedImageOutline != null)
             {
                 // Si es un ImageOutline, manejar el brillo dentro del mismo ImageOutline
                 clickedImageOutline.OnPointerClick(null); // Simular el clic directamente
             }
-            else
+            else if (clickedImageOutline == null && clickedUIColisionDetector == null)
             {
-                // Si no es un ImageOutline, desactivar todos los brillos
-                UnhighlightAll();
+                StartCoroutine(WaitHalfSecond());
             }
         }
     }
+
+    private IEnumerator WaitHalfSecond()
+    {
+        // Esperar medio segundo
+        yield return new WaitForSeconds(0.3f);
+
+        // Código a ejecutar después de la espera
+        Debug.Log("Medio segundo ha pasado.");
+        UnhighlightAll();
+    }
+
+    public void RemoveRedGlowFromAll()
+    {
+        // Buscar todos los objetos con el componente ImageOutline
+        ImageOutline[] allOutlines = FindObjectsOfType<ImageOutline>();
+
+        // Iterar sobre todos los objetos con ImageOutline
+        foreach (ImageOutline outline in allOutlines)
+        {
+            // Verificar si el objeto está resaltado en rojo
+            if (outline.CheckIfHighlightedRed())
+            {
+                // Desiluminar el objeto
+                outline.RemoveRedGlow();
+            }
+        }
+    }
+
 }

@@ -6,9 +6,10 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     public Color glowColorTranslucent = new Color(1f, 0f, 0f, 1f);   // Rojo intenso para el brillo del objeto
     public Color glowColorNormal = new Color(0f, 1f, 0f, 1f);        // Verde intenso para el brillo del objeto
     public float translucencyAlpha = 0.5f;           // Nivel de transparencia cuando el sprite es translúcido
-    public float boxTranslucencyAlpha = 0.3f;        // Transparencia ajustada para el cubo rojo
+    public float boxTranslucencyAlpha = 0.6f;        // Transparencia ajustada para el cubo rojo
     public UICollisionDetector transferredTo;        // Referencia al UICollisionDetector que recibió el texto
     public Manager manager;                          // Referencia al Manager
+    public float scaleIncrease = 0.1f;  // Porcentaje para aumentar el tamaño de la caja
 
     private bool isGlowing = false;
     private Color originalColor;
@@ -50,6 +51,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        manager.UnhighlightAll();
         Debug.Log("OnPointerClick - ImageOutline clicked");
 
         // Verificar si el manager está asignado
@@ -165,6 +167,63 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         isGlowing = false;
     }
 
+    public bool CheckIfHighlightedRed()
+    {
+        // Obtén todos los SpriteRenderers hijos del objeto actual
+        SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer sr in spriteRenderers)
+        {
+            if (sr != null)
+            {
+                // Verificar si el color actual es el color de brillo rojo
+                if (sr.color == glowColorTranslucent)
+                {
+                    return true;  // Está resaltado en rojo
+                }
+            }
+        }
+        return false;  // No está resaltado en rojo
+    }
+
+    public void RemoveRedGlow()
+    {
+        Debug.Log("Removing red glow from children");
+
+        // Obtén todos los SpriteRenderers hijos del objeto actual
+        SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer sr in spriteRenderers)
+        {
+            if (sr != null)
+            {
+                // Si el color actual es el color de brillo rojo
+                if (sr.color == glowColorTranslucent)
+                {
+                    Debug.Log($"Removing red glow from {sr.gameObject.name}");
+
+                    // Restaurar el color original del sprite
+                    sr.color = originalColor;  // O hacer el sprite translúcido según tu lógica
+
+                    // Si el objeto estaba iluminado en rojo, asegúrate de marcarlo como no translúcido
+                    isTranslucentHighlighted = false;
+                }
+            }
+        }
+
+        // Eliminar el cubo de resaltado si existe
+        if (highlightCube != null)
+        {
+            Destroy(highlightCube);
+            highlightCube = null;
+        }
+
+        // Marcar el objeto como no iluminado
+        isGlowing = false;
+
+        ApplyGlow(glowColorTranslucent);
+        isTranslucentHighlighted = true;
+    }
 
     // Función para hacer las imágenes translúcidas
     public void MakeTranslucent()
@@ -199,42 +258,13 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
             if (highlight == null)
             {
                 // Crear un cubo que coincida con el BoxCollider
-                highlightCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                highlightCube.name = "HighlightCube";
-
-                // Desactiva el colisionador del cubo para que no interfiera con la física
-                Destroy(highlightCube.GetComponent<BoxCollider>());
-
-                // Haz que el cubo sea hijo del abuelo del UICollisionDetector
-                highlightCube.transform.SetParent(grandparent, false);
-
-                // Ajustar el cubo al tamaño y posición del BoxCollider
-                highlightCube.transform.localPosition = boxCollider.center;
-                highlightCube.transform.localScale = boxCollider.size;
-
-                // Aplicar un material translúcido al cubo
-                MeshRenderer renderer = highlightCube.GetComponent<MeshRenderer>();
-                Material translucentMaterial = new Material(Shader.Find("Standard"));
-
-                // Configurar el modo de renderizado a "Fade" para permitir transparencias
-                translucentMaterial.SetFloat("_Mode", 2);  // Modo "Fade"
-                translucentMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                translucentMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                translucentMaterial.SetInt("_ZWrite", 0);
-                translucentMaterial.DisableKeyword("_ALPHATEST_ON");
-                translucentMaterial.EnableKeyword("_ALPHABLEND_ON");
-                translucentMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                translucentMaterial.renderQueue = 3000;  // Asegurar la transparencia en la cola de renderizado
-
-                // Asignar el color con la transparencia ajustada
-                translucentMaterial.color = new Color(color.r, color.g, color.b, boxTranslucencyAlpha);  // Aplicar transparencia reducida
-                renderer.material = translucentMaterial;
+                CreateRedBox(grandparent, grandparent.GetComponent<BoxCollider>());
             }
             else
             {
                 // Si el cubo ya existe, solo cambiar el color
                 MeshRenderer renderer = highlight.GetComponent<MeshRenderer>();
-                renderer.material.color = new Color(color.r, color.g, color.b, boxTranslucencyAlpha); // Aplicar transparencia reducida
+                renderer.material.color = new Color(1f, 0f, 0f, boxTranslucencyAlpha); // Rojo con transparencia reducida
             }
         }
         else
@@ -242,4 +272,43 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
             Debug.LogWarning("BoxCollider not found on grandparent");
         }
     }
+    private void CreateRedBox(Transform parent, BoxCollider parentCollider)
+    {
+        // Crear un cubo que coincida con el BoxCollider del padre
+        highlightCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        highlightCube.name = "RedHighlightBox";
+
+        // Desactivar el colisionador del cubo para que no interfiera con la física
+        Destroy(highlightCube.GetComponent<BoxCollider>());
+
+        // Hacer que el cubo sea hijo del padre
+        highlightCube.transform.SetParent(parent, false);
+
+        // Ajustar el cubo al tamaño y posición del BoxCollider
+        highlightCube.transform.localPosition = parentCollider.center;
+
+        // Ajustar el tamaño del cubo para que sea ligeramente más grande que el BoxCollider
+        Vector3 originalSize = parentCollider.size;
+        highlightCube.transform.localScale = originalSize * (1 + scaleIncrease);
+
+        // Aplicar un material azul translúcido
+        MeshRenderer renderer = highlightCube.GetComponent<MeshRenderer>();
+        Material translucentMaterial = new Material(Shader.Find("Standard"));
+
+        // Configurar el material para soporte de transparencia
+        translucentMaterial.SetFloat("_Mode", 3); // Modo de transparencia
+        translucentMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        translucentMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        translucentMaterial.SetInt("_ZWrite", 0);
+        translucentMaterial.DisableKeyword("_ALPHATEST_ON");
+        translucentMaterial.EnableKeyword("_ALPHABLEND_ON");
+        translucentMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+        translucentMaterial.renderQueue = 3000;
+
+        // Asignar el color azul con la transparencia ajustada
+        translucentMaterial.color = new Color(1f, 0f, 0f, boxTranslucencyAlpha);  // Azul con transparencia
+
+        renderer.material = translucentMaterial;
+    }
+
 }

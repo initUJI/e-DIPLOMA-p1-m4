@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CreateBlueBoxOnActive : MonoBehaviour
 {
-    public float scaleIncrease = 0.05f;  // Porcentaje para aumentar el tamaño de la caja
+    public float scaleIncrease = 0.1f;  // Porcentaje para aumentar el tamaño de la caja
     public float boxTransparency = 0.5f; // Nivel de transparencia de la caja azul
     private GameObject blueBox;  // Referencia al objeto de la caja azul
 
