@@ -223,6 +223,22 @@ MonoBehaviour:
     m_Key: Correct
     m_Metadata:
       m_Items: []
+  - m_Id: 22862121224876032
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22863205741867008
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22865845607444480
+    m_Key: InstruccionsMainMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22866134100062208
+    m_Key: InstruccionsName
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

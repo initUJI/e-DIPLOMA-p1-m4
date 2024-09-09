@@ -155,9 +155,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9825590640640
-    m_Localized: The DHT11 is a temperature and humidity sensor that uses a capacitive
-      humidity sensor and a thermistor to measure the surrounding air, and displays
-      the data as a digital signal on the data pin.
+    m_Localized: A temperature and humidity sensor that uses a capacitive humidity
+      sensor and a thermistor to measure the surrounding air, and displays the data
+      as a digital signal on the data pin.
     m_Metadata:
       m_Items: []
   - m_Id: 10011545108480
@@ -272,14 +272,37 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5102542810382336
-    m_Localized: "Focus on the component: Use your device's camera to focus on the
-      component you wish to study. Make sure it is centred and visible.\r\n\nStudy
-      the parts: Tap on the highlighted parts to get detailed information about each
-      part.\r\n\nStart the game: Press the \u2018Play\u2019 button to start the interactive
-      game.\r\n\nDrag the names: Drag the names of the component parts to the corresponding
-      descriptions.\r\n\nFinish and view results: Once you have finished, press the
-      \u2018Finish\u2019 button to end the game and view your results.\r\n\nRestart:
-      You can try again by pressing the restart button.\r\n"
+    m_Localized: 'Focus on the component: Use your device''s camera to focus on the
+      component you wish to study. Ensure it is centered and fully visible for proper
+      detection.
+
+
+      Explore the parts: Tap on the highlighted parts to reveal
+      detailed information about each one. Relevant parts will be highlighted.
+
+
+      Start
+      the game: Tap the ''Play'' button to begin the interactive challenge.
+
+
+      Match
+      the names: Tap on the name of a component part, then tap on its corresponding
+      description to make a match. Once a part is placed, it will become translucent
+      to indicate it has been successfully placed.
+
+
+      Check placed parts: If
+      you''re unsure about a part you''ve already placed, tap on it to highlight
+      its location and review its details.
+
+
+      Finish and view results: After
+      completing all the matches, press the ''Finish'' button to see your results
+      and the final component overview.
+
+
+      Restart: If you''d like to try again,
+      press the ''Restart'' button to reset the game and start over.'
     m_Metadata:
       m_Items: []
   - m_Id: 6120933415321600
@@ -314,6 +337,29 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 6124971431165952
     m_Localized: Correct!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22862121224876032
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22863205741867008
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22865845607444480
+    m_Localized: "Mode 1: Learn about the Components\r\nTouch the illuminated parts
+      of the ultrasonic sensor, Arduino board, base shield and DHT11 to see information.
+      Press \u2018Play\u2019 to start the game, place the names in the correct places
+      and tap \u2018Finish\u2019 to see your successes.  Pressing \u2018Start\u2019
+      will open the Mode 1 scene directly.\r\n\r\nMode 2: Connect Cables\r\nRefer
+      to the template to see how the components should be connected. Click on a sensor
+      and then click on the corresponding port on the base shield to make the connection.\r\n\r\nTranslated
+      with DeepL.com (free version)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22866134100062208
+    m_Localized: Instruccions
     m_Metadata:
       m_Items: []
   references:

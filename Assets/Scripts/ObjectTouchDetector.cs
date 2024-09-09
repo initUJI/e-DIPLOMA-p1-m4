@@ -39,8 +39,8 @@ public class ObjectTouchDetector : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Touched object: " + hit.transform.name);
-            Debug.Log("Touched point: " + hit.point);
+            //Debug.Log("Touched object: " + hit.transform.name);
+            //Debug.Log("Touched point: " + hit.point);
             // Aquí puedes añadir más lógica para manejar el toque en el objeto
 
             if (hit.transform.childCount > 0 && hit.transform.GetChild(0).CompareTag("Info"))

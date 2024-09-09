@@ -19,6 +19,18 @@ public class buttonTest : MonoBehaviour
     [SerializeField]
     private GameObject finishButton;
 
+    [SerializeField]
+    private GameObject optionsprefabArduino;
+    [SerializeField]
+    private GameObject optionsprefabUltrasonic;
+    [SerializeField]
+    private GameObject optionsprefabDHT11;
+    [SerializeField]
+    private GameObject optionsprefabShield;
+
+    private bool start;
+    private GameObject objectDetecting;
+
     void Start()
     {
         foreach (GameObject go in components) {
@@ -29,6 +41,7 @@ public class buttonTest : MonoBehaviour
 
         // Desactiva los objetos padres de los TextMeshProUGUI capturados
         DeactivateParentObjects();
+        start = false;
     }
 
     void CaptureAllNameTexts(GameObject parent)
@@ -91,17 +104,79 @@ public class buttonTest : MonoBehaviour
     public void startClick()
     {
         ClearAllText();
-       // Debug.Log($"startClick ClearAllText");
-        foreach (GameObject go in components)
-        {
-            ActivateLastChildInHierarchy(go.transform);
-        }
+        // Debug.Log($"startClick ClearAllText");
 
         startButton.SetActive(false);
         finishButton.SetActive(true);
         DeactivateLocalizeStringEvent();
         eventLogger = FindObjectOfType<EventLogger>();
         eventLogger.LogEvent("Start button pressed");
+        Canvas.ForceUpdateCanvases();
+
+        start = true;
+        if (objectDetecting != null)
+        {
+            colocateOptions(objectDetecting.transform);
+        }
+    }
+
+    public void colocateOptions(Transform parent)
+    {
+        objectDetecting = parent.gameObject;
+        if (start)
+        {
+            GameObject options = null;
+            Vector3 eulerAngles = Vector3.zero;
+            if (parent.name.Contains("Arduino"))
+            {
+                options = optionsprefabArduino;
+            }
+            else if (parent.name.Contains("DHT11"))
+            {
+                options = optionsprefabDHT11;
+                eulerAngles = new Vector3(-90, 0, 0);
+            }
+            else if (parent.name.Contains("Ultrasonic"))
+            {
+                options = optionsprefabUltrasonic;
+            }
+            else if (parent.name.Contains("Shield"))
+            {
+                options = optionsprefabShield;
+                eulerAngles = new Vector3(-90, 0, 0);
+            }
+
+            options.transform.parent = parent;
+            options.transform.position = parent.transform.position;
+            options.transform.localEulerAngles = eulerAngles;
+        }
+    }
+
+    public void removeOptions(Transform parent)
+    {
+        objectDetecting = null;
+        if (start)
+        {
+            GameObject options = null;
+            if (parent.name.Contains("Arduino"))
+            {
+                options = optionsprefabArduino;
+            }
+            else if (parent.name.Contains("DHT11"))
+            {
+                options = optionsprefabDHT11;
+            }
+            else if (parent.name.Contains("Ultrasonic"))
+            {
+                options = optionsprefabUltrasonic;
+            }
+            else if (parent.name.Contains("Shield"))
+            {
+                options = optionsprefabShield;
+            }
+
+            options.transform.localPosition = new Vector3(4f, 0f, 0.06f);
+        }
     }
 
     public void ClearAllText()

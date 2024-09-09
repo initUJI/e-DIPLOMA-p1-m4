@@ -1,16 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Collections;
-using Vuforia;
 using System.Text.RegularExpressions;
+using UnityEngine.EventSystems;
 
-public class UICollisionDetector : MonoBehaviour
+public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
 {
-    public string tagToCheck = "OptionName";  // La etiqueta que deseas comprobar en otros elementos
-    public Manager manager;
-    private string correctText;
-    public InfoProcessor infoProcessor;
+    public Manager manager;  // Referencia al Manager para gestionar el objeto brillando actualmente
+    private string correctText;  // Texto correcto con el que comparar
+    public InfoProcessor infoProcessor;  // Referencia al InfoProcessor para actualizaciones de estado
 
     private EventLogger logger;
 
@@ -26,94 +23,68 @@ public class UICollisionDetector : MonoBehaviour
         Initialize();
     }
 
-    private void Update()
-    {
-        DetectCollisions();
-    }
-
     private void Initialize()
     {
-        EnsureBoxCollider();
+        EnsureBoxCollider();  // Asegura que el objeto tenga un BoxCollider para detectar clics
     }
 
     private void EnsureBoxCollider()
     {
         if (GetComponent<BoxCollider>() == null)
         {
-            gameObject.AddComponent<BoxCollider>();
+            gameObject.AddComponent<BoxCollider>();  // Añade un BoxCollider si no lo tiene
         }
     }
 
-    private void CheckSolvedStatus()
+    // Función para manejar el toque o clic en el objeto
+    public void OnPointerClick(PointerEventData eventData)
     {
-        solved = ProcessString(GetComponent<TextMeshProUGUI>().text) == ProcessString(correctText);
-    }
+        Debug.Log("Entra en OnPointerClick");
+        // Verificar si hay un objeto actualmente brillando en el manager
+        GameObject highlightedObject = manager.GetCurrentlyHighlighted();
 
-    private void DetectCollisions()
-    {
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tagToCheck);
-        List<GameObject> filteredObjects = FilterObjectsByParent(objectsWithTag);
-
-        foreach (GameObject obj in filteredObjects)
+        if (highlightedObject != null)
         {
-            CheckAndHandleCollision(obj);
-        }
-    }
-
-    private List<GameObject> FilterObjectsByParent(GameObject[] objectsWithTag)
-    {
-        List<GameObject> filteredObjects = new List<GameObject>();
-        Transform root = transform.root;
-
-        foreach (GameObject obj in objectsWithTag)
-        {
-            if (IsChildOf(root, obj.transform))
+            Debug.Log("Objeto brillante encontrado");
+            // Verificar si el receptor ya tiene un texto (no está en blanco)
+            TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
+            if (!string.IsNullOrEmpty(targetTextComponent.text) && targetTextComponent.text != correctText)
             {
-                filteredObjects.Add(obj);
+                // Buscar el objeto que tenía originalmente el texto
+                ImageOutline originalOutline = manager.FindImageOutlineByText(targetTextComponent.text);
+                if (originalOutline != null)
+                {
+                    // Si el objeto original está en estado translúcido, restaurarlo
+                    originalOutline.RemoveGlow();
+                }
             }
+
+            // Si hay un objeto brillando, transferir su texto al objeto clicado (este)
+            TransferTextAndFontSize(highlightedObject);
+
+            // Después de transferir el texto, hacer el objeto actualmente brillante translúcido
+            ImageOutline outline = highlightedObject.GetComponent<ImageOutline>();
+            if (outline != null)
+            {
+                outline.MakeTranslucent();  // Hacer que las imágenes de los hijos se vuelvan translúcidas
+
+                // Guardar la referencia al UICollisionDetector que recibió el texto
+                outline.transferredTo = this;
+            }
+
+            // Desiluminar el objeto que brillaba usando UnhighlightAll
+            manager.UnhighlightAll();  // Cambiado de UnhighlightCurrentlySelected a UnhighlightAll
         }
-
-        return filteredObjects;
-    }
-
-    private bool IsChildOf(Transform parent, Transform child)
-    {
-        if (child == null)
-            return false;
-
-        if (child.parent == parent)
-            return true;
-
-        return IsChildOf(parent, child.parent);
-    }
-    private void CheckAndHandleCollision(GameObject obj)
-    {
-        BoxCollider otherCollider = obj.GetComponent<BoxCollider>();
-        BoxCollider thisCollider = GetComponent<BoxCollider>();
-
-        if (otherCollider != null && thisCollider.bounds.Intersects(otherCollider.bounds))
+        else
         {
-            HandleCollision(obj);
+            Debug.Log("No hay objeto brillante seleccionado");
         }
     }
 
-    private void HandleCollision(GameObject obj)
+    private void TransferTextAndFontSize(GameObject highlightedObject)
     {
-
-        if (GetComponent<TextMeshProUGUI>().text != string.Empty)
-        {
-            manager.CreateOptionName(GetComponent<TextMeshProUGUI>(), transform);
-        }
-
-        TransferTextAndFontSize(obj);
-
-        Destroy(obj);
-    }
-
-    private void TransferTextAndFontSize(GameObject obj)
-    {
-        TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI sourceTextComponent = obj.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();  // Este objeto
+        TextMeshProUGUI sourceTextComponent = highlightedObject.GetComponentInChildren<TextMeshProUGUI>();  // Objeto que brillaba
 
         if (logger == null)
         {
@@ -122,17 +93,24 @@ public class UICollisionDetector : MonoBehaviour
 
         if (logger != null)
         {
-            logger.LogEvent("Tag " + sourceTextComponent.text + "placed in " + correctText + "space");
+            logger.LogEvent("Text transferred from " + sourceTextComponent.text + " to " + targetTextComponent.text);
         }
-            
 
+        // Transfiere el texto y el tamaño de la fuente
         targetTextComponent.text = sourceTextComponent.text;
         targetTextComponent.fontSize = sourceTextComponent.fontSize;
 
+        // Actualizar el estado del puzzle
         CheckSolvedStatus();
         infoProcessor.UpdateSolvedCount();
         infoProcessor.UpdateStatusText();
         infoProcessor.CheckAndDeactivateInfoObjects();
+    }
+
+    private void CheckSolvedStatus()
+    {
+        // Verifica si el texto actual coincide con el texto correcto
+        solved = ProcessString(GetComponent<TextMeshProUGUI>().text) == ProcessString(correctText);
     }
 
     public static string ProcessString(string input)
@@ -142,15 +120,8 @@ public class UICollisionDetector : MonoBehaviour
             return string.Empty;
         }
 
-        // Convertir a minúsculas
+        // Convertir a minúsculas y eliminar espacios y puntuación
         string lowerCaseString = input.ToLower();
-
-        // Eliminar espacios y puntuación
-        string result = Regex.Replace(lowerCaseString, @"[\s\p{P}]", "");
-
-        return result;
+        return Regex.Replace(lowerCaseString, @"[\s\p{P}]", "");
     }
 }
-
-
-

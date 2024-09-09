@@ -34,18 +34,16 @@ public class InfoProcessor : MonoBehaviour
     {
         // Buscar NameText y verificar su TextMeshProUGUI
         Transform nameTextTransform = infoChild.Find("NameText");
-        Debug.Log($"{transform} : entraaaaaaa");
+
         if (nameTextTransform != null)
         {
             TextMeshProUGUI textComponent = nameTextTransform.GetComponent<TextMeshProUGUI>();
             if (textComponent != null /*&& !string.IsNullOrWhiteSpace(textComponent.text)*/)
             {
-                Debug.Log($"{transform} : if");
                 // Buscar y agregar UICollisionDetectors a la lista
                 UICollisionDetector detector = nameTextTransform.GetComponent<UICollisionDetector>();
                 if (detector != null)
                 {
-                    Debug.Log($"{transform} : entraaaaaaa2");
                     uiCollisionDetectors.Add(detector);
                 }
             }

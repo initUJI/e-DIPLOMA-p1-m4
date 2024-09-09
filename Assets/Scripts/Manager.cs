@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,10 +12,78 @@ public class Manager : MonoBehaviour
 
     public TextMeshProUGUI textMeshProUGUIID;
     public TMP_InputField tMP_InputFieldID;
+
+    private GameObject currentlyHighlighted;  // Para guardar el objeto actualmente con brillo verde
+    private GameObject redHighlighted;  // Para guardar el objeto actualmente con brillo rojo
+
+    // Método para establecer la orientación de la pantalla a retrato
+    public void SetPortraitOrientation()
+    {
+        // Establece la orientación de la pantalla a Portrait
+        Screen.orientation = ScreenOrientation.Portrait;
+    }
+    public GameObject GetCurrentlyHighlighted()
+    {
+        return currentlyHighlighted;
+    }
+
+    public void SetCurrentlyHighlighted(GameObject gameObject)
+    {
+        currentlyHighlighted = gameObject;
+    }
+
+    // Función para desiluminar todos los objetos con brillo activo, excepto los translúcidos
+    public void UnhighlightAll()
+    {
+        // Buscar todos los objetos con el componente ImageOutline
+        ImageOutline[] allOutlines = FindObjectsOfType<ImageOutline>();
+
+        // Desactivar el brillo en cada uno de ellos, excepto en los translúcidos
+        foreach (ImageOutline outline in allOutlines)
+        {
+            if (!outline.CheckIfTranslucent()) // Solo desiluminar si no es translúcido
+            {
+                outline.RemoveGlow();  // Quitar brillo del objeto
+            }
+        }
+
+        // Limpiar las referencias de los objetos resaltados
+        currentlyHighlighted = null;
+        redHighlighted = null;
+    }
+
+    public ImageOutline FindImageOutlineByText(string text)
+    {
+        ImageOutline[] allOutlines = FindObjectsOfType<ImageOutline>();
+        foreach (ImageOutline outline in allOutlines)
+        {
+            TextMeshProUGUI tmp = outline.GetComponentInChildren<TextMeshProUGUI>();
+            if (tmp != null && tmp.text == text)
+            {
+                return outline;
+            }
+        }
+        return null;
+    }
+
+    // Función pública para cerrar la aplicación
+    public void QuitApplication()
+    {
+        Debug.Log("Quitting application...");
+
+        Application.Quit();
+
+        // Si estás en el editor de Unity, muestra un mensaje en la consola
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
+
     private void Start()
     {
         logger = FindObjectOfType<EventLogger>();
         InitializeAllInfoProcessors();
+        SetPortraitOrientation();
     }
 
     void InitializeAllInfoProcessors()
@@ -61,43 +128,6 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void CreateOptionName(TextMeshProUGUI text, Transform initialPos)
-    {
-        GameObject optionInstance = InstantiateOption(initialPos);
-        SetOptionText(optionInstance, text);
-        StartCoroutine(MoveUpUntilNoCollision(optionInstance));
-    }
-
-    private GameObject InstantiateOption(Transform initialPos)
-    {
-        // Instantiate the prefab at the initial position
-        return Instantiate(optionPrefab, initialPos.position, initialPos.rotation);
-    }
-
-    private void SetOptionText(GameObject optionInstance, TextMeshProUGUI text)
-    {
-        // Set the text in the TextMeshProUGUI component
-        optionInstance.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = text.text;
-    }
-
-    private IEnumerator MoveUpUntilNoCollision(GameObject optionInstance)
-    {
-        Collider optionCollider = GetOptionCollider(optionInstance);
-        if (optionCollider == null)
-        {
-            yield break;
-        }
-
-        float initialYPosition = optionInstance.transform.position.y;
-        float maxHeight = 0.5f;
-
-        while (IsColliding(optionCollider, optionInstance.transform.rotation) && !HasReachedMaxHeight(optionInstance.transform.position.y, initialYPosition, maxHeight))
-        {
-            MoveOptionUp(optionInstance);
-            yield return new WaitForSeconds(checkDelay);
-        }
-    }
-
     private Collider GetOptionCollider(GameObject optionInstance)
     {
         Collider collider = optionInstance.GetComponent<Collider>();
@@ -124,22 +154,6 @@ public class Manager : MonoBehaviour
             }
         }
         return false;
-    }
-
-    private bool HasReachedMaxHeight(float currentY, float initialY, float maxHeight)
-    {
-        if (currentY - initialY >= maxHeight)
-        {
-            Debug.LogWarning("Maximum allowed height reached.");
-            return true;
-        }
-        return false;
-    }
-
-    private void MoveOptionUp(GameObject optionInstance)
-    {
-        // Move the option instance considering its rotation
-        optionInstance.transform.position += optionInstance.transform.up * moveStep;
     }
 
     public void ReloadCurrentScene()
@@ -171,7 +185,57 @@ public class Manager : MonoBehaviour
     private void Update()
     {
         equalTexts();
+
+        // Detectar clic en cualquier parte de la pantalla o un toque en pantalla
+        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        {
+            GameObject clickedObject = null;
+
+            // Para entrada de mouse
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    clickedObject = hit.collider.gameObject;
+                }
+            }
+
+            // Para entrada táctil en Android o dispositivos móviles
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    clickedObject = hit.collider.gameObject;
+                }
+            }
+
+            // Verificar si el objeto pulsado no es "NameText"
+            if (clickedObject != null && clickedObject.name == "NameText")
+            {
+                // No hacer nada, no desactivar el brillo si se pulsó "NameText"
+                return;
+            }
+
+            // Verificar si el objeto clicado es un ImageOutline
+            ImageOutline clickedImageOutline = clickedObject != null ? clickedObject.GetComponent<ImageOutline>() : null;
+
+            if (clickedImageOutline != null)
+            {
+                // Si es un ImageOutline, manejar el brillo dentro del mismo ImageOutline
+                clickedImageOutline.OnPointerClick(null); // Simular el clic directamente
+            }
+            else
+            {
+                // Si no es un ImageOutline, desactivar todos los brillos
+                UnhighlightAll();
+            }
+        }
     }
-
-
 }

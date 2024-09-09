@@ -14,6 +14,9 @@ public class InfoProcessorSummary : MonoBehaviour
     [SerializeField]
     private GameObject confirmationPanel;
 
+    [SerializeField]
+    private InfoProcessor[] infoProcessors;
+
     private EventLogger logger;
     void Start()
     {
@@ -43,7 +46,6 @@ public class InfoProcessorSummary : MonoBehaviour
 
     string CreateSummary()
     {
-        InfoProcessor[] infoProcessors = FindObjectsOfType<InfoProcessor>();
         StringBuilder summaryBuilder = new StringBuilder();
 
         foreach (InfoProcessor infoProcessor in infoProcessors)

@@ -147,9 +147,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9825590640640
-    m_Localized: "El DHT11 es un sensor de temperatura y humedad que utiliza un sensor
-      de humedad capacitivo y un termistor para medir el aire circundante, y muestra
-      los datos como una se\xF1al digital en el pin de datos."
+    m_Localized: "Sensor de temperatura y humedad que utiliza un sensor de humedad
+      capacitivo y un termistor para medir el aire circundante, y muestra los datos
+      como una se\xF1al digital en el pin de datos."
     m_Metadata:
       m_Items: []
   - m_Id: 10011545108480
@@ -208,7 +208,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3625519311093760
-    m_Localized: "Pins Anal\xF3gicos"
+    m_Localized: "Pines Anal\xF3gicos"
     m_Metadata:
       m_Items: []
   - m_Id: 3625673397239808
@@ -220,7 +220,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3627601128718336
-    m_Localized: Pins I2C
+    m_Localized: Pines I2C
     m_Metadata:
       m_Items: []
   - m_Id: 3627706858733568
@@ -244,7 +244,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3629780820426752
-    m_Localized: Pins digitales
+    m_Localized: Pines digitales
     m_Metadata:
       m_Items: []
   - m_Id: 3629868154224640
@@ -265,14 +265,21 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 5102542810382336
     m_Localized: "Enfoque el componente: Utilice la c\xE1mara de su dispositivo para
-      enfocar el componente que desea estudiar. Aseg\xFArate de que est\xE1 centrado
-      y visible.\r\n\r\nEstudie las partes: Pulse sobre las partes resaltadas para
-      obtener informaci\xF3n detallada sobre cada una de ellas.\r\n\r\nInicia el
-      juego: Pulsa el bot\xF3n \xABJugar\xBB para iniciar el juego interactivo.\r\n\r\nArrastre
-      los nombres: Arrastre los nombres de las partes componentes a las descripciones
-      correspondientes.\r\n\r\nTerminar y ver resultados: Cuando hayas terminado,
-      pulsa el bot\xF3n \xABFinalizar\xBB para terminar el juego y ver los resultados.\r\n\r\nReiniciar:
-      Puedes volver a intentarlo pulsando el bot\xF3n de reinicio."
+      enfocar el componente que desea estudiar. Aseg\xFArese de que est\xE1 centrado
+      y totalmente visible para una detecci\xF3n correcta.\r\n\r\nExplore las piezas:
+      Pulse sobre las partes resaltadas para revelar informaci\xF3n detallada sobre
+      cada una. Las partes relevantes aparecer\xE1n resaltadas.\r\n\r\nInicie el
+      juego: Pulse el bot\xF3n \xABJugar\xBB para iniciar el desaf\xEDo interactivo.\r\n\r\nEmpareje
+      los nombres: Pulse sobre el nombre de un componente y, a continuaci\xF3n, pulse
+      sobre su descripci\xF3n correspondiente para emparejarlo. Una vez colocada
+      una pieza, se volver\xE1 transl\xFAcida para indicar que se ha colocado correctamente.\r\n\r\nCompruebe
+      las piezas colocadas: Si no est\xE1 seguro sobre una pieza que ya ha colocado,
+      pulse sobre ella para resaltar su ubicaci\xF3n y revisar sus detalles.\r\n\r\nFinalizar
+      y ver resultados: Tras completar todas las coincidencias, pulsa el bot\xF3n
+      \xABFinalizar\xBB para ver tus resultados y la vista general final de componentes.\r\n\r\nReiniciar:
+      Si quieres volver a intentarlo, pulsa el bot\xF3n \xABReiniciar\xBB para reiniciar
+      el juego y empezar de nuevo.\r\n\r\nTraducci\xF3n realizada con la versi\xF3n
+      gratuita del traductor DeepL.com"
     m_Metadata:
       m_Items: []
   - m_Id: 6120933415321600
@@ -286,6 +293,29 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 6124971431165952
     m_Localized: "\xA1Correcto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22862121224876032
+    m_Localized: Empezar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22863205741867008
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22865845607444480
+    m_Localized: "Modo 1: Aprender sobre los Componentes\nToca las partes iluminadas
+      del sensor ultras\xF3nico, placa Arduino, base shield y DHT11 para ver informaci\xF3n.
+      Pulsa \"Play\" para iniciar el juego, coloca los nombres en los lugares correctos
+      y toca \"Finalizar\" para ver tus aciertos.  Al pulsar \"Start\", se abrir\xE1
+      directamente la escena del Modo 1.\n\nModo 2: Conectar Cables\nConsulta la
+      plantilla para ver c\xF3mo deben conectarse los componentes. Haz clic en un
+      sensor y luego en el puerto correspondiente de la base shield para realizar
+      la conexi\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22866134100062208
+    m_Localized: Instrucciones
     m_Metadata:
       m_Items: []
   references:
