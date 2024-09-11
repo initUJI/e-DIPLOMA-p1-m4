@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 28bdbd5ffa3f1454295ad5df66b9401d, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 3591247130535395328
   m_TableData:
   - m_Id: 283523874816
     m_Localized: Board
@@ -171,7 +172,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10387321192448
-    m_Localized: Is used to measure the distance to an object by using high-frequency
+    m_Localized: It is used to measure the distance to an object by using high-frequency
       sound waves, also known as ultrasonic waves.
     m_Metadata:
       m_Items: []
@@ -180,7 +181,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10660361994240
-    m_Localized: Is used to connect the kit to other Grove devices.
+    m_Localized: It is used to connect the kit to other Grove devices.
     m_Metadata:
       m_Items: []
   - m_Id: 10812845916160
@@ -329,16 +330,14 @@ MonoBehaviour:
       Remember
       what you have studied to know where to connect each sensor.
 
-
-
-      Translated
-      with DeepL.com (free version)'
+'
     m_Metadata:
       m_Items: []
   - m_Id: 6124971431165952
     m_Localized: Correct!
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 3591247130535395328
   - m_Id: 22862121224876032
     m_Localized: Start
     m_Metadata:
@@ -348,20 +347,32 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 22865845607444480
-    m_Localized: "Mode 1: Learn about the Components\r\nTouch the illuminated parts
-      of the ultrasonic sensor, Arduino board, base shield and DHT11 to see information.
-      Press \u2018Play\u2019 to start the game, place the names in the correct places
-      and tap \u2018Finish\u2019 to see your successes.  Pressing \u2018Start\u2019
-      will open the Mode 1 scene directly.\r\n\r\nMode 2: Connect Cables\r\nRefer
+    m_Localized: "Touch the illuminated parts of the ultrasonic sensor, Arduino board,
+      base shield and DHT11 to see information. Press \u2018Play\u2019 to start the
+      game, place the names in the correct places and tap \u2018Finish\u2019 to see
+      your successes.  Pressing \u2018Start\u2019 will open the Mode 1 scene directly.\r\n\r\n\nRefer
       to the template to see how the components should be connected. Click on a sensor
-      and then click on the corresponding port on the base shield to make the connection.\r\n\r\nTranslated
-      with DeepL.com (free version)"
+      and then click on the corresponding port on the base shield to make the connection.\r\n\r"
     m_Metadata:
       m_Items: []
   - m_Id: 22866134100062208
     m_Localized: Instruccions
     m_Metadata:
       m_Items: []
+  - m_Id: 24706264470208512
+    m_Localized: 'Mode 1: Learn about the Components
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24706266751909888
+    m_Localized: "Mode 2: Connect Cables\r"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3591247130535395328
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00006a0aa1c21500

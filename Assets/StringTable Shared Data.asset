@@ -239,6 +239,14 @@ MonoBehaviour:
     m_Key: InstruccionsName
     m_Metadata:
       m_Items: []
+  - m_Id: 24706264470208512
+    m_Key: InstruccionsTitle1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24706266751909888
+    m_Key: InstruccionsTitle2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

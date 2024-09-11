@@ -70,14 +70,7 @@ public class Manager : MonoBehaviour
     // Función pública para cerrar la aplicación
     public void QuitApplication()
     {
-        Debug.Log("Quitting application...");
-
         Application.Quit();
-
-        // Si estás en el editor de Unity, muestra un mensaje en la consola
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
     }
 
     private void Start()

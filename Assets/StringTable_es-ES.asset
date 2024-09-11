@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1457719279616
-    m_Localized: "Puetos anal\xF3gicos"
+    m_Localized: "Puertos anal\xF3gicos"
     m_Metadata:
       m_Items: []
   - m_Id: 1556604190720
@@ -304,18 +304,25 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 22865845607444480
-    m_Localized: "Modo 1: Aprender sobre los Componentes\nToca las partes iluminadas
-      del sensor ultras\xF3nico, placa Arduino, base shield y DHT11 para ver informaci\xF3n.
-      Pulsa \"Play\" para iniciar el juego, coloca los nombres en los lugares correctos
-      y toca \"Finalizar\" para ver tus aciertos.  Al pulsar \"Start\", se abrir\xE1
-      directamente la escena del Modo 1.\n\nModo 2: Conectar Cables\nConsulta la
-      plantilla para ver c\xF3mo deben conectarse los componentes. Haz clic en un
-      sensor y luego en el puerto correspondiente de la base shield para realizar
-      la conexi\xF3n."
+    m_Localized: "Componentes\nToca las partes iluminadas del sensor ultras\xF3nico,
+      placa Arduino, base shield y DHT11 para ver informaci\xF3n. Pulsa \"Play\"
+      para iniciar el juego, coloca los nombres en los lugares correctos y toca \"Finalizar\"
+      para ver tus aciertos.  Al pulsar \"Start\", se abrir\xE1 directamente la escena
+      del Modo 1.\n\n\nConsulta la plantilla para ver c\xF3mo deben conectarse los
+      componentes. Haz clic en un sensor y luego en el puerto correspondiente de
+      la base shield para realizar la conexi\xF3n."
     m_Metadata:
       m_Items: []
   - m_Id: 22866134100062208
     m_Localized: Instrucciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24706264470208512
+    m_Localized: 'Modo 1: Aprender sobre los '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24706266751909888
+    m_Localized: 'Modo 2: Conectar Cables'
     m_Metadata:
       m_Items: []
   references:
