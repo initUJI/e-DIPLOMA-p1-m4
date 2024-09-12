@@ -211,10 +211,6 @@ MonoBehaviour:
     m_Key: InfoDocumentation
     m_Metadata:
       m_Items: []
-  - m_Id: 6120896878739456
-    m_Key: New Entry
-    m_Metadata:
-      m_Items: []
   - m_Id: 6120933415321600
     m_Key: InfoWire
     m_Metadata:
@@ -231,10 +227,6 @@ MonoBehaviour:
     m_Key: Exit
     m_Metadata:
       m_Items: []
-  - m_Id: 22865845607444480
-    m_Key: InstruccionsMainMenu
-    m_Metadata:
-      m_Items: []
   - m_Id: 22866134100062208
     m_Key: InstruccionsName
     m_Metadata:
@@ -245,6 +237,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 24706266751909888
     m_Key: InstruccionsTitle2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973336868237312
+    m_Key: IntroductionText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973575184396288
+    m_Key: IntroductionTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973923953356800
+    m_Key: Mode1Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973947210772480
+    m_Key: Mode2Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24974824952770560
+    m_Key: FocusComponents
     m_Metadata:
       m_Items: []
   m_Metadata:

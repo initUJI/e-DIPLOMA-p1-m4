@@ -297,40 +297,51 @@ MonoBehaviour:
       its location and review its details.
 
 
-      Finish and view results: After
-      completing all the matches, press the ''Finish'' button to see your results
-      and the final component overview.
+      Replace an answer: If you need
+      to correct an answer already given, simply tap the name of the part again and
+      select a new description. The new answer will replace the previous one, updating
+      the placement.
 
 
-      Restart: If you''d like to try again,
-      press the ''Restart'' button to reset the game and start over.'
+      Finish and view results: After completing all the matches,
+      press the ''Finish'' button to see your results and the final component overview.
+
+
+      Restart:
+      If you''d like to try again, press the ''Restart'' button to reset the game
+      and start over.'
     m_Metadata:
       m_Items: []
   - m_Id: 6120933415321600
-    m_Localized: 'Connect the Base Shield to the Arduino board.
+    m_Localized: 'Connect the Base Shield to the Arduino board: Make sure the Base
+      Shield is properly connected to the Arduino board before proceeding.
 
 
 
-      Place each
-      component in the specific space on the template.
+      Place
+      the components according to the template: Use the template provided with the
+      app to position each component in the assigned place. The template is essential
+      to guide you in the correct arrangement of the elements.
 
 
 
-      Click on the ports
-      to connect them. You can use the disconnect button at the bottom left of the
-      screen to remove all connections.
+      Connect the
+      ports: Select the ports on the screen to connect the components. If you wish
+      to reset the connections, use the disconnect button in the bottom left corner
+      to disconnect all cables at once.
 
 
 
       Connect the sensors to the Base
-      Shield, which in turn must be connected to the arduino board.
+      Shield: Remember that the Base Shield should already be connected to the Arduino
+      board. Place the sensors in the ports and make sure the connections are correct.
 
 
 
-      Remember
-      what you have studied to know where to connect each sensor.
-
-'
+      Apply
+      the knowledge you have learnt: Use what you have learnt in the learning mode
+      to find out where each sensor should go. The sensors should be connected to
+      the appropriate ports on the Base Shield as indicated in your studies.'
     m_Metadata:
       m_Items: []
   - m_Id: 6124971431165952
@@ -346,13 +357,11 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
-  - m_Id: 22865845607444480
+  - m_Id: 24973923953356800
     m_Localized: "Touch the illuminated parts of the ultrasonic sensor, Arduino board,
-      base shield and DHT11 to see information. Press \u2018Play\u2019 to start the
-      game, place the names in the correct places and tap \u2018Finish\u2019 to see
-      your successes.  Pressing \u2018Start\u2019 will open the Mode 1 scene directly.\r\n\r\n\nRefer
-      to the template to see how the components should be connected. Click on a sensor
-      and then click on the corresponding port on the base shield to make the connection.\r\n\r"
+      base shield and DHT11 to see information. Press \u2018Start\u2019 to start
+      the game, place the names in the correct places and tap the finish button to
+      see your hits.  Pressing \u2018Start\u2019 will open the Mode 1 scene directly."
     m_Metadata:
       m_Items: []
   - m_Id: 22866134100062208
@@ -367,6 +376,31 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 24706266751909888
     m_Localized: "Mode 2: Connect Cables\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973336868237312
+    m_Localized: This augmented reality (AR) educational application is designed
+      to interactively teach the use of electronic components such as the Arduino
+      Uno board, the base shield, the ultrasonic sensor and the DHT11 sensor. Through
+      two modes of use, users can explore the real components through AR in learning
+      mode and practice connecting them in practice mode.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973575184396288
+    m_Localized: Introduction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973947210772480
+    m_Localized: The connection mode allows you to assemble electronic components
+      following a physical template, which is provided with the app. You must connect
+      the Base Shield to the Arduino board and then place the sensors and components
+      in their corresponding ports, applying what you have previously learned in
+      the learning mode.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24974824952770560
+    m_Localized: Be sure to focus the components in these positions to read the texts
+      correctly.
     m_Metadata:
       m_Items: []
   references:

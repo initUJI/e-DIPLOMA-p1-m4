@@ -10,11 +10,14 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     public UICollisionDetector transferredTo;        // Referencia al UICollisionDetector que recibió el texto
     public Manager manager;                          // Referencia al Manager
     public float scaleIncrease = 0.1f;  // Porcentaje para aumentar el tamaño de la caja
+    public Material material;
 
     private bool isGlowing = false;
     private Color originalColor;
     private bool isTranslucentHighlighted = false;    // Nueva bandera para controlar el estado de resaltado rojo
     private GameObject highlightCube;                 // Referencia al cubo de resaltado
+
+    [HideInInspector] public GameObject box;
 
     private void Start()
     {
@@ -74,7 +77,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
             // Si tiene un UICollisionDetector asociado, iluminar el abuelo en rojo
             if (transferredTo != null)
             {
-                HighlightGrandparentCollider(transferredTo.transform.parent.parent, glowColorTranslucent);
+                HighlightGrandparentColliders(transferredTo.transform.parent.parent, glowColorTranslucent);
             }
             return;
         }
@@ -244,35 +247,42 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void HighlightGrandparentCollider(Transform grandparent, Color color)
+    public void HighlightGrandparentColliders(Transform grandparent, Color color)
     {
-        Debug.Log($"Highlighting grandparent collider for {grandparent.gameObject.name}");
+        Debug.Log($"Highlighting grandparent colliders for {grandparent.gameObject.name}");
 
-        BoxCollider boxCollider = grandparent.GetComponent<BoxCollider>();
-        if (boxCollider != null)
+        // Obtener todos los BoxColliders del abuelo
+        BoxCollider[] boxColliders = grandparent.GetComponents<BoxCollider>();
+
+        if (boxColliders.Length > 0)
         {
-            Debug.Log($"BoxCollider found for {grandparent.gameObject.name}, applying highlight");
+            foreach (BoxCollider boxCollider in boxColliders)
+            {
+                Debug.Log($"BoxCollider found for {grandparent.gameObject.name}, applying highlight");
 
-            // Verifica si ya existe un cubo de resaltado como hijo
-            Transform highlight = grandparent.Find("HighlightCube");
-            if (highlight == null)
-            {
-                // Crear un cubo que coincida con el BoxCollider
-                CreateRedBox(grandparent, grandparent.GetComponent<BoxCollider>());
-            }
-            else
-            {
-                // Si el cubo ya existe, solo cambiar el color
-                MeshRenderer renderer = highlight.GetComponent<MeshRenderer>();
-                renderer.material.color = new Color(1f, 0f, 0f, boxTranslucencyAlpha); // Rojo con transparencia reducida
+                // Verifica si ya existe un cubo de resaltado para este BoxCollider
+                string highlightName = $"HighlightCube_{boxCollider.GetInstanceID()}";
+                Transform highlight = grandparent.Find(highlightName);
+
+                if (highlight == null)
+                {
+                    // Crear un cubo que coincida con el BoxCollider
+                    CreateBox(grandparent, boxCollider);
+                }
+                else
+                {
+                    // Si el cubo ya existe, solo cambiar el color
+                    MeshRenderer renderer = highlight.GetComponent<MeshRenderer>();
+                    renderer.material.color = color;
+                }
             }
         }
         else
         {
-            Debug.LogWarning("BoxCollider not found on grandparent");
+            Debug.LogWarning("No BoxColliders found on grandparent");
         }
     }
-    private void CreateRedBox(Transform parent, BoxCollider parentCollider)
+    private void CreateBox(Transform parent, BoxCollider parentCollider)
     {
         // Crear un cubo que coincida con el BoxCollider del padre
         highlightCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -293,7 +303,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
         // Aplicar un material azul translúcido
         MeshRenderer renderer = highlightCube.GetComponent<MeshRenderer>();
-        Material translucentMaterial = new Material(Shader.Find("Standard"));
+        /*Material translucentMaterial = new Material(Shader.Find("Standard"));
 
         // Configurar el material para soporte de transparencia
         translucentMaterial.SetFloat("_Mode", 3); // Modo de transparencia
@@ -306,9 +316,11 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         translucentMaterial.renderQueue = 3000;
 
         // Asignar el color azul con la transparencia ajustada
-        translucentMaterial.color = new Color(1f, 0f, 0f, boxTranslucencyAlpha);  // Azul con transparencia
+        translucentMaterial.color = new Color(1f, 0f, 1f, boxTranslucencyAlpha);  // Azul con transparencia
 
-        renderer.material = translucentMaterial;
+        renderer.material = translucentMaterial;*/
+        renderer.material = material;
+        box = highlightCube;
     }
 
 }

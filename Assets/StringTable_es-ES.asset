@@ -274,7 +274,10 @@ MonoBehaviour:
       sobre su descripci\xF3n correspondiente para emparejarlo. Una vez colocada
       una pieza, se volver\xE1 transl\xFAcida para indicar que se ha colocado correctamente.\r\n\r\nCompruebe
       las piezas colocadas: Si no est\xE1 seguro sobre una pieza que ya ha colocado,
-      pulse sobre ella para resaltar su ubicaci\xF3n y revisar sus detalles.\r\n\r\nFinalizar
+      pulse sobre ella para resaltar su ubicaci\xF3n y revisar sus detalles.\r\n\r\nSustituir
+      una respuesta: Si necesitas corregir una respuesta ya dada, simplemente toca
+      nuevamente el nombre de la parte y selecciona una nueva descripci\xF3n. La
+      nueva respuesta sustituir\xE1 a la anterior, actualizando la colocaci\xF3n.\n\nFinalizar
       y ver resultados: Tras completar todas las coincidencias, pulsa el bot\xF3n
       \xABFinalizar\xBB para ver tus resultados y la vista general final de componentes.\r\n\r\nReiniciar:
       Si quieres volver a intentarlo, pulsa el bot\xF3n \xABReiniciar\xBB para reiniciar
@@ -283,12 +286,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6120933415321600
-    m_Localized: "Conecta la Base Shield a la placa de Arduino.\n\nColoca cada componente
-      en el espacio espec\xEDfico de la plantilla.\n\nPulsa en los puertos para conectarlos.
-      Puedes usar el bot\xF3n de desconexi\xF3n en la parte inferior izquierda de
-      la pantalla para quitar todas las conexiones.\n\nConecta los sensores a la
-      Base Shield, que a su vez debe estar conectada a la placa de arduino.\n\nRecuerda
-      lo que has estudiado para saber donde conectar cada sensor."
+    m_Localized: "Conectar la Base Shield a la placa Arduino: Aseg\xFArate de que
+      la Base Shield est\xE9 correctamente conectada a la placa Arduino antes de
+      continuar.\n\nColocar los componentes seg\xFAn la plantilla: Usa la plantilla
+      que se proporciona junto con la app para posicionar cada componente en el lugar
+      asignado. La plantilla es esencial para guiarte en la correcta disposici\xF3n
+      de los elementos.\n\nConectar los puertos: Selecciona los puertos en pantalla
+      para conectar los componentes. Si deseas reiniciar las conexiones, utiliza
+      el bot\xF3n de desconexi\xF3n en la esquina inferior izquierda para desconectar
+      todos los cables de una vez.\n\nConectar los sensores a la Base Shield: Recuerda
+      que la Base Shield ya debe estar conectada a la placa Arduino. Coloca los sensores
+      en los puertos y aseg\xFArate de que las conexiones sean correctas.\n\nAplicar
+      los conocimientos aprendidos: Utiliza lo que has aprendido en el modo de aprendizaje
+      para saber d\xF3nde debe ir cada sensor. Los sensores deben conectarse a los
+      puertos adecuados de la Base Shield seg\xFAn lo indicado en tus estudios."
     m_Metadata:
       m_Items: []
   - m_Id: 6124971431165952
@@ -303,14 +314,12 @@ MonoBehaviour:
     m_Localized: Salir
     m_Metadata:
       m_Items: []
-  - m_Id: 22865845607444480
-    m_Localized: "Componentes\nToca las partes iluminadas del sensor ultras\xF3nico,
-      placa Arduino, base shield y DHT11 para ver informaci\xF3n. Pulsa \"Play\"
-      para iniciar el juego, coloca los nombres en los lugares correctos y toca \"Finalizar\"
-      para ver tus aciertos.  Al pulsar \"Start\", se abrir\xE1 directamente la escena
-      del Modo 1.\n\n\nConsulta la plantilla para ver c\xF3mo deben conectarse los
-      componentes. Haz clic en un sensor y luego en el puerto correspondiente de
-      la base shield para realizar la conexi\xF3n."
+  - m_Id: 24973923953356800
+    m_Localized: "Toca las partes iluminadas del sensor ultras\xF3nico, placa Arduino,
+      base shield y DHT11 para ver informaci\xF3n. Pulsa \"Empezar\" para iniciar
+      el juego, coloca los nombres en los lugares correctos y toca el bot\xF3n de
+      finalizar para ver tus aciertos.  Al pulsar \"Empezar\", se abrir\xE1 directamente
+      la escena del Modo 1."
     m_Metadata:
       m_Items: []
   - m_Id: 22866134100062208
@@ -323,6 +332,32 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 24706266751909888
     m_Localized: 'Modo 2: Conectar Cables'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973336868237312
+    m_Localized: "Esta aplicaci\xF3n educativa de realidad aumentada (AR) est\xE1
+      dise\xF1ada para ense\xF1ar de manera interactiva el uso de componentes electr\xF3nicos
+      como la placa Arduino Uno, la base shield, el sensor ultras\xF3nico y el sensor
+      DHT11. A trav\xE9s de dos modos de uso, los usuarios pueden explorar los componentes
+      reales mediante AR en el modo de aprendizaje y practicar su conexi\xF3n en
+      el modo de pr\xE1ctica."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973575184396288
+    m_Localized: "Introducci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24973947210772480
+    m_Localized: "El modo de conexi\xF3n te permite ensamblar componentes electr\xF3nicos
+      siguiendo una plantilla f\xEDsica, que se otorga junto con la app. Debes conectar
+      la Base Shield a la placa Arduino y luego colocar los sensores y componentes
+      en sus puertos correspondientes, aplicando lo aprendido previamente en el modo
+      de aprendizaje."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24974824952770560
+    m_Localized: "Aseg\xFArate de enfocar los componentes en estas posiciones para
+      leer los textos correctamente."
     m_Metadata:
       m_Items: []
   references:

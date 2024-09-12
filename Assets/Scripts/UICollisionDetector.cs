@@ -10,6 +10,7 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
     public InfoProcessor infoProcessor;  // Referencia al InfoProcessor para actualizaciones de estado
 
     private EventLogger logger;
+    private GameObject[] grayBoxes;  // Referencia a las cajas azules
 
     [HideInInspector]
     public bool solved;
@@ -56,11 +57,18 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
                 {
                     // Si el objeto original está en estado translúcido, restaurarlo
                     originalOutline.RemoveGlow();
+
+                    if (originalOutline.box != null)
+                    {
+                        Destroy(originalOutline.box);
+                    }
+
                 }
             }
 
             // Si hay un objeto brillando, transferir su texto al objeto clicado (este)
             TransferTextAndFontSize(highlightedObject);
+            createGrayBox();
 
             // Después de transferir el texto, hacer el objeto actualmente brillante translúcido
             ImageOutline outline = highlightedObject.GetComponent<ImageOutline>();
@@ -123,5 +131,45 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         // Convertir a minúsculas y eliminar espacios y puntuación
         string lowerCaseString = input.ToLower();
         return Regex.Replace(lowerCaseString, @"[\s\p{P}]", "");
+    }
+
+    private void createGrayBox()
+    {
+        // Acceder al padre del objeto actual
+        Transform parentTransform = transform.parent.parent;
+
+        if (parentTransform != null && (grayBoxes == null || grayBoxes.Length <= 0))
+        {
+            // Obtener todos los Colliders en el objeto padre
+            BoxCollider[] parentColliders = parentTransform.GetComponents<BoxCollider>();
+
+            if (parentColliders.Length > 0)
+            {
+                grayBoxes = new GameObject[parentColliders.Length];
+
+                for (int i = 0; i < parentColliders.Length; i++)
+                {
+                    BoxCollider parentCollider = parentColliders[i];
+                    // Crear una caja azul translúcida por cada Collider en el objeto padre
+                    grayBoxes[i] = transform.parent.GetComponent<CreateBoxOnActive>().CreateGrayBox(parentTransform, parentCollider);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("No Colliders found on the parent object.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("This object has no parent.");
+        }
+    }
+
+    private void destroyGrayBoxes()
+    {
+        foreach (var collider in grayBoxes)
+        {
+            Destroy(collider.gameObject);
+        }
     }
 }
