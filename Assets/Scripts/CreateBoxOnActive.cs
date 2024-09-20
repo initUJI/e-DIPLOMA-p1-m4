@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CreateBoxOnActive : MonoBehaviour
 {
-    public float scaleIncrease = 0.1f;  // Porcentaje para aumentar el tamaño de la caja
+    private float scaleIncrease = 0.1f;  // Porcentaje para aumentar el tamaño de la caja
     public float boxTransparency = 0.5f; // Nivel de transparencia de la caja azul
     private GameObject blueBox;  // Referencia al objeto de la caja azul
     private GameObject[] blueBoxes;  // Referencia a las cajas azules
@@ -79,24 +79,11 @@ public class CreateBoxOnActive : MonoBehaviour
 
         // Aplicar un material azul translúcido
         MeshRenderer renderer = blueBox.GetComponent<MeshRenderer>();
-        /*Material translucentMaterial = new Material(Shader.Find("Standard"));
-
-        // Configurar el material para soporte de transparencia
-        translucentMaterial.SetFloat("_Mode", 3); // Modo de transparencia
-        translucentMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        translucentMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        translucentMaterial.SetInt("_ZWrite", 0);
-        translucentMaterial.DisableKeyword("_ALPHATEST_ON");
-        translucentMaterial.EnableKeyword("_ALPHABLEND_ON");
-        translucentMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        translucentMaterial.renderQueue = 3000;
-
-        // Asignar el color azul con la transparencia ajustada
-        translucentMaterial.color = new Color(0f, 0f, 1f, boxTransparency);  // Azul con transparencia
-
-        renderer.material = translucentMaterial;*/
 
         renderer.material = blueMaterial;
+
+        // Forzar que el cubo sea el último en renderizarse
+        blueBox.transform.SetAsLastSibling();
 
         return blueBox;
     }
@@ -122,24 +109,11 @@ public class CreateBoxOnActive : MonoBehaviour
 
         // Aplicar un material azul translúcido
         MeshRenderer renderer = blueBox.GetComponent<MeshRenderer>();
-        /*Material translucentMaterial = new Material(Shader.Find("Standard"));
-
-        // Configurar el material para soporte de transparencia
-        translucentMaterial.SetFloat("_Mode", 3); // Modo de transparencia
-        translucentMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        translucentMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        translucentMaterial.SetInt("_ZWrite", 0);
-        translucentMaterial.DisableKeyword("_ALPHATEST_ON");
-        translucentMaterial.EnableKeyword("_ALPHABLEND_ON");
-        translucentMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        translucentMaterial.renderQueue = 3000;
-
-        // Asignar el color azul con la transparencia ajustada
-        translucentMaterial.color = new Color(0f, 0f, 0f, boxTransparency);  // Azul con transparencia
-
-        renderer.material = translucentMaterial;*/
 
         renderer.material = grayMaterial;
+
+        // Forzar que el cubo sea el último en renderizarse
+        blueBox.transform.SetAsLastSibling();
 
         return blueBox;
     }

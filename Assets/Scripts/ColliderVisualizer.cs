@@ -53,7 +53,6 @@ public class ColliderVisualizer : MonoBehaviour
         {
             return;
         }
-
         GL.PushMatrix();
         lineMaterial.SetColor("_Color", colliderColor);
         lineMaterial.SetPass(0);

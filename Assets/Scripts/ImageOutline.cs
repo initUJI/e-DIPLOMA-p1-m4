@@ -21,7 +21,6 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        manager = FindObjectOfType<Manager>();  // Encuentra el Manager en la escena
         // Guardar el color original del SpriteRenderer
         SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
         if (sr != null)
@@ -296,31 +295,16 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
         // Ajustar el cubo al tamaño y posición del BoxCollider
         highlightCube.transform.localPosition = parentCollider.center;
-
-        // Ajustar el tamaño del cubo para que sea ligeramente más grande que el BoxCollider
-        Vector3 originalSize = parentCollider.size;
-        highlightCube.transform.localScale = originalSize * (1 + scaleIncrease);
+        highlightCube.transform.localScale = parentCollider.size * (1 + scaleIncrease);
 
         // Aplicar un material azul translúcido
         MeshRenderer renderer = highlightCube.GetComponent<MeshRenderer>();
-        /*Material translucentMaterial = new Material(Shader.Find("Standard"));
-
-        // Configurar el material para soporte de transparencia
-        translucentMaterial.SetFloat("_Mode", 3); // Modo de transparencia
-        translucentMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        translucentMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        translucentMaterial.SetInt("_ZWrite", 0);
-        translucentMaterial.DisableKeyword("_ALPHATEST_ON");
-        translucentMaterial.EnableKeyword("_ALPHABLEND_ON");
-        translucentMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        translucentMaterial.renderQueue = 3000;
-
-        // Asignar el color azul con la transparencia ajustada
-        translucentMaterial.color = new Color(1f, 0f, 1f, boxTranslucencyAlpha);  // Azul con transparencia
-
-        renderer.material = translucentMaterial;*/
         renderer.material = material;
+
+        // Forzar que el cubo sea el último en renderizarse
+        highlightCube.transform.SetAsLastSibling();
+
+        // Guardar la referencia
         box = highlightCube;
     }
-
 }

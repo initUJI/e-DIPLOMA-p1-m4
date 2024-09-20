@@ -9,6 +9,7 @@ public class WireConnector : MonoBehaviour
     public float wireWidth = 0.1f;    // Ancho del cable
     public float endpointOffset = 0.001f; // Offset para la posición del cable desde el extremo
     public TextMeshProUGUI connectionStatusText; // Texto que se activará al detectar la conexión correcta
+    public TextMeshProUGUI incorrectConnectionText; // Texto que se activará al detectar una conexión incorrecta
     public GameObject ultrasonicCanvas; // Canvas para el Ultrasonic Sensor
     public GameObject dht11Canvas; // Canvas para el DHT11 Sensor
 
@@ -16,14 +17,17 @@ public class WireConnector : MonoBehaviour
     private Transform endTransform;
     private bool ultrasonicConnected = false;
     private bool dht11Connected = false;
+    private bool ultrasonicCorrect = false;
+    private bool dht11Correct = false;
     private EventLogger logger;
 
     void Start()
     {
-        // Asegurarse de que los Canvas comiencen desactivados
+        // Asegurarse de que los Canvas y textos comiencen desactivados
         ultrasonicCanvas.SetActive(false);
         dht11Canvas.SetActive(false);
         connectionStatusText.gameObject.SetActive(false);
+        incorrectConnectionText.gameObject.SetActive(false); // Desactivar el texto de conexión incorrecta
         logger = FindFirstObjectByType<EventLogger>();
     }
 
@@ -200,46 +204,53 @@ public class WireConnector : MonoBehaviour
         endTransform = null;
         ultrasonicConnected = false;
         dht11Connected = false;
+        ultrasonicCorrect = false;
+        dht11Correct = false;
         connectionStatusText.gameObject.SetActive(false);
+        incorrectConnectionText.gameObject.SetActive(false); // Desactivar el texto de conexión incorrecta
         ultrasonicCanvas.SetActive(false); // Desactivar el canvas de Ultrasonic
         dht11Canvas.SetActive(false); // Desactivar el canvas de DHT11
     }
 
     void CheckConnections(Transform start, Transform end)
     {
-        // Verificar si ambos sensores están conectados a un objeto con el tag "Wire" y "Digital" en el nombre
-        if ((start.parent.parent.name.Contains("Ultrasonic") && end.name.Contains("Digital")) ||
-            (end.parent.parent.name.Contains("Ultrasonic") && start.name.Contains("Digital")))
+        // Verificar la conexión correcta de Ultrasonic
+        ultrasonicCorrect = (start.parent.parent.name.Contains("Ultrasonic") && end.name.Contains("Digital")) ||
+                            (end.parent.parent.name.Contains("Ultrasonic") && start.name.Contains("Digital"));
+        if (ultrasonicCorrect)
         {
             ultrasonicConnected = true;
             ultrasonicCanvas.SetActive(true); // Activar el canvas de Ultrasonic
             logger.LogEvent("Ultrasonic good connected");
         }
-        else
-        {
-            logger.LogEvent("Ultrasonic bad connected");
-        }
 
-        if ((start.parent.parent.name.Contains("DHT11") && end.name.Contains("Digital")) ||
-            (end.parent.parent.name.Contains("DHT11") && start.name.Contains("Digital")))
+        // Verificar la conexión correcta de DHT11
+        dht11Correct = (start.parent.parent.name.Contains("DHT11") && end.name.Contains("Digital")) ||
+                       (end.parent.parent.name.Contains("DHT11") && start.name.Contains("Digital"));
+        if (dht11Correct)
         {
             dht11Connected = true;
             dht11Canvas.SetActive(true); // Activar el canvas de DHT11
             logger.LogEvent("DHT11 good connected");
         }
-        else {
-            logger.LogEvent("DHT11 bad connected");
-        }
 
-
-        // Activar el texto si ambos sensores están conectados
-        if (ultrasonicConnected && dht11Connected)
+        // Si ambos están conectados correctamente, mostrar el texto de conexión correcta
+        if (ultrasonicConnected && dht11Connected && ultrasonicCorrect && dht11Correct)
         {
             connectionStatusText.gameObject.SetActive(true);
+            incorrectConnectionText.gameObject.SetActive(false); // Ocultar el texto de conexión incorrecta
+        }
+        else if (ultrasonicConnected && dht11Connected && (!ultrasonicCorrect || !dht11Correct))
+        {
+            // Si ambos están conectados pero al menos uno está mal conectado
+            incorrectConnectionText.gameObject.SetActive(true);
+            connectionStatusText.gameObject.SetActive(false); // Ocultar el texto de conexión correcta
         }
         else
         {
+            // Si alguno se desconecta, desactivar ambos textos
             connectionStatusText.gameObject.SetActive(false);
+            incorrectConnectionText.gameObject.SetActive(false);
         }
     }
 }

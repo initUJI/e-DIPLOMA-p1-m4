@@ -10,6 +10,9 @@ public class buttonTest : MonoBehaviour
     private List<GameObject> parentObjects = new List<GameObject>();
 
     [SerializeField]
+    private List<GameObject> modelTargets = new List<GameObject>();
+
+    [SerializeField]
     private List<GameObject> components = new List<GameObject>();
     [SerializeField]
     private GameObject startButton;
@@ -173,6 +176,18 @@ public class buttonTest : MonoBehaviour
             }
 
             options.transform.localPosition = new Vector3(4f, 0f, 0.06f);
+        }
+    }
+
+    public void desactiveModelTargets()
+    {
+        foreach (GameObject m in modelTargets)
+        {
+            m.SetActive(false);
+        }
+        foreach (GameObject c in components)
+        {
+            Destroy(c);
         }
     }
 

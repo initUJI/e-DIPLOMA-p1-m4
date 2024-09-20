@@ -162,9 +162,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10011545108480
-    m_Localized: "Vcc\r: Power supply 3.5V to 5.5V\r\n\r\nData\r: Outputs both Temperature
-      and Humidity through serial Data\r\n\r\nNC\r: No Connection and hence not used\r\n\r\nGround\r:Connected
-      to the ground of the circuit"
+    m_Localized: "Vcc\r        : Power supply 3.5V to 5.5V\r\n\nData\r      : Outputs
+      both Temperature and Humidity through serial Data\r\n\nNC\r     :  No Connection
+      and hence not used\r\n\nGround        \r:  Connected to the ground of the circuit"
     m_Metadata:
       m_Items: []
   - m_Id: 10168797954048
@@ -283,39 +283,13 @@ MonoBehaviour:
 
 
       Start
-      the game: Tap the ''Play'' button to begin the interactive challenge.
-
-
-      Match
-      the names: Tap on the name of a component part, then tap on its corresponding
-      description to make a match. Once a part is placed, it will become translucent
-      to indicate it has been successfully placed.
-
-
-      Check placed parts: If
-      you''re unsure about a part you''ve already placed, tap on it to highlight
-      its location and review its details.
-
-
-      Replace an answer: If you need
-      to correct an answer already given, simply tap the name of the part again and
-      select a new description. The new answer will replace the previous one, updating
-      the placement.
-
-
-      Finish and view results: After completing all the matches,
-      press the ''Finish'' button to see your results and the final component overview.
-
-
-      Restart:
-      If you''d like to try again, press the ''Restart'' button to reset the game
-      and start over.'
+      the game: Tap the play button to begin the interactive challenge (available
+      after a certain time).'
     m_Metadata:
       m_Items: []
   - m_Id: 6120933415321600
     m_Localized: 'Connect the Base Shield to the Arduino board: Make sure the Base
       Shield is properly connected to the Arduino board before proceeding.
-
 
 
       Place
@@ -324,24 +298,10 @@ MonoBehaviour:
       to guide you in the correct arrangement of the elements.
 
 
-
       Connect the
       ports: Select the ports on the screen to connect the components. If you wish
       to reset the connections, use the disconnect button in the bottom left corner
-      to disconnect all cables at once.
-
-
-
-      Connect the sensors to the Base
-      Shield: Remember that the Base Shield should already be connected to the Arduino
-      board. Place the sensors in the ports and make sure the connections are correct.
-
-
-
-      Apply
-      the knowledge you have learnt: Use what you have learnt in the learning mode
-      to find out where each sensor should go. The sensors should be connected to
-      the appropriate ports on the Base Shield as indicated in your studies.'
+      to disconnect all cables at once.'
     m_Metadata:
       m_Items: []
   - m_Id: 6124971431165952
@@ -359,9 +319,11 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 24973923953356800
     m_Localized: "Touch the illuminated parts of the ultrasonic sensor, Arduino board,
-      base shield and DHT11 to see information. Press \u2018Start\u2019 to start
-      the game, place the names in the correct places and tap the finish button to
-      see your hits.  Pressing \u2018Start\u2019 will open the Mode 1 scene directly."
+      base shield and DHT11 to see information. Press the start button to start the
+      game (available after a certain time), place the names in the correct places
+      and tap the finish button to see your hits.  Pressing \u2018Start\u2019 will
+      open the Mode 1 scene directly.\n\nOnce in the mode, you can check the instructions
+      on the info button."
     m_Metadata:
       m_Items: []
   - m_Id: 22866134100062208
@@ -369,7 +331,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 24706264470208512
-    m_Localized: 'Mode 1: Learn about the Components
+    m_Localized: 'Mode 1: Learn Components
 
 '
     m_Metadata:
@@ -391,16 +353,82 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 24973947210772480
-    m_Localized: The connection mode allows you to assemble electronic components
+    m_Localized: 'The connection mode allows you to assemble electronic components
       following a physical template, which is provided with the app. You must connect
       the Base Shield to the Arduino board and then place the sensors and components
       in their corresponding ports, applying what you have previously learned in
       the learning mode.
+
+
+      Once in the mode, you can check the instructions
+      on the info button.'
     m_Metadata:
       m_Items: []
   - m_Id: 24974824952770560
     m_Localized: Be sure to focus the components in these positions to read the texts
       correctly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25388115692826624
+    m_Localized: 'Match the names: Tap on the name of a component part, then tap
+      on its corresponding description to make a match. Once a part is placed, it
+      will become translucent to indicate it has been successfully placed.
+
+
+      Check
+      placed parts: If you''re unsure about a part you''ve already placed, tap on
+      it to highlight its location and review its details.
+
+
+      Replace an answer:
+      If you need to correct an answer already given, simply tap the name of the
+      part again and select a new description. The new answer will replace the previous
+      one, updating the placement.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25388335109451776
+    m_Localized: 'Finish and view results: After completing all the matches, press
+      the ''Finish'' button to see your results and the final component overview.
+
+
+      Restart:
+      If you''d like to try again, press the ''Restart'' button to reset the game
+      and start over.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25389653958012928
+    m_Localized: 'Connect the sensors to the Base Shield: Remember that the Base
+      Shield should already be connected to the Arduino board. Place the sensors
+      in the ports and make sure the connections are correct.
+
+
+
+      Apply the
+      knowledge you have learnt: Use what you have learnt in the learning mode to
+      find out where each sensor should go. The sensors should be connected to the
+      appropriate ports on the Base Shield as indicated in your studies.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27913072452067328
+    m_Localized: Check the component position!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27921525522325504
+    m_Localized: Incorrect!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27941485472669696
+    m_Localized: 'Use these buttons to switch from one mode to another:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27942744753725440
+    m_Localized: Switches to mode 2 (connection mode)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27942760390090752
+    m_Localized: Switches to Mode 1 (Studio Mode)
     m_Metadata:
       m_Items: []
   references:

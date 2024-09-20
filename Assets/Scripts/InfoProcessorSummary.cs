@@ -42,6 +42,7 @@ public class InfoProcessorSummary : MonoBehaviour
         reloadButton.SetActive(true);
         confirmationPanel.SetActive(false);
         logger.LogEvent("Finish button pressed with results: " + text.text);
+        GetComponent<buttonTest>().desactiveModelTargets();
     }
 
     string CreateSummary()

@@ -93,21 +93,6 @@ public class Manager : MonoBehaviour
         {
             GetChildren(modelTarget, allChildObjects);
         }
-
-        // Itera sobre cada objeto hijo y busca componentes InfoProcessor
-        foreach (GameObject obj in allChildObjects)
-        {
-            InfoProcessor infoProcessor = obj.GetComponent<InfoProcessor>();
-            if (infoProcessor != null)
-            {
-                // Llama a la función InitializeInfoObjects pasando el primer hijo del GameObject
-                if (infoProcessor.gameObject.transform.childCount > 0)
-                {
-                    Transform firstChild = infoProcessor.gameObject.transform.GetChild(0);
-                    infoProcessor.InitializeInfoObjects(firstChild);
-                }
-            }
-        }
     }
 
     void GetChildren(GameObject obj, List<GameObject> allObjects)
@@ -173,7 +158,16 @@ public class Manager : MonoBehaviour
 
     public void equalTexts()
     {
-        textMeshProUGUIID.text = tMP_InputFieldID.text;
+        if (textMeshProUGUIID != null && tMP_InputFieldID != null)
+        {
+            textMeshProUGUIID.text = tMP_InputFieldID.text;
+        }
+
+    }
+
+    public void backToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void Update()
