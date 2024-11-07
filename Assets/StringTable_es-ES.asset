@@ -128,9 +128,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3784316485632
-    m_Localized: "Estos pines bajo la etiqueta 'Analog In' (A0 a A5 en el UNO) pueden
-      leer la se\xF1al de un sensor anal\xF3gico y convertirla en un valor digital
-      que podamos interpretar."
+    m_Localized: " Conjuntos de pines anal\xF3gicos agrupados bajo la etiqueta 'Analog
+      In' (A0 a A5 en el UNO), pueden leer la se\xF1al de un sensor anal\xF3gico
+      y convertirla en un valor digital que podamos interpretar."
     m_Metadata:
       m_Items: []
   - m_Id: 3917632438272
@@ -266,11 +266,7 @@ MonoBehaviour:
   - m_Id: 5102542810382336
     m_Localized: "Enfoque el componente: Utilice la c\xE1mara de su dispositivo para
       enfocar el componente que desea estudiar. Aseg\xFArese de que est\xE1 centrado
-      y totalmente visible para una detecci\xF3n correcta.\r\n\r\nExplore las piezas:
-      Pulse sobre las partes resaltadas para revelar informaci\xF3n detallada sobre
-      cada una. Las partes relevantes aparecer\xE1n resaltadas.\r\n\r\nInicie el
-      juego: Pulse el bot\xF3n de empezar para iniciar el desaf\xEDo interactivo.
-      (disponible luego de un tiempo determinado)\r\n\r"
+      y totalmente visible para una detecci\xF3n correcta.\r"
     m_Metadata:
       m_Items: []
   - m_Id: 6120933415321600
@@ -279,10 +275,7 @@ MonoBehaviour:
       continuar.\n\nColocar los componentes seg\xFAn la plantilla: Usa la plantilla
       que se proporciona junto con la app para posicionar cada componente en el lugar
       asignado. La plantilla es esencial para guiarte en la correcta disposici\xF3n
-      de los elementos.\n\nConectar los puertos: Selecciona los puertos en pantalla
-      para conectar los componentes. Si deseas reiniciar las conexiones, utiliza
-      el bot\xF3n de desconexi\xF3n en la esquina inferior izquierda para desconectar
-      todos los cables de una vez."
+      de los elementos."
     m_Metadata:
       m_Items: []
   - m_Id: 6124971431165952
@@ -298,11 +291,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 24973923953356800
-    m_Localized: "Toca las partes iluminadas del sensor ultras\xF3nico, placa Arduino,
-      base shield y DHT11 para ver informaci\xF3n. Pulsa el bot\xF3n de inicio para
-      iniciar el juego (disponible luego de un tiempo determinado), coloca los nombres
-      en los lugares correctos y toca el bot\xF3n de finalizar para ver tus aciertos. 
-      Al pulsar \"Empezar\", se abrir\xE1 directamente la escena del Modo 1.\n\nUna
+    m_Localized: "Toca las partes iluminadas del componente para ver informaci\xF3n.
+      Pulsa el bot\xF3n de inicio para iniciar el juego, coloca los nombres en los
+      lugares correctos y toca el bot\xF3n de finalizar para ver tus aciertos.\n\nUna
       vez en el modo, puedes revisar las instrucciones en el bot\xF3n de informaci\xF3n."
     m_Metadata:
       m_Items: []
@@ -323,8 +314,7 @@ MonoBehaviour:
       dise\xF1ada para ense\xF1ar de manera interactiva el uso de componentes electr\xF3nicos
       como la placa Arduino Uno, la base shield, el sensor ultras\xF3nico y el sensor
       DHT11. A trav\xE9s de dos modos de uso, los usuarios pueden explorar los componentes
-      reales mediante AR en el modo de aprendizaje y practicar su conexi\xF3n en
-      el modo de pr\xE1ctica."
+      reales mediante AR y practicar su conexi\xF3n."
     m_Metadata:
       m_Items: []
   - m_Id: 24973575184396288
@@ -335,9 +325,8 @@ MonoBehaviour:
     m_Localized: "El modo de conexi\xF3n te permite ensamblar componentes electr\xF3nicos
       siguiendo una plantilla f\xEDsica, que se otorga junto con la app. Debes conectar
       la Base Shield a la placa Arduino y luego colocar los sensores y componentes
-      en sus puertos correspondientes, aplicando lo aprendido previamente en el modo
-      de aprendizaje.\n\nUna vez en el modo, puedes revisar las instrucciones en
-      el bot\xF3n de informaci\xF3n."
+      en los puertos correspondientes, aplicando lo aprendido en el modo de aprendizaje.\n\nUna
+      vez en el modo, puedes revisar las instrucciones en el bot\xF3n de informaci\xF3n."
     m_Metadata:
       m_Items: []
   - m_Id: 24974824952770560
@@ -346,15 +335,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 25388115692826624
-    m_Localized: "Empareje los nombres: Pulse sobre el nombre de un componente y,
-      a continuaci\xF3n, pulse sobre su descripci\xF3n correspondiente para emparejarlo.
-      Una vez colocada una pieza, se volver\xE1 transl\xFAcida para indicar que se
-      ha colocado correctamente.\r\n\r\nCompruebe las piezas colocadas: Si no est\xE1
-      seguro sobre una pieza que ya ha colocado, pulse sobre ella para resaltar su
-      ubicaci\xF3n y revisar sus detalles.\r\n\r\nSustituir una respuesta: Si necesitas
-      corregir una respuesta ya dada, simplemente toca nuevamente el nombre de la
-      parte y selecciona una nueva descripci\xF3n. La nueva respuesta sustituir\xE1
-      a la anterior, actualizando la colocaci\xF3n.\n"
+    m_Localized: "Coincidir los nombres: Pulse sobre el nombre de un componente y,
+      a continuaci\xF3n, pulse sobre su descripci\xF3n correspondiente para realizar
+      una coincidencia. Una vez colocada una pieza, se volver\xE1 transl\xFAcida
+      para indicar que se ha colocado."
     m_Metadata:
       m_Items: []
   - m_Id: 25388335109451776
@@ -367,10 +351,7 @@ MonoBehaviour:
   - m_Id: 25389653958012928
     m_Localized: "Conectar los sensores a la Base Shield: Recuerda que la Base Shield
       ya debe estar conectada a la placa Arduino. Coloca los sensores en los puertos
-      y aseg\xFArate de que las conexiones sean correctas.\n\nAplicar los conocimientos
-      aprendidos: Utiliza lo que has aprendido en el modo de aprendizaje para saber
-      d\xF3nde debe ir cada sensor. Los sensores deben conectarse a los puertos adecuados
-      de la Base Shield seg\xFAn lo indicado en tus estudios."
+      y aseg\xFArate de que las conexiones sean correctas."
     m_Metadata:
       m_Items: []
   - m_Id: 27913072452067328
@@ -391,6 +372,96 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 27942760390090752
     m_Localized: Cambia al modo 1 (modo de estudio)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44552046771331072
+    m_Localized: "Explore las piezas: Pulse sobre las partes resaltadas para revelar
+      informaci\xF3n detallada sobre cada una. Las partes relevantes aparecer\xE1n
+      resaltadas.\r\n\r\nInicia el juego: Pulsa el bot\xF3n \xABJugar\xBB para comenzar
+      el desaf\xEDo interactivo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44552969484656640
+    m_Localized: "Comprueba las piezas colocadas: Si no est\xE1s seguro de una pieza
+      que ya has colocado, toca sobre ella para resaltar su ubicaci\xF3n.\r\n\r\nSustituir
+      una respuesta: Si necesitas corregir una respuesta ya dada, vuelve a tocar
+      el nombre de la pieza y selecciona una nueva descripci\xF3n. La nueva respuesta
+      sustituir\xE1 a la anterior, actualizando la colocaci\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44556035206307840
+    m_Localized: "Conecte los puertos: Seleccione los puertos en la pantalla para
+      conectar los componentes. Si desea restablecer las conexiones, utilice el bot\xF3n
+      de desconexi\xF3n de la esquina inferior izquierda para desconectar todos los
+      cables."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44556732123471872
+    m_Localized: "Aplica los conocimientos aprendidos: Utiliza lo que has aprendido
+      en el modo de aprendizaje para averiguar d\xF3nde debe ir cada sensor. Los
+      sensores deben conectarse a los puertos correspondientes del Base Shield, tal
+      y como se indica en el estudio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44591697292845056
+    m_Localized: Modo Componentes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44592790966001664
+    m_Localized: Modo Ensamblado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44599197165576192
+    m_Localized: '1. Enfoque el componente.
+
+      2. Explorar las piezas.
+
+      3.
+      Inicie el juego.
+
+      4. Empareja los nombres.
+
+      5. Comprobar las piezas
+      colocadas.
+
+      6. Finalizar y ver resultados.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44599835026939904
+    m_Localized: "1. Conecta el Base Shield a la placa Arduino.\r\n2. Coloca los
+      componentes seg\xFAn la plantilla.\r\n3. Conecta los puertos.\r\n4. Conecte
+      los sensores a la Base Shield."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44991017305399296
+    m_Localized: "Enfoca el sensor DHT11 hasta que la c\xE1mara lo detecte."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44993101903847424
+    m_Localized: "Pulsa sobre una de las partes resaltadas para ver su informaci\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45267740311838720
+    m_Localized: "Cuando te hayas estudiado la descripci\xF3n pulsa el bot\xF3n de
+      \"play\"."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45268979263102976
+    m_Localized: "Pulsa sobre una opci\xF3n para seleccionarla."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45270733757243392
+    m_Localized: "Pulsa sobre el campo vac\xEDo del nombre para colocarla."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45275413568708608
+    m_Localized: "Pulsa el bot\xF3n de finalizar cuando est\xE9s satisfecho para
+      ver los resultados."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45275800799436800
+    m_Localized: "\xA1Tutorial completado! Vuelve al men\xFA principal con el bot\xF3n
+      de \"salir\"."
     m_Metadata:
       m_Items: []
   references:

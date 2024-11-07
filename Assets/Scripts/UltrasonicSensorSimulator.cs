@@ -54,6 +54,6 @@ public class UltrasonicSensorSimulator : MonoBehaviour
         textMeshPro.text = string.Format(distanceTextFormat, simulatedDistance.ToString("F4"), unit);
 
         // Puedes hacer lo que necesites con la distancia simulada aquí
-        Debug.Log(string.Format(distanceTextFormat, simulatedDistance.ToString("F4"), unit));
+        //Debug.Log(string.Format(distanceTextFormat, simulatedDistance.ToString("F4"), unit));
     }
 }

@@ -15,7 +15,6 @@ public class Manager : MonoBehaviour
     public TMP_InputField tMP_InputFieldID;
 
     private GameObject currentlyHighlighted;  // Para guardar el objeto actualmente con brillo verde
-    private GameObject redHighlighted;  // Para guardar el objeto actualmente con brillo rojo
 
     // Método para establecer la orientación de la pantalla a retrato
     public void SetPortraitOrientation()
@@ -50,7 +49,6 @@ public class Manager : MonoBehaviour
 
         // Limpiar las referencias de los objetos resaltados
         currentlyHighlighted = null;
-        redHighlighted = null;
     }
 
     public ImageOutline FindImageOutlineByText(string text)
@@ -112,7 +110,7 @@ public class Manager : MonoBehaviour
         Collider collider = optionInstance.GetComponent<Collider>();
         if (collider == null)
         {
-            Debug.LogError("The prefab does not have a Collider.");
+           // Debug.LogError("The prefab does not have a Collider.");
         }
         return collider;
     }
@@ -128,7 +126,7 @@ public class Manager : MonoBehaviour
         {
             if (hitCollider != optionCollider)
             {
-                Debug.Log($"Collision detected with: {hitCollider.gameObject.name}");
+                //Debug.Log($"Collision detected with: {hitCollider.gameObject.name}");
                 return true;
             }
         }
@@ -237,7 +235,7 @@ public class Manager : MonoBehaviour
 
         // Código a ejecutar después de la espera
         Debug.Log("Medio segundo ha pasado.");
-        UnhighlightAll();
+        //UnhighlightAll();
     }
 
     public void RemoveRedGlowFromAll()

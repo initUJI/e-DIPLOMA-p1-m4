@@ -58,6 +58,6 @@ public class DHT11SensorSimulator : MonoBehaviour
         textMeshPro.text = string.Format(sensorTextFormat, simulatedTemperature.ToString("F1"), simulatedHumidity.ToString("F1"));
 
         // Puedes hacer lo que necesites con los valores simulados aquí
-        Debug.Log(string.Format(sensorTextFormat, simulatedTemperature.ToString("F1"), simulatedHumidity.ToString("F1")));
+        //Debug.Log(string.Format(sensorTextFormat, simulatedTemperature.ToString("F1"), simulatedHumidity.ToString("F1")));
     }
 }

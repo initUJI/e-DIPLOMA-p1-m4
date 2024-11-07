@@ -12,7 +12,6 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     public float scaleIncrease = 0.1f;  // Porcentaje para aumentar el tamaño de la caja
     public Material material;
 
-    private bool isGlowing = false;
     private Color originalColor;
     private bool isTranslucentHighlighted = false;    // Nueva bandera para controlar el estado de resaltado rojo
     private GameObject highlightCube;                 // Referencia al cubo de resaltado
@@ -31,7 +30,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     public void RestoreOriginalState()
     {
-        Debug.Log("Restoring to original state");
+        //Debug.Log("Restoring to original state");
 
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -39,7 +38,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null)
             {
-                Debug.Log($"Restoring {sr.gameObject.name} to original color");
+                //Debug.Log($"Restoring {sr.gameObject.name} to original color");
 
                 // Restaurar el color original del sprite
                 sr.color = originalColor;
@@ -54,12 +53,12 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         manager.UnhighlightAll();
-        Debug.Log("OnPointerClick - ImageOutline clicked");
+        //Debug.Log("OnPointerClick - ImageOutline clicked");
 
         // Verificar si el manager está asignado
         if (manager == null)
         {
-            Debug.LogError("Manager is not assigned!");
+            //Debug.LogError("Manager is not assigned!");
             return;
         }
 
@@ -69,7 +68,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         // Si el objeto es translúcido, debe iluminarse en rojo
         if (isTranslucent)
         {
-            Debug.Log("Object is translucent");
+            //Debug.Log("Object is translucent");
             ApplyGlow(glowColorTranslucent);
             isTranslucentHighlighted = true;
 
@@ -82,7 +81,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         }
 
         // Si no es translúcido, aplicar brillo verde y notificar al Manager
-        Debug.Log("Object is not translucent");
+       // Debug.Log("Object is not translucent");
         if (!isTranslucentHighlighted)
         {
             ApplyGlow(glowColorNormal);
@@ -100,7 +99,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null && sr.color.a < 1f)
             {
-                Debug.Log($"Image {sr.gameObject.name} is translucent (alpha < 1)");
+               // Debug.Log($"Image {sr.gameObject.name} is translucent (alpha < 1)");
                 return true;  // El objeto es translúcido si el alfa es menor a 1
             }
         }
@@ -110,7 +109,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     // Función para aplicar brillo a los SpriteRenderer en los hijos
     public void ApplyGlow(Color glowColor)
     {
-        Debug.Log("Applying glow to children: " + glowColor.ToString());
+        //Debug.Log("Applying glow to children: " + glowColor.ToString());
 
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -118,21 +117,26 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null)
             {
-                Debug.Log($"Applying glow to {sr.gameObject.name}");
+                //Debug.Log($"Applying glow to {sr.gameObject.name}");
 
                 // Cambiar el color del SpriteRenderer directamente
                 sr.color = glowColor;
             }
         }
+    }
 
-        // Marcar el objeto como iluminado
-        isGlowing = true;
+    public void toOriginalColor()
+    {
+        //Debug.Log("toOriginalColor()");
+
+        //Debug.Log($"Color: {originalColor}");
+        transform.GetChild(1).GetComponent<SpriteRenderer>().color = originalColor;
     }
 
     // Función para quitar el brillo de los SpriteRenderer en los hijos
     public void RemoveGlow()
     {
-        Debug.Log("Removing glow from children");
+        //Debug.Log("Removing glow from children");
 
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -140,12 +144,12 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null)
             {
-                Debug.Log($"Removing glow from {sr.gameObject.name}");
+                //Debug.Log($"Removing glow from {sr.gameObject.name}");
 
                 // Si el color actual es rojo (glowColorTranslucent), volver al estado translúcido
                 if (sr.color == glowColorTranslucent)
                 {
-                    Debug.Log($"Returning {sr.gameObject.name} to translucent state");
+                    //Debug.Log($"Returning {sr.gameObject.name} to translucent state");
                     Color translucentColor = sr.color;
                     translucentColor.a = translucencyAlpha;  // Ajustar el alfa para hacer el sprite translúcido
                     sr.color = translucentColor;  // Aplicar el color translúcido
@@ -153,6 +157,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
                 else
                 {
                     // Restaurar el color original del sprite
+                    //Debug.Log($"Color: {originalColor}");
                     sr.color = originalColor;  // Volver al color original
                 }
             }
@@ -164,9 +169,6 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
             Destroy(highlightCube);
             highlightCube = null;
         }
-
-        // Marcar el objeto como no iluminado
-        isGlowing = false;
     }
 
     public bool CheckIfHighlightedRed()
@@ -190,7 +192,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     public void RemoveRedGlow()
     {
-        Debug.Log("Removing red glow from children");
+        //Debug.Log("Removing red glow from children");
 
         // Obtén todos los SpriteRenderers hijos del objeto actual
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -202,7 +204,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
                 // Si el color actual es el color de brillo rojo
                 if (sr.color == glowColorTranslucent)
                 {
-                    Debug.Log($"Removing red glow from {sr.gameObject.name}");
+                    //Debug.Log($"Removing red glow from {sr.gameObject.name}");
 
                     // Restaurar el color original del sprite
                     sr.color = originalColor;  // O hacer el sprite translúcido según tu lógica
@@ -219,9 +221,6 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
             Destroy(highlightCube);
             highlightCube = null;
         }
-
-        // Marcar el objeto como no iluminado
-        isGlowing = false;
 
         ApplyGlow(glowColorTranslucent);
         isTranslucentHighlighted = true;
@@ -248,7 +247,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     public void HighlightGrandparentColliders(Transform grandparent, Color color)
     {
-        Debug.Log($"Highlighting grandparent colliders for {grandparent.gameObject.name}");
+        //Debug.Log($"Highlighting grandparent colliders for {grandparent.gameObject.name}");
 
         // Obtener todos los BoxColliders del abuelo
         BoxCollider[] boxColliders = grandparent.GetComponents<BoxCollider>();
@@ -257,7 +256,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             foreach (BoxCollider boxCollider in boxColliders)
             {
-                Debug.Log($"BoxCollider found for {grandparent.gameObject.name}, applying highlight");
+                //Debug.Log($"BoxCollider found for {grandparent.gameObject.name}, applying highlight");
 
                 // Verifica si ya existe un cubo de resaltado para este BoxCollider
                 string highlightName = $"HighlightCube_{boxCollider.GetInstanceID()}";
@@ -278,7 +277,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.LogWarning("No BoxColliders found on grandparent");
+           // Debug.LogWarning("No BoxColliders found on grandparent");
         }
     }
     private void CreateBox(Transform parent, BoxCollider parentCollider)

@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public GameObject selectModeCanvas;
+    public GameObject mainCanvas;
+    public GameObject block;
     private ScreenOrientation originalOrientation;
 
     void OnEnable()
@@ -17,6 +20,29 @@ public class SceneChanger : MonoBehaviour
         // Desregistra el método al deshabilitar el script
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+    }
+
+    // Método para verificar si el modo de componentes ha sido completado
+    public bool IsComponentsModeCompleted()
+    {
+        return PlayerPrefs.GetInt("ComponentsModeCompleted", 0) == 1;
+    }
+
+    public void activeSelectMenu()
+    {
+        selectModeCanvas.SetActive(true);
+        mainCanvas.SetActive(false);
+
+        if (IsComponentsModeCompleted())
+        {
+            block.SetActive(false);
+        }
+    }
+
+    public void activeMainMenu()
+    {
+        mainCanvas.SetActive(true);
+        selectModeCanvas.SetActive(false);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

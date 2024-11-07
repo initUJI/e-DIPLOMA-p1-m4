@@ -35,7 +35,7 @@ public class buttonTest : MonoBehaviour
     {
         foreach (GameObject go in components) {
             // Al iniciar, guarda todos los TextMeshProUGUI con nombre "NameText" en el array
-            Debug.Log($"Start component: {go}");
+           // Debug.Log($"Start component: {go}");
             CaptureAllNameTexts(go.transform.GetChild(0).gameObject);
         }
 
@@ -226,7 +226,7 @@ public class buttonTest : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning($"No LocalizeStringEvent component found on {textComponent.gameObject.name}.");
+                    //Debug.LogWarning($"No LocalizeStringEvent component found on {textComponent.gameObject.name}.");
                 }
             }
         }

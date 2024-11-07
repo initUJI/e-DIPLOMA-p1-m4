@@ -221,7 +221,11 @@ public class WireConnector : MonoBehaviour
         {
             ultrasonicConnected = true;
             ultrasonicCanvas.SetActive(true); // Activar el canvas de Ultrasonic
-            logger.LogEvent("Ultrasonic good connected");
+            logger.LogEvent("Ultrasonic good connected to a digital port");
+        }
+        else
+        {
+            logger.LogEvent("Ultrasonic bad connected to a non-digital port");
         }
 
         // Verificar la conexión correcta de DHT11
@@ -231,7 +235,11 @@ public class WireConnector : MonoBehaviour
         {
             dht11Connected = true;
             dht11Canvas.SetActive(true); // Activar el canvas de DHT11
-            logger.LogEvent("DHT11 good connected");
+            logger.LogEvent("DHT11 good connected to a digital port");
+        }
+        else
+        {
+            logger.LogEvent("DHT11 bad connected to a non-digital port");
         }
 
         // Si ambos están conectados correctamente, mostrar el texto de conexión correcta

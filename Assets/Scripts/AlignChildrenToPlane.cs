@@ -11,7 +11,7 @@ public class AlignChildrenToPlane : MonoBehaviour
 
     public void AlignChildren()
     {
-        if (referenceUIObject == null)
+        /*if (referenceUIObject == null)
         {
             Debug.LogError("Reference UI Object is not assigned.");
             return;
@@ -36,6 +36,6 @@ public class AlignChildrenToPlane : MonoBehaviour
                 // Asignar la misma rotación que el objeto de referencia
                 child.rotation = referenceUIObject.rotation;
             }
-        }
+        }*/
     }
 }

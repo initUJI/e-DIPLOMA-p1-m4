@@ -15,11 +15,11 @@ public class CommandLineArgsHandler : MonoBehaviour
         if (args.Length > 1)
         {
             commandLineArg = args[1];
-            Debug.Log("First command line argument: " + commandLineArg);
+            //Debug.Log("First command line argument: " + commandLineArg);
         }
         else
         {
-            Debug.LogWarning("No command line arguments found.");
+           // Debug.LogWarning("No command line arguments found.");
         }
 
         StartSession();

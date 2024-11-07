@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -9,58 +8,79 @@ using UnityEngine.Localization.Tables;
 public class LocalizeStringEventManager : MonoBehaviour
 {
     private LocalizeStringEvent localizeStringEvent;
-    private List<string> localizedStrings = new List<string>();
-    private bool isLoaded = false;
+    public bool isLoaded = false;
 
     void Start()
     {
-        Debug.Log("Start: Iniciando carga de LocalizeStringEvent.");
-
-        // Obtener el componente LocalizeStringEvent
         localizeStringEvent = GetComponent<LocalizeStringEvent>();
 
         if (localizeStringEvent == null)
         {
             Debug.LogError("LocalizeStringEvent no encontrado en el GameObject.");
+            return;
+        }
+
+        Debug.Log("LocalizeStringEvent encontrado. Iniciando carga de strings localizados.");
+
+        // Llama a la función de carga sincrónica y marca como cargado si es exitoso
+        var loadedStrings = LoadLocalizedStrings();
+        if (loadedStrings.Count > 0)
+        {
+            isLoaded = true;
+            Debug.Log("Carga de strings localizados completa.");
         }
         else
         {
-            Debug.Log("LocalizeStringEvent encontrado. Iniciando carga de strings localizados.");
-            // Iniciar la corrutina para cargar los strings localizados
-            StartCoroutine(LoadLocalizedStringsCoroutine());
+            Debug.LogError("Error en la carga de strings localizados.");
         }
     }
 
-    private IEnumerator LoadLocalizedStringsCoroutine()
+    private List<string> LoadLocalizedStrings()
     {
-        Debug.Log("Esperando a que la localización esté inicializada...");
-        // Esperar a que la localización esté inicializada
-        yield return LocalizationSettings.InitializationOperation;
+        List<string> localizedStrings = new List<string>();
+
+        // Esperar hasta que la localización esté inicializada
+        if (!LocalizationSettings.InitializationOperation.IsDone)
+        {
+            LocalizationSettings.InitializationOperation.WaitForCompletion();
+        }
 
         Debug.Log("Localización inicializada. Cargando tabla de strings...");
-        // Obtener la referencia de la tabla y la entrada
-        var tableReference = localizeStringEvent.StringReference.TableReference;
-        var entryReference = localizeStringEvent.StringReference.TableEntryReference;
 
-        // Cargar la tabla de strings de manera asíncrona
-        var stringTableOperation = LocalizationSettings.StringDatabase.GetTableAsync(tableReference);
-        yield return stringTableOperation;
+        var tableReference = localizeStringEvent.StringReference.TableReference.TableCollectionName;
+        var entryReference = localizeStringEvent.StringReference.TableEntryReference.KeyId;
 
-        if (stringTableOperation.Result != null)
+        // Mostrar los valores de tableReference y entryReference para depuración
+        Debug.Log($"tableReference: {tableReference}");
+        Debug.Log($"entryReference: {entryReference}");
+
+        // Obtener la tabla de strings de forma síncrona
+        StringTable stringTable = LocalizationSettings.StringDatabase.GetTable(tableReference) as StringTable;
+
+        if (stringTable != null)
         {
             Debug.Log("Tabla de strings cargada. Procesando idiomas...");
-            // Recorrer todos los idiomas disponibles
             List<Locale> locales = LocalizationSettings.AvailableLocales.Locales;
+
             foreach (Locale locale in locales)
             {
-                // Cambiar temporalmente al idioma actual
+                // Cambiar el idioma temporalmente para cada Locale
                 LocalizationSettings.SelectedLocale = locale;
 
-                // Obtener el valor localizado para cada idioma
-                string localizedValue = localizeStringEvent.StringReference.GetLocalizedString();
-                localizedStrings.Add(localizedValue);
+                // Obtener la entrada de la tabla en el idioma actual
+                var entry = stringTable.GetEntry(entryReference);
 
-                Debug.Log($"Localized string for {locale.LocaleName}: {localizedValue}");
+                if (entry != null)
+                {
+                    string localizedValue = entry.GetLocalizedString();
+                    localizedStrings.Add(localizedValue);
+
+                    Debug.Log($"Localized string for {locale.LocaleName}: {localizedValue}");
+                }
+                else
+                {
+                    Debug.LogWarning($"No entry found for {locale.LocaleName}");
+                }
             }
         }
         else
@@ -68,41 +88,21 @@ public class LocalizeStringEventManager : MonoBehaviour
             Debug.LogError("Error: Tabla de strings no encontrada.");
         }
 
-        // Marcar que los strings localizados han sido cargados
-        isLoaded = true;
-        Debug.Log("Carga de strings localizados completa.");
+        return localizedStrings;
     }
+
 
     public List<string> GetLocalizedStrings()
     {
-        Debug.Log("GetLocalizedStrings: Verificando si los strings están cargados...");
-
-        // Si ya está cargado, devolver la lista directamente
-        if (isLoaded)
+        /*if (!isLoaded)
         {
-            Debug.Log("Los strings ya están cargados. Devolviendo la lista.");
-            return localizedStrings;
-        }
-        else
-        {
-            // Si no está cargado, forzar la carga sincronizando la corrutina
-            Debug.LogWarning("Los strings aún no están cargados. Forzando la carga...");
-            LoadLocalizedStringsSync();
-            return localizedStrings;
-        }
-    }
+            Debug.LogWarning("Los strings aún no están cargados.");
+            return new List<string>();
+        }*/
 
-    private void LoadLocalizedStringsSync()
-    {
-        Debug.Log("LoadLocalizedStringsSync: Ejecutando la corrutina de carga de strings...");
-        // Ejecutar la corrutina de carga y esperar que termine
-        StartCoroutine(LoadLocalizedStringsAndWait());
-    }
-
-    private IEnumerator LoadLocalizedStringsAndWait()
-    {
-        Debug.Log("LoadLocalizedStringsAndWait: Iniciando la espera y carga de strings.");
-        // Iniciar la corrutina para cargar los strings y esperar hasta que termine
-        yield return LoadLocalizedStringsCoroutine();
+        // Llama a LoadLocalizedStrings para obtener los strings cargados como parámetro local
+        List<string> localizedStrings = LoadLocalizedStrings();
+        Debug.Log("GetLocalizedStrings: Total strings en la lista: " + localizedStrings.Count);
+        return localizedStrings;
     }
 }

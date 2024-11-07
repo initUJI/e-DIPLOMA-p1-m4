@@ -17,27 +17,27 @@ public class LanguageSwitcher : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Inicializando LanguageSwitcher...");
+       // Debug.Log("Inicializando LanguageSwitcher...");
         LoadLanguageFromPrefs();
         languageButton.onClick.AddListener(SwitchLanguage);
         UpdateChildImage();
-        Debug.Log("LanguageSwitcher inicializado correctamente.");
+       // Debug.Log("LanguageSwitcher inicializado correctamente.");
     }
 
     void SwitchLanguage()
     {
-        Debug.Log("Cambiando idioma...");
+        //Debug.Log("Cambiando idioma...");
         isSpanish = !isSpanish;
 
         if (isSpanish)
         {
-            Debug.Log("Cambiando a español...");
+            //Debug.Log("Cambiando a español...");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales.Find(locale => locale.Identifier.Code == "es-ES");
             PlayerPrefs.SetString(LanguagePrefKey, "es-ES");
         }
         else
         {
-            Debug.Log("Cambiando a inglés...");
+           // Debug.Log("Cambiando a inglés...");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales.Find(locale => locale.Identifier.Code == "en");
             PlayerPrefs.SetString(LanguagePrefKey, "en");
         }
@@ -47,12 +47,12 @@ public class LanguageSwitcher : MonoBehaviour
 
         // Forzamos la actualización de textos en todos los objetos, incluyendo los que pueden estar desactivados
         UpdateAllLocalizedTexts();
-        Debug.Log("Cambio de idioma completado.");
+        //Debug.Log("Cambio de idioma completado.");
     }
 
     void UpdateChildImage()
     {
-        Debug.Log("Actualizando imagen de la bandera...");
+        //Debug.Log("Actualizando imagen de la bandera...");
         if (isSpanish)
         {
             childImage.sprite = englishFlagSprite;
@@ -61,23 +61,23 @@ public class LanguageSwitcher : MonoBehaviour
         {
             childImage.sprite = spanishFlagSprite;
         }
-        Debug.Log("Imagen actualizada.");
+        //Debug.Log("Imagen actualizada.");
     }
 
     void LoadLanguageFromPrefs()
     {
-        Debug.Log("Cargando idioma de PlayerPrefs...");
+        //Debug.Log("Cargando idioma de PlayerPrefs...");
         string savedLanguage = PlayerPrefs.GetString(LanguagePrefKey, "en");
 
         if (savedLanguage == "es-ES")
         {
-            Debug.Log("Idioma guardado es español.");
+           // Debug.Log("Idioma guardado es español.");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales.Find(locale => locale.Identifier.Code == "es-ES");
             isSpanish = true;
         }
         else
         {
-            Debug.Log("Idioma guardado es inglés.");
+           // Debug.Log("Idioma guardado es inglés.");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales.Find(locale => locale.Identifier.Code == "en");
             isSpanish = false;
         }
@@ -88,7 +88,7 @@ public class LanguageSwitcher : MonoBehaviour
     // Forzar actualización de textos localizados, incluidos los objetos que pueden estar desactivados
     void UpdateAllLocalizedTexts()
     {
-        Debug.Log("Forzando actualización de todos los textos localizados...");
+        //Debug.Log("Forzando actualización de todos los textos localizados...");
 
         LocalizeStringEvent[] localizedTexts = Resources.FindObjectsOfTypeAll<LocalizeStringEvent>();
 
@@ -99,7 +99,7 @@ public class LanguageSwitcher : MonoBehaviour
             // Comprobar si el objeto pertenece a la escena activa para evitar trabajar con prefabs
             if (localizeStringEvent.gameObject.scene.IsValid())
             {
-                Debug.Log($"Forzando actualización para {localizeStringEvent.gameObject.name}");
+                //Debug.Log($"Forzando actualización para {localizeStringEvent.gameObject.name}");
 
                 // Si el objeto está desactivado, activarlo temporalmente para que se actualice
                 bool wasActive = localizeStringEvent.gameObject.activeSelf;
@@ -120,6 +120,6 @@ public class LanguageSwitcher : MonoBehaviour
             }
         }
 
-        Debug.Log("Actualización de textos completada.");
+        //Debug.Log("Actualización de textos completada.");
     }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InfoProcessorSummary : MonoBehaviour
 {
@@ -39,10 +40,22 @@ public class InfoProcessorSummary : MonoBehaviour
     {
         text.text = CreateSummary();
         finishButton.SetActive(false);
-        reloadButton.SetActive(true);
+        if (reloadButton != null)
+        {
+            reloadButton.SetActive(true);
+        }
+        
         confirmationPanel.SetActive(false);
         logger.LogEvent("Finish button pressed with results: " + text.text);
         GetComponent<buttonTest>().desactiveModelTargets();
+    }
+
+    // Método para marcar el modo de componentes como completado
+    public void SetComponentsModeCompleted(bool completed)
+    {
+        PlayerPrefs.SetInt("ComponentsModeCompleted", completed ? 1 : 0);
+        PlayerPrefs.Save();  // Guarda los cambios en PlayerPrefs
+        Debug.Log("Modo componentes completado: " + completed);
     }
 
     string CreateSummary()
@@ -62,6 +75,11 @@ public class InfoProcessorSummary : MonoBehaviour
             }
         }
 
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            SetComponentsModeCompleted(true);
+        }
+        
         return summaryBuilder.ToString().TrimEnd();
     }
 

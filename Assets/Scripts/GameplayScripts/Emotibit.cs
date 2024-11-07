@@ -26,7 +26,7 @@ public class EmotibitRecords
     public List<EmotibitRecordItem> values = new List<EmotibitRecordItem>();
 
     // Returns a JSON string representation of the record.
-    public string ToString()
+    new public string ToString()
     {
         return JsonUtility.ToJson(this);
     }
@@ -79,7 +79,7 @@ public class Emotibit : MonoBehaviour
         instance = this;
     }
 
-    string toDebugLog = null;
+   // string toDebugLog = null;
     void OnNewData(string data)
     {
         lastDataTime = 0;
@@ -175,7 +175,7 @@ public class Emotibit : MonoBehaviour
 
     public void Stop(string filePath)
     {
-        Debug.Log(Directory.GetCurrentDirectory());
+        //Debug.Log(Directory.GetCurrentDirectory());
 
         if (!isRecording) return;
 
@@ -190,7 +190,9 @@ public class Emotibit : MonoBehaviour
         {
             if (filePath != null)
             {
-                string path = Directory.GetCurrentDirectory() + filePath + "/emotibit_biometric_data.json";
+                //string path = Directory.GetCurrentDirectory() + filePath + "/emotibit_biometric_data.json";
+                string path = Application.persistentDataPath + filePath + "/emotibit_biometric_data.json";
+
                 path = GetSafeFileName(path);
 
                 if (IsValidPath(path))
@@ -207,7 +209,8 @@ public class Emotibit : MonoBehaviour
         {
             if (filePath != null)
             {
-                string path = Directory.GetCurrentDirectory() + filePath + "/emotibit_general_data.json";
+                //string path = Directory.GetCurrentDirectory() + filePath + "/emotibit_general_data.json";
+                string path = Application.persistentDataPath + filePath + "/emotibit_general_data.json";
                 path = GetSafeFileName(path);
 
                 if (IsValidPath(path))
@@ -224,7 +227,8 @@ public class Emotibit : MonoBehaviour
         {
             if (filePath != null)
             {
-                string path = Directory.GetCurrentDirectory() + filePath + "/emotibit_computer_data.json";
+                //string path = Directory.GetCurrentDirectory() + filePath + "/emotibit_computer_data.json";
+                string path = Application.persistentDataPath + filePath + "/emotibit_computer_data.json";
                 path = GetSafeFileName(path);
 
                 if (IsValidPath(path))

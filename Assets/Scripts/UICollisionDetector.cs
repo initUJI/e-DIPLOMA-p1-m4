@@ -4,12 +4,14 @@ using System.Text.RegularExpressions;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
 {
     public Manager manager;  // Referencia al Manager para gestionar el objeto brillando actualmente
     public InfoProcessor infoProcessor;  // Referencia al InfoProcessor para actualizaciones de estado
     public LocalizeStringEventManager localizeStringEventManager;
+    public GameObject rubish;
 
     private EventLogger logger;
     private GameObject[] grayBoxes;  // Referencia a las cajas azules
@@ -22,8 +24,35 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         logger = FindFirstObjectByType<EventLogger>();
         solved = false;   
         manager = FindFirstObjectByType<Manager>();
+        rubish = transform.parent.transform.GetChild(0).gameObject;
+        rubish.GetComponent<Button>().onClick.AddListener(OnRubishClick);
+        desActiveRubish();
         Initialize();
     }
+
+    private void OnLocalizedStringsLoaded()
+    {
+        Debug.Log("Localized strings cargados completamente. Ejecutando CheckSolvedStatus.");
+        CheckSolvedStatus();
+    }
+
+
+    private void activeRubish()
+    {
+        if (rubish != null && !rubish.activeInHierarchy)
+        {
+            rubish.SetActive(true);
+        }
+    }
+
+    private void desActiveRubish()
+    {
+        if (rubish != null && rubish.activeInHierarchy)
+        {
+            rubish.SetActive(false);
+        }
+    }
+
     private void Initialize()
     {
         EnsureBoxCollider();  // Asegura que el objeto tenga un BoxCollider para detectar clics
@@ -37,16 +66,45 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void OnRubishClick()
+    {
+        //Debug.Log("Entra en OnRubishClick");
+        // Verificar si el receptor ya tiene un texto (no está en blanco)
+        TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
+        if (!string.IsNullOrEmpty(targetTextComponent.text))
+        {
+            // Buscar el objeto que tenía originalmente el texto
+            ImageOutline originalOutline = manager.FindImageOutlineByText(targetTextComponent.text);
+            if (originalOutline != null)
+            {
+                //Debug.Log("OnRubishClick IF");
+                // Si el objeto original está en estado translúcido, restaurarlo
+                originalOutline.toOriginalColor();
+
+                if (originalOutline.box != null)
+                {
+                    //Debug.Log("OnRubishClick IF 2");
+                    Destroy(originalOutline.box);
+                }
+
+            }
+            targetTextComponent.text = "";
+        }
+        // Desiluminar el objeto que brillaba usando UnhighlightAll
+        manager.UnhighlightAll(); 
+        desActiveRubish();
+    }
+
     // Función para manejar el toque o clic en el objeto
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Entra en OnPointerClick");
+        //Debug.Log("Entra en OnPointerClick");
         // Verificar si hay un objeto actualmente brillando en el manager
         GameObject highlightedObject = manager.GetCurrentlyHighlighted();
 
         if (highlightedObject != null)
         {
-            Debug.Log("Objeto brillante encontrado");
+            //Debug.Log("Objeto brillante encontrado");
             // Verificar si el receptor ya tiene un texto (no está en blanco)
             TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
             if (!string.IsNullOrEmpty(targetTextComponent.text))
@@ -56,7 +114,7 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
                 if (originalOutline != null)
                 {
                     // Si el objeto original está en estado translúcido, restaurarlo
-                    originalOutline.RemoveGlow();
+                    originalOutline.toOriginalColor();
 
                     if (originalOutline.box != null)
                     {
@@ -85,7 +143,7 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.Log("No hay objeto brillante seleccionado");
+           // Debug.Log("No hay objeto brillante seleccionado");
         }
     }
 
@@ -95,22 +153,22 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();  // Este objeto
         if (targetTextComponent != null)
         {
-            Debug.Log("Target TextMeshProUGUI found on " + gameObject.name);
+           // Debug.Log("Target TextMeshProUGUI found on " + gameObject.name);
         }
         else
         {
-            Debug.LogError("Target TextMeshProUGUI not found on " + gameObject.name);
+          //  Debug.LogError("Target TextMeshProUGUI not found on " + gameObject.name);
         }
 
         // Obtener el componente de texto del objeto resaltado
         TextMeshProUGUI sourceTextComponent = highlightedObject.GetComponentInChildren<TextMeshProUGUI>();  // Objeto que brillaba
         if (sourceTextComponent != null)
         {
-            Debug.Log("Source TextMeshProUGUI found on " + highlightedObject.name + " with text: " + sourceTextComponent.text);
+          //  Debug.Log("Source TextMeshProUGUI found on " + highlightedObject.name + " with text: " + sourceTextComponent.text);
         }
         else
         {
-            Debug.LogError("Source TextMeshProUGUI not found on " + highlightedObject.name);
+           // Debug.LogError("Source TextMeshProUGUI not found on " + highlightedObject.name);
         }
 
         // Comprobar si el logger es nulo y obtenerlo si es necesario
@@ -119,54 +177,57 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
             logger = manager.gameObject.GetComponent<EventLogger>();
             if (logger != null)
             {
-                Debug.Log("EventLogger found on manager object.");
+               // Debug.Log("EventLogger found on manager object.");
             }
             else
             {
-                Debug.LogError("EventLogger not found on manager object.");
+               // Debug.LogError("EventLogger not found on manager object.");
             }
         }
 
         // Registrar el evento si se encuentra el logger
         if (logger != null && sourceTextComponent != null && targetTextComponent != null)
         {
-            logger.LogEvent("Text transferred from " + sourceTextComponent.text + " to " + targetTextComponent.text);
+            logger.LogEvent($"Assigning the text from the option named \"{sourceTextComponent.text}\" to the definition placeholder \"{targetTextComponent.text}\".");
+
         }
 
         // Transfiere el texto y el tamaño de la fuente si ambos componentes existen
         if (targetTextComponent != null && sourceTextComponent != null)
         {
-            Debug.Log("Transferring text: '" + sourceTextComponent.text + "' and font size: " + sourceTextComponent.fontSize);
+            //Debug.Log("Transferring text: '" + sourceTextComponent.text + "' and font size: " + sourceTextComponent.fontSize);
             targetTextComponent.text = sourceTextComponent.text;
             targetTextComponent.fontSize = sourceTextComponent.fontSize;
         }
         else
         {
-            Debug.LogError("Cannot transfer text or font size because one of the components is missing.");
+            //Debug.LogError("Cannot transfer text or font size because one of the components is missing.");
         }
 
         // Actualizar el estado del puzzle
-        Debug.Log("Updating puzzle state...");
+        //Debug.Log("Updating puzzle state...");
         CheckSolvedStatus();
         infoProcessor.UpdateSolvedCount();
         infoProcessor.CheckAndDeactivateInfoObjects();
-        Debug.Log("Puzzle state updated.");
+        activeRubish();
+        //Debug.Log("Puzzle state updated.");
     }
 
 
     private void CheckSolvedStatus()
     {
-        Debug.Log("entra: CheckSolvedStatus()");
-        // Verifica si el texto actual coincide con el texto correcto
-
+        Debug.Log("localizeStringEventManager: " + localizeStringEventManager);
+        // Proceder con la verificación de solución si los strings están cargados
         List<string> list = localizeStringEventManager.GetLocalizedStrings();
         Debug.Log("list: " + list.Count);
 
-        foreach (string s in list) {
+        foreach (string s in list)
+        {
             Debug.Log("solved: " + ProcessString(GetComponent<TextMeshProUGUI>().text) + " " + ProcessString(s));
             if (ProcessString(GetComponent<TextMeshProUGUI>().text) == ProcessString(s))
             {
-                solved = true; break;
+                solved = true;
+                break;
             }
             else
             {
@@ -176,6 +237,7 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
 
         Debug.Log("solved: " + solved);
     }
+
 
     public static string ProcessString(string input)
     {
@@ -191,15 +253,15 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
 
     private void createGrayBox()
     {
-        Debug.Log("Entra: createGrayBox()");
-        Debug.Log("parentTransform1: createGrayBox()" + transform.parent);
-        Debug.Log("parentTransform2: createGrayBox()" + transform.parent.parent);
+       // Debug.Log("Entra: createGrayBox()");
+       // Debug.Log("parentTransform1: createGrayBox()" + transform.parent);
+       // Debug.Log("parentTransform2: createGrayBox()" + transform.parent.parent);
         // Acceder al padre del objeto actual
         Transform parentTransform = transform.parent.parent;
 
         if (parentTransform != null)
         {
-            Debug.Log("Parent object found: " + parentTransform.name);
+           // Debug.Log("Parent object found: " + parentTransform.name);
 
             // Comprobar si ya se han creado las grayBoxes
             if (grayBoxes == null || grayBoxes.Length <= 0)
@@ -209,41 +271,41 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
 
                 if (parentColliders.Length > 0)
                 {
-                    Debug.Log("Found " + parentColliders.Length + " BoxColliders on the parent object.");
+                    //Debug.Log("Found " + parentColliders.Length + " BoxColliders on the parent object.");
 
                     grayBoxes = new GameObject[parentColliders.Length];
 
                     for (int i = 0; i < parentColliders.Length; i++)
                     {
                         BoxCollider parentCollider = parentColliders[i];
-                        Debug.Log("Creating gray box for collider " + (i + 1) + " with bounds: " + parentCollider.bounds);
+                        //Debug.Log("Creating gray box for collider " + (i + 1) + " with bounds: " + parentCollider.bounds);
 
                         // Crear una caja gris translúcida por cada Collider en el objeto padre
                         grayBoxes[i] = transform.parent.GetComponent<CreateBoxOnActive>().CreateGrayBox(parentTransform, parentCollider);
 
                         if (grayBoxes[i] != null)
                         {
-                            Debug.Log("Gray box created successfully for collider " + (i + 1));
+                            //Debug.Log("Gray box created successfully for collider " + (i + 1));
                         }
                         else
                         {
-                            Debug.LogError("Failed to create gray box for collider " + (i + 1));
+                           // Debug.LogError("Failed to create gray box for collider " + (i + 1));
                         }
                     }
                 }
                 else
                 {
-                    Debug.LogWarning("No BoxColliders found on the parent object.");
+                   // Debug.LogWarning("No BoxColliders found on the parent object.");
                 }
             }
             else
             {
-                Debug.Log("Gray boxes have already been created.");
+                //Debug.Log("Gray boxes have already been created.");
             }
         }
         else
         {
-            Debug.LogWarning("This object has no parent.");
+           // Debug.LogWarning("This object has no parent.");
         }
     }
 

@@ -23,7 +23,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         originalPosition = rectTransform.anchoredPosition;
         originalRotation = rectTransform.rotation;
-        logger.LogEvent("Start draging: " + transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
+        //logger.LogEvent("Start draging: " + transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -37,7 +37,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         // Puedes agregar cualquier lógica adicional aquí, como soltar el objeto en una zona específica
-        logger.LogEvent("End draging: " + transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
+       // logger.LogEvent("End draging: " + transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
     }
 
     public void SetRotation(Quaternion newRotation)
