@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class InfoProcessorSummary : MonoBehaviour
 {
-
+    public GameObject results;
     public TextMeshProUGUI text;
     [SerializeField]
     private GameObject finishButton;
@@ -23,6 +23,7 @@ public class InfoProcessorSummary : MonoBehaviour
     {
         logger = FindObjectOfType<EventLogger>();
         string summary = CreateSummary();
+        results.SetActive(false);
         //Debug.Log(summary);
     }
 
@@ -38,6 +39,7 @@ public class InfoProcessorSummary : MonoBehaviour
 
     public void showSummary()
     {
+        results.SetActive(true);
         text.text = CreateSummary();
         finishButton.SetActive(false);
         if (reloadButton != null)
