@@ -4,6 +4,7 @@ using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LanguageSwitcher : MonoBehaviour
 {
@@ -46,8 +47,14 @@ public class LanguageSwitcher : MonoBehaviour
         UpdateChildImage();
 
         // Forzamos la actualización de textos en todos los objetos, incluyendo los que pueden estar desactivados
+        ReloadAllTextMeshPro();
         UpdateAllLocalizedTexts();
         //Debug.Log("Cambio de idioma completado.");
+        // Obtén el nombre o índice de la escena activa
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Recarga la escena
+        SceneManager.LoadScene(currentSceneName);
     }
 
     void UpdateChildImage()
@@ -83,6 +90,27 @@ public class LanguageSwitcher : MonoBehaviour
         }
 
         UpdateChildImage();
+    }
+
+    public void ReloadAllTextMeshPro()
+    {
+        // Encuentra todos los objetos en la escena con un componente TextMeshProUGUI
+        TextMeshProUGUI[] tmProUGUITexts = FindObjectsOfType<TextMeshProUGUI>();
+        TextMeshPro[] tmProTexts = FindObjectsOfType<TextMeshPro>();
+
+        // Recarga TextMeshProUGUI (usualmente en UI)
+        foreach (TextMeshProUGUI text in tmProUGUITexts)
+        {
+            text.ForceMeshUpdate(); // Fuerza la actualización del texto
+            Debug.Log($"TextMeshProUGUI actualizado: {text.text}");
+        }
+
+        // Recarga TextMeshPro (usualmente en objetos 3D)
+        foreach (TextMeshPro text in tmProTexts)
+        {
+            text.ForceMeshUpdate(); // Fuerza la actualización del texto
+            Debug.Log($"TextMeshPro actualizado: {text.text}");
+        }
     }
 
     // Forzar actualización de textos localizados, incluidos los objetos que pueden estar desactivados

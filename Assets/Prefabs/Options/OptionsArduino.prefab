@@ -126,6 +126,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &949335357829113347
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +773,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &1438159755900384928
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +902,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &1438159757060741979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,6 +1549,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &2564770492879024530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1562,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6128562690624099087}
   - component: {fileID: 8087525616570842228}
-  - component: {fileID: 7210643311144268866}
   m_Layer: 0
   m_Name: OptionsArduino
   m_TagString: Untagged
@@ -1599,32 +1610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceUIObject: {fileID: 0}
---- !u!114 &7210643311144268866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2564770492879024530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225e168fef51461448f0f5578281383b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 6059542569818345177}
-  - {fileID: 1532891590723999722}
-  - {fileID: 5090407227537655964}
-  - {fileID: 8024779202632471201}
-  - {fileID: 1438159757060741973}
-  - {fileID: 4622470067315279661}
-  - {fileID: 3525429484386227050}
-  - {fileID: 3743053474784917581}
-  - {fileID: 1006455834364640876}
-  - {fileID: 5342047138176992363}
-  - {fileID: 949335357829113357}
-  - {fileID: 7013997116266478108}
-  - {fileID: 6114877329348918202}
 --- !u!1 &3525429484386227044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +1995,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &3743053473893242296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2124,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &3743053474784917571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,6 +2771,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &5090407227117869772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3165,6 +3159,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &5342047137790760507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3550,6 +3547,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &6059542568789287724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,6 +3676,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &6059542569818345175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4061,6 +4064,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &6114877329231178218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4705,6 +4711,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &8024779201338130260
 GameObject:
   m_ObjectHideFlags: 0
@@ -4831,6 +4840,9 @@ MonoBehaviour:
   boxTranslucencyAlpha: 0.3
   transferredTo: {fileID: 0}
   manager: {fileID: 0}
+  scaleIncrease: 0.1
+  material: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &8024779202632471215
 GameObject:
   m_ObjectHideFlags: 0

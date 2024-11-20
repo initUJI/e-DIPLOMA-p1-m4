@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,7 +32,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     public void RestoreOriginalState()
     {
-        //Debug.Log("Restoring to original state");
+        Debug.Log("Restoring to original state");
 
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -38,7 +40,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null)
             {
-                //Debug.Log($"Restoring {sr.gameObject.name} to original color");
+                Debug.Log($"Restoring {sr.gameObject.name} to original color");
 
                 // Restaurar el color original del sprite
                 sr.color = originalColor;
@@ -53,12 +55,12 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         manager.UnhighlightAll();
-        //Debug.Log("OnPointerClick - ImageOutline clicked");
+        Debug.Log("OnPointerClick - ImageOutline clicked");
 
         // Verificar si el manager está asignado
         if (manager == null)
         {
-            //Debug.LogError("Manager is not assigned!");
+            Debug.LogError("Manager is not assigned!");
             return;
         }
 
@@ -68,7 +70,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         // Si el objeto es translúcido, debe iluminarse en rojo
         if (isTranslucent)
         {
-            //Debug.Log("Object is translucent");
+            Debug.Log("Object is translucent");
             ApplyGlow(glowColorTranslucent);
             isTranslucentHighlighted = true;
 
@@ -81,7 +83,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         }
 
         // Si no es translúcido, aplicar brillo verde y notificar al Manager
-       // Debug.Log("Object is not translucent");
+        Debug.Log("Object is not translucent");
         if (!isTranslucentHighlighted)
         {
             ApplyGlow(glowColorNormal);
@@ -99,7 +101,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null && sr.color.a < 1f)
             {
-               // Debug.Log($"Image {sr.gameObject.name} is translucent (alpha < 1)");
+                Debug.Log($"Image {sr.gameObject.name} is translucent (alpha < 1)");
                 return true;  // El objeto es translúcido si el alfa es menor a 1
             }
         }
@@ -109,7 +111,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     // Función para aplicar brillo a los SpriteRenderer en los hijos
     public void ApplyGlow(Color glowColor)
     {
-        //Debug.Log("Applying glow to children: " + glowColor.ToString());
+        Debug.Log("Applying glow to children: " + glowColor.ToString());
 
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -117,7 +119,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null)
             {
-                //Debug.Log($"Applying glow to {sr.gameObject.name}");
+                Debug.Log($"Applying glow to {sr.gameObject.name}");
 
                 // Cambiar el color del SpriteRenderer directamente
                 sr.color = glowColor;
@@ -127,16 +129,46 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     public void toOriginalColor()
     {
-        //Debug.Log("toOriginalColor()");
+        Debug.Log("toOriginalColor(): "+ transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
 
-        //Debug.Log($"Color: {originalColor}");
-        transform.GetChild(1).GetComponent<SpriteRenderer>().color = originalColor;
+        var spriteRenderer = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        Debug.Log($"toOriginalColor: {originalColor}");
+        Debug.Log($"SpriteRenderer: {spriteRenderer.color}");
+
+        spriteRenderer.color= Color.white;
+
+        Debug.Log($"toOriginalColor: {originalColor}");
+        Debug.Log($"SpriteRenderer: {spriteRenderer.color}");
+
+        // Forzar la actualización del SpriteRenderer
+        spriteRenderer.enabled = false;
+        spriteRenderer.enabled = true;
+
+        // Desactivar y reactivar el objeto completo
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(true);
+
+        // Forzar la actualización del objeto
+        Canvas.ForceUpdateCanvases();
+        ForceRenderUpdate();
+        Camera.main.Render(); // Forzar el renderizado de la cámara principal
+        Debug.Log($"toOriginalColor: {originalColor}");
+        Debug.Log($"SpriteRenderer: {spriteRenderer.color}");
     }
+
+    void ForceRenderUpdate()
+    {
+        // Forzar un nuevo frame de renderizado
+        Application.targetFrameRate = 60; // Asegura un framerate para forzar los gráficos
+        QualitySettings.vSyncCount = 0;  // Asegura que no haya límites de vSync
+        Debug.Log("Forzando actualización de gráficos en el próximo frame.");
+    }
+
 
     // Función para quitar el brillo de los SpriteRenderer en los hijos
     public void RemoveGlow()
     {
-        //Debug.Log("Removing glow from children");
+        Debug.Log("Removing glow from children");
 
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -144,12 +176,12 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
         {
             if (sr != null)
             {
-                //Debug.Log($"Removing glow from {sr.gameObject.name}");
+                Debug.Log($"Removing glow from {sr.gameObject.name}");
 
                 // Si el color actual es rojo (glowColorTranslucent), volver al estado translúcido
                 if (sr.color == glowColorTranslucent)
                 {
-                    //Debug.Log($"Returning {sr.gameObject.name} to translucent state");
+                    Debug.Log($"Returning {sr.gameObject.name} to translucent state");
                     Color translucentColor = sr.color;
                     translucentColor.a = translucencyAlpha;  // Ajustar el alfa para hacer el sprite translúcido
                     sr.color = translucentColor;  // Aplicar el color translúcido
@@ -157,7 +189,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
                 else
                 {
                     // Restaurar el color original del sprite
-                    //Debug.Log($"Color: {originalColor}");
+                    Debug.Log($"Color: {originalColor}");
                     sr.color = originalColor;  // Volver al color original
                 }
             }
@@ -192,7 +224,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
 
     public void RemoveRedGlow()
     {
-        //Debug.Log("Removing red glow from children");
+        Debug.Log("Removing red glow from children");
 
         // Obtén todos los SpriteRenderers hijos del objeto actual
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -204,7 +236,7 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
                 // Si el color actual es el color de brillo rojo
                 if (sr.color == glowColorTranslucent)
                 {
-                    //Debug.Log($"Removing red glow from {sr.gameObject.name}");
+                    Debug.Log($"Removing red glow from {sr.gameObject.name}");
 
                     // Restaurar el color original del sprite
                     sr.color = originalColor;  // O hacer el sprite translúcido según tu lógica
@@ -230,17 +262,16 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
     public void MakeTranslucent()
     {
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-
+        Debug.Log("MakeTranslucent():" + spriteRenderers.Length);
         foreach (SpriteRenderer sr in spriteRenderers)
         {
             if (sr != null)
             {
                 Debug.Log($"Making {sr.gameObject.name} translucent");
 
-                // Cambiar el color del SpriteRenderer para hacer el sprite translúcido
-                Color currentColor = Color.white;
-                currentColor.a = translucencyAlpha;  // Ajustar el alfa para hacer el sprite translúcido
-                sr.color = currentColor;  // Aplicar el color con el nuevo alfa
+                Color c = Color.white;
+                c.a = c.a / 2;
+                sr.color =c;  // Aplicar el color con el nuevo alfa
             }
         }
     }

@@ -47,7 +47,7 @@ public class LocalizeStringEventManager : MonoBehaviour
 
         Debug.Log("Localización inicializada. Cargando tabla de strings...");
 
-        var tableReference = localizeStringEvent.StringReference.TableReference.TableCollectionName;
+        var tableReference = localizeStringEvent.StringReference.TableReference;
         var entryReference = localizeStringEvent.StringReference.TableEntryReference.KeyId;
 
         // Mostrar los valores de tableReference y entryReference para depuración
@@ -57,6 +57,7 @@ public class LocalizeStringEventManager : MonoBehaviour
         // Obtener la tabla de strings de forma síncrona
         StringTable stringTable = LocalizationSettings.StringDatabase.GetTable(tableReference) as StringTable;
 
+        Debug.Log($"AAAAAAAAAAAAAAAAAA");
         if (stringTable != null)
         {
             Debug.Log("Tabla de strings cargada. Procesando idiomas...");

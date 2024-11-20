@@ -468,6 +468,22 @@ MonoBehaviour:
     m_Localized: Resultados
     m_Metadata:
       m_Items: []
+  - m_Id: 50089770115538944
+    m_Localized: "Puertos conexi\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50090913487003648
+    m_Localized: ICPSInput
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50092531129393152
+    m_Localized: "Puertos anal\xF3gicos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50093280613769216
+    m_Localized: Conexiones
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

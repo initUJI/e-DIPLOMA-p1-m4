@@ -355,6 +355,22 @@ MonoBehaviour:
     m_Key: Results
     m_Metadata:
       m_Items: []
+  - m_Id: 50089770115538944
+    m_Key: ConnectionPortsNameNew
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50090913487003648
+    m_Key: ICPSInputNameNew
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50092531129393152
+    m_Key: AnaloguePortsNameNew
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50093280613769216
+    m_Key: ConnectionsNameNew
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

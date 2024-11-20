@@ -24,7 +24,7 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         logger = FindFirstObjectByType<EventLogger>();
         solved = false;   
         manager = FindFirstObjectByType<Manager>();
-        rubish = transform.parent.transform.GetChild(0).gameObject;
+        //rubish = transform.parent.transform.GetChild(0).gameObject;
         rubish.GetComponent<Button>().onClick.AddListener(OnRubishClick);
         desActiveRubish();
         Initialize();
@@ -68,22 +68,23 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
 
     public void OnRubishClick()
     {
-        //Debug.Log("Entra en OnRubishClick");
+        Debug.Log("Entra en OnRubishClick");
         // Verificar si el receptor ya tiene un texto (no está en blanco)
         TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
         if (!string.IsNullOrEmpty(targetTextComponent.text))
         {
             // Buscar el objeto que tenía originalmente el texto
             ImageOutline originalOutline = manager.FindImageOutlineByText(targetTextComponent.text);
+            Debug.Log("originalOutline text:" + originalOutline.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
             if (originalOutline != null)
             {
-                //Debug.Log("OnRubishClick IF");
+                Debug.Log("OnRubishClick IF");
                 // Si el objeto original está en estado translúcido, restaurarlo
                 originalOutline.toOriginalColor();
 
                 if (originalOutline.box != null)
                 {
-                    //Debug.Log("OnRubishClick IF 2");
+                    Debug.Log("OnRubishClick IF 2");
                     Destroy(originalOutline.box);
                 }
 
@@ -98,23 +99,27 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
     // Función para manejar el toque o clic en el objeto
     public void OnPointerClick(PointerEventData eventData)
     {
-        //Debug.Log("Entra en OnPointerClick");
+        Debug.Log("Entra en OnPointerClick");
         // Verificar si hay un objeto actualmente brillando en el manager
         GameObject highlightedObject = manager.GetCurrentlyHighlighted();
+        Debug.Log("highlightedObject: " + highlightedObject);
 
         if (highlightedObject != null)
         {
-            //Debug.Log("Objeto brillante encontrado");
+            Debug.Log("Objeto brillante encontrado");
             // Verificar si el receptor ya tiene un texto (no está en blanco)
             TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();
+            Debug.Log("targetTextComponent: " + targetTextComponent);
             if (!string.IsNullOrEmpty(targetTextComponent.text))
             {
+                Debug.Log("string.IsNullOrEmpty(targetTextComponent.text)");
                 // Buscar el objeto que tenía originalmente el texto
                 ImageOutline originalOutline = manager.FindImageOutlineByText(targetTextComponent.text);
                 if (originalOutline != null)
                 {
                     // Si el objeto original está en estado translúcido, restaurarlo
                     originalOutline.toOriginalColor();
+                    Debug.Log("originalOutline.toOriginalColor();");
 
                     if (originalOutline.box != null)
                     {
@@ -126,12 +131,16 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
 
             // Si hay un objeto brillando, transferir su texto al objeto clicado (este)
             TransferTextAndFontSize(highlightedObject);
+            Debug.Log("TransferTextAndFontSizeAA");
             createGrayBox();
+            Debug.Log("createGrayBox()AA");
 
             // Después de transferir el texto, hacer el objeto actualmente brillante translúcido
             ImageOutline outline = highlightedObject.GetComponent<ImageOutline>();
+            Debug.Log("outlineAAA: " + outline);
             if (outline != null)
             {
+                Debug.Log("if (outline != null)");
                 outline.MakeTranslucent();  // Hacer que las imágenes de los hijos se vuelvan translúcidas
 
                 // Guardar la referencia al UICollisionDetector que recibió el texto
@@ -143,7 +152,7 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-           // Debug.Log("No hay objeto brillante seleccionado");
+            Debug.Log("No hay objeto brillante seleccionado");
         }
     }
 
@@ -153,22 +162,22 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         TextMeshProUGUI targetTextComponent = GetComponent<TextMeshProUGUI>();  // Este objeto
         if (targetTextComponent != null)
         {
-           // Debug.Log("Target TextMeshProUGUI found on " + gameObject.name);
+           Debug.Log("Target TextMeshProUGUI found on " + gameObject.name);
         }
         else
         {
-          //  Debug.LogError("Target TextMeshProUGUI not found on " + gameObject.name);
+          Debug.LogError("Target TextMeshProUGUI not found on " + gameObject.name);
         }
 
         // Obtener el componente de texto del objeto resaltado
         TextMeshProUGUI sourceTextComponent = highlightedObject.GetComponentInChildren<TextMeshProUGUI>();  // Objeto que brillaba
         if (sourceTextComponent != null)
         {
-          //  Debug.Log("Source TextMeshProUGUI found on " + highlightedObject.name + " with text: " + sourceTextComponent.text);
+          Debug.Log("Source TextMeshProUGUI found on " + highlightedObject.name + " with text: " + sourceTextComponent.text);
         }
         else
         {
-           // Debug.LogError("Source TextMeshProUGUI not found on " + highlightedObject.name);
+           Debug.LogError("Source TextMeshProUGUI not found on " + highlightedObject.name);
         }
 
         // Comprobar si el logger es nulo y obtenerlo si es necesario
@@ -177,11 +186,11 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
             logger = manager.gameObject.GetComponent<EventLogger>();
             if (logger != null)
             {
-               // Debug.Log("EventLogger found on manager object.");
+                Debug.Log("EventLogger found on manager object.");
             }
             else
             {
-               // Debug.LogError("EventLogger not found on manager object.");
+                Debug.LogError("EventLogger not found on manager object.");
             }
         }
 
@@ -205,21 +214,24 @@ public class UICollisionDetector : MonoBehaviour, IPointerClickHandler
         }
 
         // Actualizar el estado del puzzle
-        //Debug.Log("Updating puzzle state...");
+        Debug.Log("Updating puzzle state...");
         CheckSolvedStatus();
+        Debug.Log("infoProcessor.UpdateSolvedCount()");
         infoProcessor.UpdateSolvedCount();
+        Debug.Log("infoProcessor.CheckAndDeactivateInfoObjects()");
         infoProcessor.CheckAndDeactivateInfoObjects();
+        Debug.Log("Updating puzzle state...");
         activeRubish();
-        //Debug.Log("Puzzle state updated.");
+        Debug.Log("Puzzle state updated.");
     }
 
 
     private void CheckSolvedStatus()
     {
-        Debug.Log("localizeStringEventManager: " + localizeStringEventManager);
+        Debug.Log("localizeStringEventManagerCheckSolvedStatus(): " + localizeStringEventManager);
         // Proceder con la verificación de solución si los strings están cargados
         List<string> list = localizeStringEventManager.GetLocalizedStrings();
-        Debug.Log("list: " + list.Count);
+        Debug.Log("listGetLocalizedStrings(): " + list.Count);
 
         foreach (string s in list)
         {

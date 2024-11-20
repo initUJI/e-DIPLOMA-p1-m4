@@ -387,7 +387,6 @@ GameObject:
   - component: {fileID: 7148195286145442381}
   - component: {fileID: 7640775086339437546}
   - component: {fileID: 2650762476118090003}
-  - component: {fileID: 3717053330998003830}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -546,7 +545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 3717053330998003830}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &2650762476118090003
 MonoBehaviour:
@@ -588,18 +588,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &3717053330998003830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588393572002614228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &666349789890201957
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +602,6 @@ GameObject:
   - component: {fileID: 10349983912987755}
   - component: {fileID: 531533674294530848}
   - component: {fileID: 2710510045836610246}
-  - component: {fileID: 519462240431029391}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -773,7 +760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 519462240431029391}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &2710510045836610246
 MonoBehaviour:
@@ -815,18 +803,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &519462240431029391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666349789890201957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &717029102747600444
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +817,6 @@ GameObject:
   - component: {fileID: 9145148028065708786}
   - component: {fileID: 8680181516962850265}
   - component: {fileID: 1872382962650935438}
-  - component: {fileID: 3727567102551039854}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -1000,7 +975,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 3727567102551039854}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &1872382962650935438
 MonoBehaviour:
@@ -1042,18 +1018,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &3727567102551039854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717029102747600444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &836519122193112867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1032,6 @@ GameObject:
   - component: {fileID: 8815120102763765338}
   - component: {fileID: 356084441028768576}
   - component: {fileID: 5718195851864513067}
-  - component: {fileID: 8244523616103644112}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -1227,7 +1190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 8244523616103644112}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &5718195851864513067
 MonoBehaviour:
@@ -1269,18 +1233,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &8244523616103644112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836519122193112867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &918709492717729186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1247,6 @@ GameObject:
   - component: {fileID: 7141327855537284986}
   - component: {fileID: 410356312815100816}
   - component: {fileID: 5153315130053486767}
-  - component: {fileID: 6791515877285703633}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -1454,7 +1405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 6791515877285703633}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &5153315130053486767
 MonoBehaviour:
@@ -1496,18 +1448,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &6791515877285703633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918709492717729186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &937655100354756009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1818,6 @@ GameObject:
   - component: {fileID: 9219289606000787864}
   - component: {fileID: 5278488307320205384}
   - component: {fileID: 7503742173506409821}
-  - component: {fileID: 3910358096256839515}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -2037,7 +1976,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 3910358096256839515}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &7503742173506409821
 MonoBehaviour:
@@ -2079,18 +2019,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &3910358096256839515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012902795635011653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1206906177626208202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2613,6 @@ GameObject:
   - component: {fileID: 4451333826974210610}
   - component: {fileID: 6430952746026257215}
   - component: {fileID: 4445939116716568233}
-  - component: {fileID: 5886278990549588686}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -2844,7 +2771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 5886278990549588686}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &4445939116716568233
 MonoBehaviour:
@@ -2886,18 +2814,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &5886278990549588686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765001562093387502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2300117715731828128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,7 +4511,6 @@ GameObject:
   - component: {fileID: 7280300364732456556}
   - component: {fileID: 4311758299746279515}
   - component: {fileID: 7923247710951459606}
-  - component: {fileID: 433707068979412166}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -4754,7 +4669,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 433707068979412166}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &7923247710951459606
 MonoBehaviour:
@@ -4796,18 +4712,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &433707068979412166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258948208617589487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3269790195993857755
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,7 +5231,6 @@ GameObject:
   - component: {fileID: 1737462485444690630}
   - component: {fileID: 8779163238468802464}
   - component: {fileID: 8349578445705276500}
-  - component: {fileID: 5487515818541151125}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -5486,7 +5389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 5487515818541151125}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &8349578445705276500
 MonoBehaviour:
@@ -5528,18 +5432,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &5487515818541151125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4096314508468600238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4200744975472684001
 GameObject:
   m_ObjectHideFlags: 0
@@ -7455,7 +7347,6 @@ GameObject:
   - component: {fileID: 877663941922387153}
   - component: {fileID: 1412977448799702357}
   - component: {fileID: 3035597827098405420}
-  - component: {fileID: 8698348225841593943}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -7614,7 +7505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   infoProcessor: {fileID: 5376280479467934042}
-  localizeStringEventManager: {fileID: 8698348225841593943}
+  localizeStringEventManager: {fileID: 0}
+  rubish: {fileID: 0}
   solved: 0
 --- !u!114 &3035597827098405420
 MonoBehaviour:
@@ -7656,18 +7548,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &8698348225841593943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7212086364710053144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2ca9f0270b10c4fad9673e7777cd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7247934946810621189
 GameObject:
   m_ObjectHideFlags: 0
