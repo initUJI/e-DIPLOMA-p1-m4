@@ -428,9 +428,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 44599835026939904
-    m_Localized: "1. Conecta el Base Shield a la placa Arduino.\r\n2. Coloca los
-      componentes seg\xFAn la plantilla.\r\n3. Conecta los puertos.\r\n4. Conecte
-      los sensores a la Base Shield."
+    m_Localized: "1. Conecta el Base Shield a la placa Arduino (f\xEDsicamente).\r\n2.
+      Coloca los componentes seg\xFAn la plantilla (f\xEDsicamente).\r\n3. Conecta
+      los puertos (virtualmente).\r\n4. 4. Conecte los sensores a la Base Shield
+      (virtualmente)."
     m_Metadata:
       m_Items: []
   - m_Id: 44991017305399296
@@ -482,6 +483,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 50093280613769216
     m_Localized: Conexiones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51805492408418304
+    m_Localized: Congratulations! You have completed both modes.
     m_Metadata:
       m_Items: []
   references:

@@ -8,6 +8,28 @@ public class SceneChanger : MonoBehaviour
     public GameObject block;
     private ScreenOrientation originalOrientation;
 
+    void Awake()
+    {
+        // Verificar si es la primera vez que se abre la aplicación
+        if (!PlayerPrefs.HasKey("AppFirstOpen"))
+        {
+            // Primera apertura: llama al reset y marca como inicializada
+            ResetComponentsModeCompleted();
+            PlayerPrefs.SetInt("AppFirstOpen", 1); // Marcar como ya abierta
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Debug.Log("La aplicación ya fue abierta anteriormente. No se resetea.");
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("AppFirstOpen");
+        PlayerPrefs.Save();
+    }
+
     void OnEnable()
     {
         // Registra el método para que se llame al cambiar de escena
@@ -20,6 +42,22 @@ public class SceneChanger : MonoBehaviour
         // Desregistra el método al deshabilitar el script
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+    }
+
+    void ResetComponentsModeCompleted()
+    {
+        if (PlayerPrefs.HasKey("ComponentsModeCompleted"))
+        {
+            PlayerPrefs.DeleteKey("ComponentsModeCompleted");
+            Debug.Log("La clave 'ComponentsModeCompleted' ha sido reiniciada.");
+        }
+        else
+        {
+            Debug.Log("La clave 'ComponentsModeCompleted' no existe, no hay nada que resetear.");
+        }
+
+        // Guardar los cambios
+        PlayerPrefs.Save();
     }
 
     // Método para verificar si el modo de componentes ha sido completado

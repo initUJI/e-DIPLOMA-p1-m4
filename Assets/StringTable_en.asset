@@ -162,9 +162,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10011545108480
-    m_Localized: "Vcc\r        : Power supply 3.5V to 5.5V\r\n\nData\r      : Outputs
-      both Temperature and Humidity through serial Data\r\n\nNC\r     :  No Connection
-      and hence not used\r\n\nGround        \r:  Connected to the ground of the circuit"
+    m_Localized: "Vcc\r        :  Power supply 3.5V to 5.5V\r\n\nData\r       : 
+      Outputs both Temperature and Humidity through serial Data\r\n\nNC\r     : 
+      No Connection and hence not used\r\n\nGround\r            :  Connected to the
+      ground of the circuit"
     m_Metadata:
       m_Items: []
   - m_Id: 10168797954048
@@ -452,15 +453,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 44599835026939904
-    m_Localized: '1. Connect the Base Shield to the Arduino board.
+    m_Localized: '1. Connect the Base Shield to the Arduino board (physically).
 
-      2. Place
-      the components according to the template.
+      2.
+      Place the components according to the template (physically).
 
-      3. Connect the ports.
+      3. Connect
+      the ports (virtually).
 
-      4.
-      Connect the sensors to the Base Shield.'
+      4. Connect the sensors to the Base Shield (virtually).'
     m_Metadata:
       m_Items: []
   - m_Id: 44991017305399296
@@ -511,6 +512,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 50093280613769216
     m_Localized: Connections
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51805492408418304
+    m_Localized: "\xA1Enhorabuena! Has completado ambos modos."
     m_Metadata:
       m_Items: []
   references:

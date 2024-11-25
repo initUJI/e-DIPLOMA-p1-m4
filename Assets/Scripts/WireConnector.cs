@@ -12,6 +12,9 @@ public class WireConnector : MonoBehaviour
     public TextMeshProUGUI incorrectConnectionText; // Texto que se activará al detectar una conexión incorrecta
     public GameObject ultrasonicCanvas; // Canvas para el Ultrasonic Sensor
     public GameObject dht11Canvas; // Canvas para el DHT11 Sensor
+    public GameObject results;
+    public GameObject congratulations; 
+    public GameObject instruccions; 
 
     private Transform startTransform;
     private Transform endTransform;
@@ -29,6 +32,15 @@ public class WireConnector : MonoBehaviour
         connectionStatusText.gameObject.SetActive(false);
         incorrectConnectionText.gameObject.SetActive(false); // Desactivar el texto de conexión incorrecta
         logger = FindFirstObjectByType<EventLogger>();
+        results.SetActive(false);
+        instruccions.SetActive(true);
+        congratulations.SetActive(false);
+    }
+
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("AppFirstOpen");
+        PlayerPrefs.Save();
     }
 
     void Update()
@@ -63,10 +75,35 @@ public class WireConnector : MonoBehaviour
         {
             if (hit.transform.CompareTag("Wire"))
             {
+                // Verificar si el wire ya está conectado
+                if (IsWireConnected(hit.transform) && !ChildrenActive(hit.transform))
+                {
+                    Debug.Log("Este cable ya está conectado a otro extremo.");
+                    return; // Salir si ya está conectado
+                }
+
                 AssignTransform(hit.transform);
             }
         }
     }
+
+
+    public bool IsWireConnected(Transform wireTransform)
+    {
+        // Verificar si el objeto tiene un startTransform o endTransform asignado
+        string wireName = wireTransform.parent.parent.name; // Subir dos niveles para obtener el nombre del sensor
+        bool isConnected = false;
+
+        // Verificar si el wire está conectado como startTransform o endTransform
+        if ((startTransform != null && startTransform.parent.parent.name == wireName) ||
+            (endTransform != null && endTransform.parent.parent.name == wireName))
+        {
+            isConnected = true;
+        }
+
+        return isConnected;
+    }
+
 
     void AssignTransform(Transform selectedTransform)
     {
@@ -127,6 +164,18 @@ public class WireConnector : MonoBehaviour
                 child.gameObject.SetActive(active);
             }
         }
+    }
+
+    bool ChildrenActive(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name.Contains("Plane") && child.gameObject.activeInHierarchy) // Activar siempre las mallas
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void SetAllChildrenActive(Transform parent, bool active)
@@ -206,6 +255,9 @@ public class WireConnector : MonoBehaviour
         dht11Connected = false;
         ultrasonicCorrect = false;
         dht11Correct = false;
+        instruccions.SetActive(true);
+        results.SetActive(false);
+        congratulations.SetActive(false);
         connectionStatusText.gameObject.SetActive(false);
         incorrectConnectionText.gameObject.SetActive(false); // Desactivar el texto de conexión incorrecta
         ultrasonicCanvas.SetActive(false); // Desactivar el canvas de Ultrasonic
@@ -225,6 +277,7 @@ public class WireConnector : MonoBehaviour
         }
         else
         {
+            ultrasonicConnected = true;
             logger.LogEvent("Ultrasonic bad connected to a non-digital port");
         }
 
@@ -239,26 +292,28 @@ public class WireConnector : MonoBehaviour
         }
         else
         {
+            dht11Connected = true;
             logger.LogEvent("DHT11 bad connected to a non-digital port");
         }
 
         // Si ambos están conectados correctamente, mostrar el texto de conexión correcta
-        if (ultrasonicConnected && dht11Connected && ultrasonicCorrect && dht11Correct)
+        if (ultrasonicCanvas.activeInHierarchy && dht11Canvas.activeInHierarchy)
         {
+            results.SetActive(true);
+            instruccions.SetActive(false);
             connectionStatusText.gameObject.SetActive(true);
             incorrectConnectionText.gameObject.SetActive(false); // Ocultar el texto de conexión incorrecta
+            congratulations.SetActive(true);
         }
-        else if (ultrasonicConnected && dht11Connected && (!ultrasonicCorrect || !dht11Correct))
+        else if (ultrasonicConnected && dht11Connected)
         {
-            // Si ambos están conectados pero al menos uno está mal conectado
-            incorrectConnectionText.gameObject.SetActive(true);
-            connectionStatusText.gameObject.SetActive(false); // Ocultar el texto de conexión correcta
-        }
-        else
-        {
-            // Si alguno se desconecta, desactivar ambos textos
-            connectionStatusText.gameObject.SetActive(false);
-            incorrectConnectionText.gameObject.SetActive(false);
+            if (!ultrasonicCanvas.activeInHierarchy || !dht11Canvas.activeInHierarchy)
+            {
+                // Si ambos están conectados pero al menos uno está mal conectado
+                results.SetActive(true);
+                incorrectConnectionText.gameObject.SetActive(true);
+                connectionStatusText.gameObject.SetActive(false); // Ocultar el texto de conexión correcta
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class InfoProcessorSummary : MonoBehaviour
 {
     public GameObject results;
+    public GameObject instrucctionsPanel;
     public TextMeshProUGUI text;
     [SerializeField]
     private GameObject finishButton;
@@ -21,6 +22,7 @@ public class InfoProcessorSummary : MonoBehaviour
     private EventLogger logger;
     void Start()
     {
+        instrucctionsPanel.SetActive(true);
         logger = FindObjectOfType<EventLogger>();
         string summary = CreateSummary();
         results.SetActive(false);
@@ -50,6 +52,12 @@ public class InfoProcessorSummary : MonoBehaviour
         confirmationPanel.SetActive(false);
         logger.LogEvent("Finish button pressed with results: " + text.text);
         GetComponent<buttonTest>().desactiveModelTargets();
+        instrucctionsPanel.SetActive(false);
+
+        if (SceneManager.GetActiveScene().buildIndex == 1 && results.activeInHierarchy)
+        {
+            SetComponentsModeCompleted(true);
+        }
     }
 
     // Método para marcar el modo de componentes como completado
@@ -75,11 +83,6 @@ public class InfoProcessorSummary : MonoBehaviour
                 int collisionCount = infoProcessor.uiCollisionDetectors.Count;
                 summaryBuilder.AppendFormat("{0}: {1}/{2}   ", formattedName, solvedCount, collisionCount);
             }
-        }
-
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            SetComponentsModeCompleted(true);
         }
         
         return summaryBuilder.ToString().TrimEnd();

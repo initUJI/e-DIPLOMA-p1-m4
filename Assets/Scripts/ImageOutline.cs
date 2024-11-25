@@ -29,7 +29,11 @@ public class ImageOutline : MonoBehaviour, IPointerClickHandler
             originalColor = sr.color;
         }
     }
-
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("AppFirstOpen");
+        PlayerPrefs.Save();
+    }
     public void RestoreOriginalState()
     {
         Debug.Log("Restoring to original state");
