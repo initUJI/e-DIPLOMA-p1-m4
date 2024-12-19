@@ -266,54 +266,62 @@ public class WireConnector : MonoBehaviour
 
     void CheckConnections(Transform start, Transform end)
     {
-        // Verificar la conexión correcta de Ultrasonic
-        ultrasonicCorrect = (start.parent.parent.name.Contains("Ultrasonic") && end.name.Contains("Digital")) ||
-                            (end.parent.parent.name.Contains("Ultrasonic") && start.name.Contains("Digital"));
-        if (ultrasonicCorrect)
+        // Verificar si hay algo conectado para Ultrasonic
+        bool startUltrasonic = start != null && start.parent?.parent?.name.Contains("Ultrasonic") == true;
+        bool endUltrasonic = end != null && end.parent?.parent?.name.Contains("Ultrasonic") == true;
+
+        ultrasonicConnected = startUltrasonic || endUltrasonic;
+
+        if (ultrasonicConnected)
         {
-            ultrasonicConnected = true;
-            ultrasonicCanvas.SetActive(true); // Activar el canvas de Ultrasonic
-            logger.LogEvent("Ultrasonic good connected to a digital port");
-        }
-        else
-        {
-            ultrasonicConnected = true;
-            logger.LogEvent("Ultrasonic bad connected to a non-digital port");
+            // Verificar si la conexión es correcta
+            ultrasonicCorrect = (startUltrasonic && end?.name.Contains("Digital") == true) ||
+                                (endUltrasonic && start?.name.Contains("Digital") == true);
+
+            if (ultrasonicCorrect)
+            {
+                ultrasonicCanvas.SetActive(true);
+                logger.LogEvent("Ultrasonic correctly connected to a digital port");
+            }
+            else
+            {
+                logger.LogEvent("Ultrasonic incorrectly connected to a non-digital port");
+            }
         }
 
-        // Verificar la conexión correcta de DHT11
-        dht11Correct = (start.parent.parent.name.Contains("DHT11") && end.name.Contains("Digital")) ||
-                       (end.parent.parent.name.Contains("DHT11") && start.name.Contains("Digital"));
-        if (dht11Correct)
+        // Verificar si hay algo conectado para DHT11
+        bool startDHT11 = start != null && start.parent?.parent?.name.Contains("DHT11") == true;
+        bool endDHT11 = end != null && end.parent?.parent?.name.Contains("DHT11") == true;
+
+        dht11Connected = startDHT11 || endDHT11;
+
+        if (dht11Connected)
         {
-            dht11Connected = true;
-            dht11Canvas.SetActive(true); // Activar el canvas de DHT11
-            logger.LogEvent("DHT11 good connected to a digital port");
-        }
-        else
-        {
-            dht11Connected = true;
-            logger.LogEvent("DHT11 bad connected to a non-digital port");
+            // Verificar si la conexión es correcta
+            dht11Correct = (startDHT11 && end?.name.Contains("Digital") == true) ||
+                           (endDHT11 && start?.name.Contains("Digital") == true);
+
+            if (dht11Correct)
+            {
+                dht11Canvas.SetActive(true);
+                logger.LogEvent("DHT11 correctly connected to a digital port");
+            }
+            else
+            {
+                logger.LogEvent("DHT11 incorrectly connected to a non-digital port");
+            }
         }
 
-        // Si ambos están conectados correctamente, mostrar el texto de conexión correcta
+        // Lógica de visualización:
         if (ultrasonicCanvas.activeInHierarchy && dht11Canvas.activeInHierarchy)
         {
+            // Ambos conectados correctamente
             results.SetActive(true);
             instruccions.SetActive(false);
             connectionStatusText.gameObject.SetActive(true);
-            incorrectConnectionText.gameObject.SetActive(false); // Ocultar el texto de conexión incorrecta
+            incorrectConnectionText.gameObject.SetActive(false);
             congratulations.SetActive(true);
         }
-        else if (ultrasonicConnected && dht11Connected)
-        {
-            if (!ultrasonicCanvas.activeInHierarchy || !dht11Canvas.activeInHierarchy)
-            {
-                // Si ambos están conectados pero al menos uno está mal conectado
-                results.SetActive(true);
-                incorrectConnectionText.gameObject.SetActive(true);
-                connectionStatusText.gameObject.SetActive(false); // Ocultar el texto de conexión correcta
-            }
-        }
     }
+
 }

@@ -40,6 +40,8 @@ public class EventLogger : MonoBehaviour
 
         // Debug del camino exacto de la carpeta
         Debug.Log("La carpeta de datos es: " + dataFolderPath);
+
+        StartSession("user");
     }
 
     public void saveNewID(TMP_InputField text)

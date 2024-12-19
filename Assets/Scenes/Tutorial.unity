@@ -1895,6 +1895,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6933957980932977047, guid: 18faa747f9f8154438a101a87645539b, type: 3}
+      propertyPath: rubish
+      value: 
+      objectReference: {fileID: 526120358}
+    - target: {fileID: 6933957980932977047, guid: 18faa747f9f8154438a101a87645539b, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 1412660549}
@@ -1910,6 +1914,10 @@ PrefabInstance:
       propertyPath: grayMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 279cecd2bcbc9b74c80419b86b197240, type: 2}
+    - target: {fileID: 7818431731462587160, guid: 18faa747f9f8154438a101a87645539b, type: 3}
+      propertyPath: rubish
+      value: 
+      objectReference: {fileID: 1167779320}
     - target: {fileID: 7818431731462587160, guid: 18faa747f9f8154438a101a87645539b, type: 3}
       propertyPath: manager
       value: 
@@ -4172,9 +4180,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   results: {fileID: 2011833833}
+  instrucctionsPanel: {fileID: 1623044251}
   text: {fileID: 1271101818}
   finishButton: {fileID: 1080216868}
-  reloadButton: {fileID: 0}
+  reloadButton: {fileID: 1623044251}
   confirmationPanel: {fileID: 831361768}
   infoProcessors:
   - {fileID: 833270063}
@@ -4235,7 +4244,7 @@ MonoBehaviour:
   - {fileID: 1590507775}
   playButton: {fileID: 1687596841}
   finishButton: {fileID: 1080216868}
-  resultsText: {fileID: 0}
+  resultsText: {fileID: 1271101818}
   manager: {fileID: 1412660549}
 --- !u!1 &1418838282 stripped
 GameObject:
